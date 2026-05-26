@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 
 export default function About() {
   return (
-    <section id="about" className="border-b border-line bg-white pb-0 pt-14 md:pt-20">
+    <section id="about" className="border-b border-line bg-white py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
 
         {/* Concept — 上部に配置 */}
@@ -16,9 +16,21 @@ export default function About() {
               <h3 className="text-xl font-medium leading-snug text-ink md:text-2xl md:whitespace-nowrap">
                 若い視点と実装力で、<br className="md:hidden" />企業の挑戦に並走する。
               </h3>
-              <p className="text-sm font-normal leading-7 text-muted">
-                NEOWRITEは、次の時代をつくる企業と同じ目線で考え、必要な技術・言葉・運用をひとつずつ形にしていく制作パートナーです。代表者自身が現場に入り、課題整理から実装、運用改善まで一貫して伴走します。
-              </p>
+              <div>
+                <p className="text-sm font-normal leading-7 text-muted">
+                  NEOWRITEは、次の時代をつくる企業と同じ目線で考え、必要な技術・言葉・運用をひとつずつ形にしていく制作パートナーです。代表者自身が現場に入り、課題整理から実装、運用改善まで一貫して伴走します。
+                </p>
+                <div className="mt-5 inline-flex divide-x divide-line overflow-hidden border border-line">
+                  <div className="flex flex-col px-4 py-3">
+                    <span className="text-sm font-semibold tracking-wide text-ink">NEO</span>
+                    <span className="mt-1 text-[11px] text-neo-teal">新しい・近代的な</span>
+                  </div>
+                  <div className="flex flex-col px-4 py-3">
+                    <span className="text-sm font-semibold tracking-wide text-ink">WRITE</span>
+                    <span className="mt-1 text-[11px] text-neo-navy">書く・設計する・更新する</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Reveal>
