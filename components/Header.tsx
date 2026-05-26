@@ -9,23 +9,23 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Service", href: "#services" },
   { label: "Product", href: "#works" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/70 bg-white/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-neo-teal/10 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-        <Link href="#top" className="group flex items-center gap-3" aria-label="NEOWRITE top">
+        <Link href="/" className="group flex items-center gap-3" aria-label="NEOWRITE top">
           <Image
-            src="/neowrite-logo.png"
+            src="/neowrite-icon-cutout.png"
             alt="NEOWRITE logo"
             width={40}
             height={40}
             priority
-            className="h-9 w-9 object-cover transition-opacity duration-300 group-hover:opacity-80"
+            className="h-9 w-9 object-contain transition-opacity duration-300 group-hover:opacity-80"
           />
           <span className="text-[12px] font-semibold uppercase tracking-[0.28em] text-ink">
             NEOWRITE
@@ -39,8 +39,8 @@ export default function Header() {
               href={item.href}
               className={
                 item.label === "Contact"
-                  ? "bg-ink px-5 py-2 text-white transition-opacity duration-300 hover:opacity-80"
-                  : "relative py-1 transition-colors duration-300 hover:text-ink after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-ink after:transition-transform after:duration-300 hover:after:scale-x-100"
+                  ? "bg-ink px-5 py-2 text-white shadow-[inset_0_-2px_0_#10B89A] transition-opacity duration-300 hover:opacity-80"
+                  : "relative py-1 transition-colors duration-300 hover:text-ink after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-neo-green after:transition-transform after:duration-300 hover:after:scale-x-100"
               }
             >
               {item.label}
@@ -69,7 +69,7 @@ export default function Header() {
                 href={item.href}
                 className={
                   item.label === "Contact"
-                    ? "w-fit bg-ink px-5 py-2 text-white transition-opacity duration-300 hover:opacity-80"
+                    ? "w-fit bg-ink px-5 py-2 text-white shadow-[inset_0_-2px_0_#10B89A] transition-opacity duration-300 hover:opacity-80"
                     : "transition-colors duration-300 hover:text-ink"
                 }
                 onClick={() => setIsOpen(false)}

@@ -11,11 +11,11 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-white">
+    <footer className="border-t border-neo-teal/10 bg-[linear-gradient(180deg,#ffffff_0%,#f4fffc_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-14">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted">
+            <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-teal">
               NEOWRITE
             </p>
             <p className="mt-3 max-w-sm text-sm font-normal leading-7 text-muted">
@@ -34,13 +34,13 @@ export default function Footer() {
             ))}
           </nav>
         </div>
-        <div className="mt-10 flex flex-col gap-2 border-t border-line pt-6 text-[11px] text-muted md:flex-row md:items-center md:justify-between">
+        <div className="mt-10 flex flex-col gap-2 border-t border-neo-teal/15 pt-6 text-[11px] text-muted md:flex-row md:items-center md:justify-between">
           <p>©NEOWRITE 2026</p>
           <Link
-            href="mailto:info@neowrite.jp"
+            href="mailto:matsuiminato8@gmail.com"
             className="underline-offset-4 transition-colors duration-300 hover:text-ink hover:underline"
           >
-            info@neowrite.jp
+            matsuiminato8@gmail.com
           </Link>
         </div>
       </div>

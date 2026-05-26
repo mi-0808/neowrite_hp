@@ -27,32 +27,27 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="border-b border-line bg-white py-24 md:py-36">
+    <section
+      id="services"
+      className="border-b border-line bg-[linear-gradient(180deg,#ffffff_0%,#f2fbff_100%)] pb-24 pt-14 md:pb-36 md:pt-20"
+    >
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
-          <div className="grid gap-10 md:grid-cols-[180px_1fr]">
-            <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-accent">
-                Service
-              </p>
-              <p className="mt-3 text-xs text-muted">02</p>
-            </div>
-            <div>
-              <h2 className="max-w-4xl text-4xl font-medium leading-tight text-ink md:text-6xl">
-                必要な機能だけを、無理なく形にする。
-              </h2>
-              <p className="mt-8 max-w-2xl text-sm font-normal leading-8 text-muted md:text-base md:leading-9">
-                システム開発・Web/SNS制作運用・ウェブアプリ運営を主軸に、ご要望に合わせた柔軟なソリューションを提供します。
-              </p>
-            </div>
+          <div>
+            <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blue">
+              Service
+            </p>
+            <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">
+              事業内容
+            </h2>
           </div>
         </Reveal>
 
-        <div className="mt-16 grid gap-0 border-t border-line">
+        <div className="mt-8 grid gap-0 border-t border-neo-blue/15">
           {services.map((service, index) => (
             <Reveal key={service.number} delay={index * 0.08}>
-              <article className="grid gap-8 border-b border-line py-10 transition-opacity duration-300 hover:opacity-75 md:grid-cols-[120px_1fr_1fr] md:py-14">
-                <p className="text-xs text-accent">{service.number}</p>
+              <article className="grid gap-8 border-b border-neo-blue/15 py-10 transition-colors duration-300 hover:bg-white/70 md:grid-cols-[120px_1fr_1fr] md:py-14">
+                <p className="text-xs text-neo-blue">{service.number}</p>
                 <h3 className="text-3xl font-medium leading-tight text-ink md:text-4xl">
                   {service.title}
                 </h3>
@@ -61,7 +56,7 @@ export default function Services() {
                   <ul className="mt-6 space-y-2 text-sm font-normal leading-7 text-muted">
                     {service.points.map((point) => (
                       <li key={point} className="flex gap-3">
-                        <span className="text-accent" aria-hidden="true">
+                        <span className="text-neo-green" aria-hidden="true">
                           —
                         </span>
                         {point}

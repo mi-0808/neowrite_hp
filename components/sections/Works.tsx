@@ -28,47 +28,72 @@ const features = [
 
 export default function Works() {
   return (
-    <section id="works" className="border-b border-line bg-white py-24 md:py-36">
+    <section
+      id="works"
+      className="border-b border-line bg-[radial-gradient(circle_at_80%_8%,rgba(255,119,24,0.10),transparent_22rem),radial-gradient(circle_at_10%_80%,rgba(255,119,24,0.06),transparent_18rem),linear-gradient(180deg,#ffffff_0%,#fff8f2_100%)] py-24 md:py-36"
+    >
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <Reveal>
-          <div className="grid gap-10 md:grid-cols-[180px_1fr]">
-            <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-[#F97316]">
-                Product
-              </p>
-              <p className="mt-3 text-xs text-muted">03</p>
-            </div>
-            <div>
-              <div className="flex items-center gap-4">
-                <Image
-                  src="/goen-logo.svg"
-                  alt="GOEN logo"
-                  width={56}
-                  height={56}
-                  className="h-14 w-14"
-                />
-                <div>
-                  <h2 className="text-5xl font-medium leading-none text-ink md:text-7xl">
-                    GOEN
-                  </h2>
-                  <p className="mt-2 text-sm font-medium text-muted">ごえん</p>
-                </div>
-              </div>
 
-              <h3 className="mt-10 max-w-4xl text-4xl font-medium leading-tight text-ink md:text-6xl">
+        {/* セクションラベル */}
+        <Reveal>
+          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-[#E07020]">
+            Product
+          </p>
+        </Reveal>
+
+        {/* アプリヒーロー */}
+        <Reveal delay={0.06} className="mt-10">
+          <div className="grid items-center gap-10 md:grid-cols-[auto_1fr] md:gap-16">
+
+            {/* アプリアイコン */}
+            <div className="flex justify-center md:justify-start">
+              <div className="overflow-hidden rounded-[28px] shadow-[0_20px_50px_rgba(255,107,0,0.22),0_4px_16px_rgba(0,0,0,0.10)]">
+                <Image
+                  src="/goen_icons.png"
+                  alt="GOEN app icon"
+                  width={120}
+                  height={120}
+                  className="h-[120px] w-[120px] object-cover"
+                />
+              </div>
+            </div>
+
+            {/* テキスト */}
+            <div>
+              <div className="flex items-baseline gap-3">
+                <h2 className="text-6xl font-medium leading-none text-ink md:text-8xl">
+                  GOEN
+                </h2>
+                <span className="text-lg font-normal text-muted">ごえん</span>
+              </div>
+              <h3 className="mt-5 text-3xl font-medium leading-tight text-ink md:text-5xl">
                 次のイベント、一緒に探そう。
               </h3>
-              <p className="mt-6 max-w-3xl text-base font-normal leading-8 text-muted md:text-lg md:leading-9">
+              <p className="mt-5 max-w-2xl text-sm font-normal leading-8 text-muted md:text-base md:leading-9">
                 雰囲気・ひとり参加しやすさを可視化したクチコミで、安心して選べるイベントクチコミサービス。
               </p>
+              <div className="mt-7">
+                <Link
+                  href="https://goen-self.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-4 bg-ink px-6 py-3 text-sm font-medium text-white shadow-[inset_0_-2px_0_#FF7718] transition-opacity duration-300 hover:opacity-80"
+                >
+                  GOENを見る
+                  <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
+                    →
+                  </span>
+                </Link>
+              </div>
             </div>
           </div>
         </Reveal>
 
-        <Reveal delay={0.08} className="mt-14">
-          <div className="grid gap-10 border-y border-line py-12 md:grid-cols-[1fr_1.1fr] md:py-16">
+        {/* Why we made it */}
+        <Reveal delay={0.10} className="mt-14">
+          <div className="grid gap-10 border-y border-[#FF7718]/25 bg-white/60 py-12 md:grid-cols-[1fr_1.1fr] md:py-16">
             <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted">
+              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-[#E07020]">
                 Why we made it
               </p>
               <p className="mt-5 text-2xl font-medium leading-relaxed text-ink md:text-3xl">
@@ -86,11 +111,12 @@ export default function Works() {
           </div>
         </Reveal>
 
-        <div className="mt-10 grid gap-px bg-line md:grid-cols-4">
+        {/* フィーチャーカード */}
+        <div className="mt-10 grid gap-px bg-[#FF7718]/15 md:grid-cols-4">
           {features.map((feature, index) => (
             <Reveal key={feature.number} delay={index * 0.08} className="bg-white">
-              <article className="h-full bg-white p-6 transition-colors duration-300 hover:bg-[#FFF7ED] md:p-8">
-                <p className="text-xs font-medium text-[#F97316]">{feature.number}</p>
+              <article className="h-full bg-white p-6 transition-colors duration-300 hover:bg-[#FFF4EE] md:p-8">
+                <p className="text-xs font-medium text-[#E07020]">{feature.number}</p>
                 <h4 className="mt-5 text-xl font-medium leading-relaxed text-ink">
                   {feature.title}
                 </h4>
@@ -100,19 +126,6 @@ export default function Works() {
           ))}
         </div>
 
-        <Reveal delay={0.16} className="mt-12">
-          <Link
-            href="https://goen-self.vercel.app/"
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex items-center gap-4 bg-ink px-6 py-3 text-sm font-medium text-white transition-opacity duration-300 hover:opacity-80"
-          >
-            GOENを見る
-            <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
-              →
-            </span>
-          </Link>
-        </Reveal>
       </div>
     </section>
   );
