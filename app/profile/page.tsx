@@ -188,8 +188,8 @@ export default function ProfilePage() {
                 </div>
                 <ul className="space-y-2">
                   {c.events.map((ev) => (
-                    <li key={ev} className="flex gap-3 text-sm leading-7 text-muted">
-                      <span className="mt-0.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-neo-blue" aria-hidden="true" />
+                    <li key={ev} className="flex items-center gap-3 text-sm leading-7 text-muted">
+                      <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-neo-blue" aria-hidden="true" />
                       {ev}
                     </li>
                   ))}
