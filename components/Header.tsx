@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navItems = [
@@ -15,13 +14,6 @@ const navItems = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
-  const isHome = pathname === "/";
-
-  function getHref(item: (typeof navItems)[number]) {
-    if ("href" in item) return item.href;
-    return isHome ? `#${item.hash}` : `/#${item.hash}`;
-  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-neo-teal/10 bg-white/90 backdrop-blur-md">
@@ -45,7 +37,7 @@ export default function Header() {
           {navItems.map((item) => (
             <Link
               key={item.label}
-              href={getHref(item)}
+              href={item.href}
               className={
                 item.label === "Contact"
                   ? "bg-ink px-5 py-2 text-white shadow-[inset_0_-2px_0_#10B89A] transition-opacity duration-300 hover:opacity-80"
@@ -75,7 +67,7 @@ export default function Header() {
             {navItems.map((item) => (
               <Link
                 key={item.label}
-                href={getHref(item)}
+                href={item.href}
                 className={
                   item.label === "Contact"
                     ? "w-fit bg-ink px-5 py-2 text-white shadow-[inset_0_-2px_0_#10B89A] transition-opacity duration-300 hover:opacity-80"
