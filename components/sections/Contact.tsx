@@ -15,11 +15,10 @@ export default function Contact() {
               <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-teal">
                 Contact
               </p>
-              <p className="mt-3 text-xs text-muted">04</p>
             </div>
             <div>
               <h2 className="max-w-5xl text-5xl font-medium leading-tight text-ink md:text-8xl">
-                Let&apos;s write the next page.
+                お問い合わせ
               </h2>
               <p className="mt-8 max-w-2xl text-sm font-normal leading-8 text-muted md:text-base md:leading-9">
                 お気軽にご相談ください。メールかフォームで、ご遠慮なくお問い合わせください。お問い合わせから2営業日以内にご返信します。

@@ -11,31 +11,29 @@ const career = [
   {
     year: "2022",
     age: "14歳",
-    events: [
-      "事業活動を開始。SNS運用・コンテンツ制作に取り組む",
-    ],
+    events: ["事業活動を開始。SNS運用・コンテンツ制作に取り組む"],
   },
   {
     year: "2023",
     age: "15歳",
     events: [
-      "Web制作・システム開発の受注を開始",
-      "NEOWRITE として活動を本格化",
+      "ウェブ制作・ライティングの受注（2年超）",
+      "NEOWRITEを開業（豊田税務署）",
     ],
   },
   {
     year: "2024",
     age: "16歳",
     events: [
-      "CCP marche_portal インスタグラム運用（東海・関西・関東・中国・北陸）担当",
-      "イベントレビューサービス「GOEN」の開発に着手",
+      "株式会社CCP（地域クリエイティブプロジェクト）marche_portal インスタグラム運用（東海・関西・関東・中国・北陸）担当",
+      "イベントレビューサービス「GOEN」企画・開発",
     ],
   },
   {
     year: "2025",
     age: "17歳",
     events: [
-      "中部CIC 長期インターン（AIシステム開発）参加",
+      "中部シイアイシイ研究所 インターン（リーダー・AIシステム開発）",
       "GOEN をリリース・運用開始",
     ],
   },
@@ -44,23 +42,16 @@ const career = [
     age: "18歳",
     events: [
       "東愛知新聞「籔内の学生紹介ファイル」に掲載（2026.06.11）",
-      "NEOWRITE コーポレートサイトをリニューアル",
+      "青海株式会社 インターン（ウェブアプリ開発）",
     ],
   },
 ];
 
 const skills = [
   { category: "フロントエンド", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
-  { category: "バックエンド", items: ["Python", "Supabase", "PostgreSQL", "REST API"] },
+  { category: "バックエンド", items: ["Python", "Supabase", "Firebase", "PostgreSQL", "REST API"] },
   { category: "インフラ", items: ["Vercel", "GitHub"] },
   { category: "SNS・マーケティング", items: ["Instagram 運用設計", "コンテンツ設計", "トーン・世界観設計"] },
-];
-
-const activities = [
-  { title: "NEOWRITE 代表", desc: "SNS運用・Web制作・システム開発" },
-  { title: "GOEN 開発・運営", desc: "イベントレビューサービス" },
-  { title: "中部CIC 長期インターン", desc: "AIシステム開発" },
-  { title: "CCP marche_portal 運用", desc: "インスタグラム運用（東海/関西/関東/中国/北陸）" },
 ];
 
 export default function ProfilePage() {
@@ -72,7 +63,7 @@ export default function ProfilePage() {
           <div className="grid items-center gap-12 md:grid-cols-[300px_1fr] md:gap-20">
             {/* 写真 */}
             <div className="flex justify-center md:justify-start">
-              <div className="relative h-[300px] w-[300px] overflow-hidden rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.14)]">
+              <div className="relative h-[300px] w-[300px] overflow-hidden rounded-2xl bg-neo-mist shadow-[0_8px_40px_rgba(0,0,0,0.14)]">
                 <Image
                   src="/myphoto.jpg"
                   alt="松井 湊"
@@ -127,43 +118,26 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      {/* 活動 */}
+      {/* 経歴タイムライン */}
       <section className="border-b border-line py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blue">Activities</p>
-          <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">主な活動</h2>
+          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blue">Career</p>
+          <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">経歴</h2>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {activities.map((a) => (
-              <div
-                key={a.title}
-                className="rounded-lg border border-line bg-white p-6 transition-shadow hover:shadow-sm"
-              >
-                <h3 className="text-base font-medium text-ink">{a.title}</h3>
-                <p className="mt-1 text-sm text-muted">{a.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* スキル */}
-      <section className="border-b border-line bg-[linear-gradient(180deg,#ffffff_0%,#f2fbff_100%)] py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blue">Skills</p>
-          <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">スキル</h2>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {skills.map((s) => (
-              <div key={s.category} className="rounded-lg border border-line bg-white p-6">
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-neo-blue">
-                  {s.category}
-                </p>
-                <ul className="mt-4 space-y-2">
-                  {s.items.map((item) => (
-                    <li key={item} className="flex gap-2 text-sm text-muted">
-                      <span className="text-neo-green" aria-hidden="true">—</span>
-                      {item}
+          <div className="mt-12 space-y-0">
+            {career.map((c) => (
+              <div key={c.year} className="grid gap-4 border-t border-line py-8 md:grid-cols-[140px_1fr]">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-2xl font-medium text-ink">{c.year}</span>
+                  <span className="text-xs text-muted">{c.age}</span>
+                </div>
+                <ul className="space-y-2">
+                  {c.events.map((ev) => (
+                    <li key={ev} className="flex gap-3 text-sm leading-7 text-muted">
+                      <span className="flex h-[1.75rem] w-1.5 flex-shrink-0 items-center">
+                        <span className="h-1.5 w-1.5 rounded-full bg-neo-blue" aria-hidden="true" />
+                      </span>
+                      {ev}
                     </li>
                   ))}
                 </ul>
@@ -173,24 +147,22 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      {/* 経歴タイムライン */}
-      <section className="border-b border-line py-20 md:py-28">
+      {/* スキル */}
+      <section className="border-b border-line py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blue">Career</p>
-          <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">経歴</h2>
+          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blue">Skills</p>
 
-          <div className="mt-12 space-y-0">
-            {career.map((c, i) => (
-              <div key={c.year} className="grid gap-4 border-t border-line py-8 md:grid-cols-[140px_1fr]">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-medium text-ink">{c.year}</span>
-                  <span className="text-xs text-muted">{c.age}</span>
-                </div>
-                <ul className="space-y-2">
-                  {c.events.map((ev) => (
-                    <li key={ev} className="flex gap-3 text-sm leading-7 text-muted">
-                      <span className="mt-0.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-neo-blue" aria-hidden="true" />
-                      {ev}
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {skills.map((s) => (
+              <div key={s.category} className="rounded-md border border-line bg-white p-4">
+                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-neo-blue">
+                  {s.category}
+                </p>
+                <ul className="mt-3 space-y-1">
+                  {s.items.map((item) => (
+                    <li key={item} className="flex gap-2 text-xs text-muted">
+                      <span className="text-neo-green" aria-hidden="true">—</span>
+                      {item}
                     </li>
                   ))}
                 </ul>

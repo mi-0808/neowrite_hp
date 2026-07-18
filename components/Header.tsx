@@ -1,20 +1,27 @@
-// filepath: components/Header.tsx
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Service", href: "#services" },
-  { label: "Product", href: "#works" },
+  { label: "About", href: "/about" },
+  { label: "Service", href: "/service" },
+  { label: "Product", href: "/product" },
   { label: "Profile", href: "/profile" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  function getHref(item: (typeof navItems)[number]) {
+    if ("href" in item) return item.href;
+    return isHome ? `#${item.hash}` : `/#${item.hash}`;
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-neo-teal/10 bg-white/90 backdrop-blur-md">
@@ -28,20 +35,21 @@ export default function Header() {
             priority
             className="h-9 w-9 object-contain transition-opacity duration-300 group-hover:opacity-80"
           />
-          <span className="text-[12px] font-semibold uppercase tracking-[0.28em] text-ink">
-            NEOWRITE
+          <span className="flex flex-col leading-none">
+            <span className="text-[13px] font-bold uppercase tracking-[0.22em] text-neo-teal">NEO</span>
+            <span className="text-[13px] font-bold uppercase tracking-[0.22em] text-neo-navy">WRITE</span>
           </span>
         </Link>
 
         <nav className="hidden items-center gap-8 text-[13px] font-medium text-muted md:flex">
           {navItems.map((item) => (
             <Link
-              key={item.href}
-              href={item.href}
+              key={item.label}
+              href={getHref(item)}
               className={
                 item.label === "Contact"
                   ? "bg-ink px-5 py-2 text-white shadow-[inset_0_-2px_0_#10B89A] transition-opacity duration-300 hover:opacity-80"
-                  : "relative py-1 transition-colors duration-300 hover:text-ink after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-neo-green after:transition-transform after:duration-300 hover:after:scale-x-100"
+                  : "py-1"
               }
             >
               {item.label}
@@ -66,12 +74,12 @@ export default function Header() {
           <div className="flex flex-col gap-5 text-sm text-muted">
             {navItems.map((item) => (
               <Link
-                key={item.href}
-                href={item.href}
+                key={item.label}
+                href={getHref(item)}
                 className={
                   item.label === "Contact"
                     ? "w-fit bg-ink px-5 py-2 text-white shadow-[inset_0_-2px_0_#10B89A] transition-opacity duration-300 hover:opacity-80"
-                    : "transition-colors duration-300 hover:text-ink"
+                    : ""
                 }
                 onClick={() => setIsOpen(false)}
               >

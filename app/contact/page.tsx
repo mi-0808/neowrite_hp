@@ -17,7 +17,7 @@ export default function ContactPage() {
             Contact
           </p>
           <h1 className="mt-5 text-4xl font-medium leading-tight text-ink md:text-6xl">
-            Let&apos;s write the next page.
+            お問い合わせ
           </h1>
           <p className="mt-6 max-w-xl text-sm font-normal leading-8 text-muted md:text-base md:leading-9">
             お気軽にご相談ください。制作依頼・ご相談など、フォームからお送りください。お問い合わせから2営業日以内にご返信します。
