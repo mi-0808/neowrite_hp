@@ -1,13 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-
-const activities = [
-  "NEOWRITE 代表（SNS運用・Web制作・システム開発）",
-  "イベントレビューサービス「GOEN」開発・運営",
-  "中部CIC 長期インターン（AIシステム開発）",
-  "CCP marche_portal インスタグラム運用（東海/関西/関東/中国/北陸）",
-];
+import ProfileAccordion from "@/components/sections/ProfileAccordion";
 
 const sns = [
   { label: "Instagram", url: "https://www.instagram.com/m_minato2008/" },
@@ -58,35 +52,31 @@ export default function Profile() {
                 14歳から事業を起こし、システム開発・SNS運用・プロダクト開発を通じて、東三河を中心に若手起業家として活動中。「テクノロジーで社会を良くする」をビジョンに、世界で使われるプロダクトを創ることを目指しています。
               </p>
 
-              <div className="mt-8">
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted">Activities</p>
-                <ul className="mt-4 space-y-3">
-                  {activities.map((activity) => (
-                    <li key={activity} className="flex gap-3 text-sm leading-7 text-muted">
-                      <span className="text-neo-green" aria-hidden="true">—</span>
-                      {activity}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-8">
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted">SNS</p>
-                <div className="mt-4 flex flex-wrap gap-4">
-                  {sns.map((s) => (
-                    <Link
-                      key={s.label}
-                      href={s.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium text-neo-blue hover:underline"
-                    >
-                      {s.label} →
-                    </Link>
-                  ))}
-                </div>
+              <div className="mt-6 flex flex-wrap gap-4">
+                {sns.map((s) => (
+                  <Link
+                    key={s.label}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-neo-blue hover:text-neo-blue"
+                  >
+                    {s.label} →
+                  </Link>
+                ))}
               </div>
             </div>
+          </div>
+
+          <ProfileAccordion />
+
+          <div className="mt-8 border-t border-line pt-6">
+            <Link
+              href="/profile"
+              className="inline-flex items-center gap-2 text-sm font-medium text-neo-blue hover:underline"
+            >
+              詳しいプロフィールを見る →
+            </Link>
           </div>
         </Reveal>
       </div>

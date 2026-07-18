@@ -33,8 +33,10 @@ export default function Hero() {
               <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-teal">
                 Corporate Studio
               </p>
-              <h1 className="mt-6 whitespace-pre-line text-[clamp(2.6rem,8.7vw,8rem)] font-medium leading-[1.08] tracking-normal text-ink lg:mt-8 lg:max-w-5xl">
-                {`次世代の挑戦を\nテクノロジーで形にする。`}
+              <h1 className="mt-6 text-[clamp(2.6rem,8.7vw,8rem)] font-medium leading-[1.08] tracking-normal text-ink lg:mt-8 lg:max-w-5xl">
+                <span className="block">次世代の挑戦を</span>
+                <span className="block">テクノロジーで</span>
+                <span className="block">形にする。</span>
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-base font-normal leading-8 text-muted lg:mx-0 lg:mt-8 lg:text-lg lg:leading-9">
                 システム開発・Web制作・SNS運用を通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。
