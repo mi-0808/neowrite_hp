@@ -1,109 +1,169 @@
-// filepath: components/sections/Hero.tsx
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import Reveal from "@/components/Reveal";
+import { useRef } from "react";
+import { m, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import TextReveal from "@/components/motion/TextReveal";
+import { FACTS } from "@/lib/facts";
+
+const trustChips = [
+  "自社プロダクト運営",
+  "新聞掲載あり",
+  "全国リモート対応",
+];
 
 export default function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const reduced = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0.3]);
+  const logoY = useTransform(scrollYProgress, [0, 1], [0, -140]);
+
   return (
     <section
-      id="top"
-      className="relative overflow-hidden border-b border-neo-teal/10 bg-[radial-gradient(circle_at_82%_24%,rgba(244,245,54,0.22),transparent_14rem),radial-gradient(circle_at_76%_40%,rgba(29,167,216,0.16),transparent_22rem),linear-gradient(180deg,#ffffff_0%,#f4fffc_100%)]"
+      ref={ref}
+      id="hero"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#f4fffc_100%)]"
     >
-      <div className="pointer-events-none absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-neo-green via-neo-blue to-neo-yellow" />
-      <div className="mx-auto flex min-h-[calc(100svh-65px)] max-w-7xl flex-col px-5 pb-10 pt-16 md:px-8 md:pb-12 md:pt-24">
+      {/* 背景ブロブ（CSSアニメーションのみ） */}
+      <div
+        className="pointer-events-none absolute -right-24 top-16 h-96 w-96 animate-float rounded-full bg-[radial-gradient(circle,rgba(29,167,216,0.14),transparent_65%)]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -left-32 bottom-24 h-[28rem] w-[28rem] animate-pulse-soft rounded-full bg-[radial-gradient(circle,rgba(16,184,154,0.13),transparent_65%)]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute right-[28%] top-[55%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(244,245,54,0.16),transparent_60%)]"
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-neo-green via-neo-blue to-neo-orange" aria-hidden="true" />
 
-        {/* モバイル: ロゴを中央表示 */}
-        <Reveal className="flex justify-center lg:hidden">
-          <div className="drop-shadow-[0_20px_40px_rgba(14,111,120,0.18)]">
-            <Image
-              src="/neowrite-icon-cutout.png"
-              alt="NEOWRITE logo"
-              width={160}
-              height={137}
-              priority
-              className="h-auto w-[160px] object-contain"
+      <div className="mx-auto flex min-h-[calc(100svh-65px)] max-w-7xl flex-col px-5 pb-14 pt-14 md:px-8 md:pt-20">
+        <m.div
+          className="grid flex-1 items-center gap-10 lg:grid-cols-[1fr_340px]"
+          style={reduced ? undefined : { y: contentY, opacity: contentOpacity }}
+        >
+          <div className="text-center lg:text-left">
+            <m.p
+              className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-teal"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6 }}
+            >
+              NEOWRITE — SINCE {FACTS.foundedYear} / TOYOTA, AICHI
+            </m.p>
+
+            <TextReveal
+              lines={["次世代の挑戦を", "テクノロジーで", "形にする。"]}
+              as="h1"
+              delay={0.15}
+              interval={0.11}
+              className="mt-6 text-[clamp(2.6rem,7vw,6rem)] font-medium leading-[1.14] tracking-normal text-ink lg:mt-8"
             />
-          </div>
-        </Reveal>
 
-        {/* メインコンテンツ */}
-        <Reveal delay={0.08} className="mt-10 flex-1 lg:mt-0">
-          <div className="grid gap-12 lg:grid-cols-[1fr_320px] lg:items-start">
-            <div className="text-center lg:text-left">
-              <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-teal">
-                Corporate Studio
-              </p>
-              <h1 className="mt-6 text-[clamp(2.6rem,8.7vw,8rem)] font-medium leading-[1.08] tracking-normal text-ink lg:mt-8 lg:max-w-5xl">
-                <span className="block">次世代の挑戦を</span>
-                <span className="block">テクノロジーで</span>
-                <span className="block">形にする。</span>
-              </h1>
-              <p className="mx-auto mt-6 max-w-2xl text-base font-normal leading-8 text-muted lg:mx-0 lg:mt-8 lg:text-lg lg:leading-9">
-                システム開発・Web制作・SNS運用を通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。
-              </p>
+            <m.p
+              className="mx-auto mt-6 max-w-2xl text-base font-normal leading-8 text-muted lg:mx-0 lg:mt-8 lg:text-lg lg:leading-9"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              システム開発・Web制作・オンライン営業サポートを通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。
+              <br className="hidden md:block" />
+              企画から実装・運用まで、代表が直接伴走します。
+            </m.p>
 
-              {/* モバイル: CTAボタンをここに表示 */}
-              <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:hidden">
-                <Link
-                  href="#works"
-                  className="group inline-flex w-full items-center justify-center gap-3 border border-[#FED7AA] bg-[linear-gradient(135deg,rgba(255,119,24,0.92),rgba(16,184,154,0.92))] px-7 py-3 text-sm font-medium text-white shadow-[0_16px_38px_rgba(16,184,154,0.18)] transition-opacity duration-300 hover:opacity-85 sm:w-auto"
+            {/* 信頼チップ */}
+            <m.div
+              className="mt-7 flex flex-wrap justify-center gap-2.5 lg:justify-start"
+              initial="hidden"
+              animate="visible"
+              variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.65 } } }}
+            >
+              {trustChips.map((chip) => (
+                <m.span
+                  key={chip}
+                  className="inline-flex items-center gap-2 rounded-full border border-neo-teal/25 bg-white/80 px-4 py-1.5 text-xs font-medium text-neo-teal backdrop-blur-sm"
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.94 },
+                    visible: { opacity: 1, scale: 1, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
+                  }}
                 >
-                  GOENとは？
-                  <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
-                </Link>
-                <Link
-                  href="#services"
-                  className="group inline-flex w-full items-center justify-center gap-3 border border-neo-teal/20 bg-white/75 px-7 py-3 text-sm font-medium text-ink backdrop-blur-sm transition-colors duration-300 hover:border-neo-blue/40 hover:bg-white sm:w-auto"
-                >
-                  事業内容を見る
-                  <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
-                </Link>
-              </div>
-            </div>
+                  <span className="h-1.5 w-1.5 rounded-full bg-neo-green" aria-hidden="true" />
+                  {chip}
+                </m.span>
+              ))}
+            </m.div>
 
-            {/* PC: ロゴを右側に表示 */}
-            <div className="hidden justify-self-end lg:block">
-              <div className="drop-shadow-[0_28px_55px_rgba(14,111,120,0.18)]">
-                <Image
-                  src="/neowrite-icon-cutout.png"
-                  alt="NEOWRITE logo"
-                  width={320}
-                  height={274}
-                  priority
-                  className="h-auto w-[320px] object-contain"
-                />
-              </div>
-            </div>
-          </div>
-        </Reveal>
-
-        {/* PC: ボトムエリア（ペインポイント + CTA） */}
-        <Reveal delay={0.12} className="mt-auto pt-16 lg:block">
-          <div className="border-t border-neo-teal/15 pt-8">
-            <div className="mx-auto max-w-2xl text-center text-sm font-normal leading-7 text-muted">
-              <p>「やりたいことはあるが、どう形にすればいいかわからない」</p>
-              <p>「若い力に任せたいが、信頼できるパートナーが見つからない」</p>
-              <p>そんなお悩みに、私たちは全力で向き合います。</p>
-            </div>
-            {/* PC のみ CTA ボタン表示 */}
-            <div className="mt-7 hidden flex-col items-center justify-center gap-3 sm:flex-row lg:flex">
+            {/* CTA */}
+            <m.div
+              className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <Link
+                href="/contact"
+                className="group inline-flex w-full items-center justify-center gap-3 bg-neo-orange px-8 py-4 text-sm font-bold text-white shadow-[0_16px_38px_rgba(255,119,24,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_46px_rgba(255,119,24,0.4)] sm:w-auto"
+              >
+                まずは相談する
+                <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
+              </Link>
               <Link
                 href="#works"
-                className="group inline-flex w-full items-center justify-center gap-3 border border-[#FED7AA] bg-[linear-gradient(135deg,rgba(255,119,24,0.92),rgba(16,184,154,0.92))] px-7 py-3 text-sm font-medium text-white shadow-[0_16px_38px_rgba(16,184,154,0.18)] transition-opacity duration-300 hover:opacity-85 sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-3 border border-neo-teal/25 bg-white/75 px-8 py-4 text-sm font-medium text-ink backdrop-blur-sm transition-colors duration-300 hover:border-neo-teal hover:bg-white sm:w-auto"
               >
-                GOENとは？
-                <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
+                実績を見る
+                <span className="transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true">↓</span>
               </Link>
-              <Link
-                href="#services"
-                className="group inline-flex w-full items-center justify-center gap-3 border border-neo-teal/20 bg-white/75 px-7 py-3 text-sm font-medium text-ink backdrop-blur-sm transition-colors duration-300 hover:border-neo-blue/40 hover:bg-white sm:w-auto"
-              >
-                事業内容を見る
-                <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
-              </Link>
-            </div>
+            </m.div>
+            <m.p
+              className="mt-4 text-xs text-muted"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1.2 }}
+            >
+              {FACTS.replyDays}営業日以内に返信します
+            </m.p>
           </div>
-        </Reveal>
+
+          {/* ロゴ（PC） */}
+          <m.div
+            className="hidden justify-self-end lg:block"
+            style={reduced ? undefined : { y: logoY }}
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="animate-float drop-shadow-[0_28px_55px_rgba(14,111,120,0.18)]">
+              <Image
+                src="/neowrite-icon-cutout.png"
+                alt="NEOWRITE logo"
+                width={340}
+                height={291}
+                priority
+                className="h-auto w-[340px] object-contain"
+              />
+            </div>
+          </m.div>
+        </m.div>
+
+        {/* SCROLLインジケータ */}
+        <m.div
+          className="mt-10 flex items-center justify-center gap-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.4 }}
+          aria-hidden="true"
+        >
+          <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted">Scroll</span>
+          <span className="relative block h-10 w-px overflow-hidden bg-line">
+            <span className="absolute left-0 top-0 block h-4 w-px animate-scrollhint bg-neo-teal" />
+          </span>
+        </m.div>
       </div>
     </section>
   );

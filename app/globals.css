@@ -19,3 +19,21 @@ body {
   background: #0e5e5a;
   color: #ffffff;
 }
+
+/* キーボード操作時のフォーカス可視化（塗りボタン上でも視認できるよう白の外側リングを重ねる） */
+:focus-visible {
+  outline: 2px solid #073b4c;
+  outline-offset: 2px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9);
+}
+
+/* OSの「視差効果を減らす」設定を尊重してCSSアニメーションを停止 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [class*="animate-"] {
+    animation: none !important;
+  }
+}

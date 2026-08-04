@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import CtaBanner from "@/components/CtaBanner";
+import ProfilePhoto from "@/components/ProfilePhoto";
+import Reveal from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import { FACTS } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "Profile | NEOWRITE",
@@ -11,13 +16,13 @@ const career = [
   {
     year: "2022",
     age: "14歳",
-    events: ["事業活動を開始。SNS運用・コンテンツ制作に取り組む"],
+    events: ["事業活動を開始。コンテンツ制作・オンライン業務のサポートに取り組む"],
   },
   {
     year: "2023",
     age: "15歳",
     events: [
-      "ウェブ制作・ライティングの受注（2年超）",
+      "Web制作・ライティングの受注を開始（以降、継続受注中）",
       "NEOWRITEを開業（豊田税務署）",
     ],
   },
@@ -25,7 +30,7 @@ const career = [
     year: "2024",
     age: "16歳",
     events: [
-      "株式会社CCP（地域クリエイティブプロジェクト）marche_portal インスタグラム運用（東海・関西・関東・中国・北陸）担当",
+      "オンライン営業サポートの受託を開始（問い合わせDMの一次対応・事務オペレーション）",
       "イベントレビューサービス「GOEN」企画・開発",
     ],
   },
@@ -42,7 +47,7 @@ const career = [
     age: "18歳",
     events: [
       "東愛知新聞「籔内の学生紹介ファイル」に掲載（2026.06.11）",
-      "青海株式会社 インターン（ウェブアプリ開発）",
+      "青海株式会社 インターン（Webアプリ開発）",
     ],
   },
 ];
@@ -51,33 +56,27 @@ const skills = [
   { category: "フロントエンド", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
   { category: "バックエンド", items: ["Python", "Supabase", "Firebase", "PostgreSQL", "REST API"] },
   { category: "インフラ", items: ["Vercel", "GitHub"] },
-  { category: "SNS・マーケティング", items: ["Instagram 運用設計", "コンテンツ設計", "トーン・世界観設計"] },
+  { category: "オンライン営業サポート", items: ["DM・チャット一次対応", "テンプレート設計", "対応フロー整備"] },
 ];
 
 export default function ProfilePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main id="main" className="min-h-screen bg-white">
       {/* Hero */}
       <section className="border-b border-line bg-[linear-gradient(180deg,#f2fbff_0%,#ffffff_100%)] pb-20 pt-16 md:pb-28 md:pt-24">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid items-center gap-12 md:grid-cols-[300px_1fr] md:gap-20">
             {/* 写真 */}
-            <div className="flex justify-center md:justify-start">
+            <Reveal direction="right" className="flex justify-center md:justify-start">
               <div className="relative h-[300px] w-[300px] overflow-hidden rounded-2xl bg-neo-mist shadow-[0_8px_40px_rgba(0,0,0,0.14)]">
-                <Image
-                  src="/myphoto.jpg"
-                  alt="松井 湊"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
+                <ProfilePhoto sizes="300px" />
               </div>
-            </div>
+            </Reveal>
 
             {/* 基本情報 */}
-            <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blue">
-                Profile
+            <Reveal delay={0.1}>
+              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blueInk">
+                Profile — 若さは、実装力だ。
               </p>
               <h1 className="mt-4 text-5xl font-medium text-ink md:text-7xl">
                 松井 湊
@@ -87,11 +86,13 @@ export default function ProfilePage() {
               <div className="mt-6 space-y-1.5 text-sm text-muted">
                 <p>NEOWRITE 代表</p>
                 <p>N高等学校 3年</p>
-                <p>愛知県豊田市</p>
+                <p>{FACTS.location}</p>
               </div>
 
               <p className="mt-7 max-w-xl text-sm leading-8 text-muted md:text-base md:leading-9">
-                14歳から事業を起こし、システム開発・SNS運用・プロダクト開発を通じて、東三河を中心に若手起業家として活動中。「テクノロジーで社会を良くする」をビジョンに、世界で使われるプロダクトを創ることを目指しています。
+                {FACTS.startedAge}歳から事業を起こし、システム開発・Web制作・プロダクト開発を通じて、東三河を中心に若手起業家として活動中。「テクノロジーで社会を良くする」をビジョンに、世界で使われるプロダクトを創ることを目指しています。
+                <br />
+                年齢で驚かれることはありますが、仕事は成果物でしか評価されないと思っています。
               </p>
 
               {/* SNS */}
@@ -100,20 +101,20 @@ export default function ProfilePage() {
                   href="https://www.instagram.com/m_minato2008/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-neo-blue hover:text-neo-blue"
+                  className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-neo-blue hover:text-neo-blueInk"
                 >
                   Instagram →
                 </Link>
                 <Link
-                  href="https://goen-self.vercel.app/"
+                  href={FACTS.goenUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-neo-blue hover:text-neo-blue"
+                  className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-neo-blue hover:text-neo-blueInk"
                 >
                   GOEN →
                 </Link>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -121,27 +122,31 @@ export default function ProfilePage() {
       {/* 経歴タイムライン */}
       <section className="border-b border-line py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blue">Career</p>
-          <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">経歴</h2>
+          <Reveal>
+            <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blueInk">Career</p>
+            <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">経歴</h2>
+          </Reveal>
 
           <div className="mt-12 space-y-0">
-            {career.map((c) => (
-              <div key={c.year} className="grid gap-4 border-t border-line py-8 md:grid-cols-[140px_1fr]">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-medium text-ink">{c.year}</span>
-                  <span className="text-xs text-muted">{c.age}</span>
+            {career.map((c, i) => (
+              <Reveal key={c.year} delay={i * 0.05}>
+                <div className="grid gap-4 border-t border-line py-8 md:grid-cols-[140px_1fr]">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-medium tabular-nums text-ink">{c.year}</span>
+                    <span className="text-xs text-muted">{c.age}</span>
+                  </div>
+                  <ul className="space-y-2">
+                    {c.events.map((ev) => (
+                      <li key={ev} className="flex gap-3 text-sm leading-7 text-muted">
+                        <span className="flex h-[1.75rem] w-1.5 flex-shrink-0 items-center">
+                          <span className="h-1.5 w-1.5 rounded-full bg-neo-blue" aria-hidden="true" />
+                        </span>
+                        {ev}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-2">
-                  {c.events.map((ev) => (
-                    <li key={ev} className="flex gap-3 text-sm leading-7 text-muted">
-                      <span className="flex h-[1.75rem] w-1.5 flex-shrink-0 items-center">
-                        <span className="h-1.5 w-1.5 rounded-full bg-neo-blue" aria-hidden="true" />
-                      </span>
-                      {ev}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -150,80 +155,78 @@ export default function ProfilePage() {
       {/* スキル */}
       <section className="border-b border-line py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blue">Skills</p>
+          <Reveal>
+            <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blueInk">Skills</p>
+          </Reveal>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Stagger interval={0.08} className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {skills.map((s) => (
-              <div key={s.category} className="rounded-md border border-line bg-white p-4">
-                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-neo-blue">
-                  {s.category}
-                </p>
-                <ul className="mt-3 space-y-1">
-                  {s.items.map((item) => (
-                    <li key={item} className="flex gap-2 text-xs text-muted">
-                      <span className="text-neo-green" aria-hidden="true">—</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <StaggerItem key={s.category} className="h-full">
+                <div className="h-full rounded-md border border-line bg-white p-4">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-neo-blueInk">
+                    {s.category}
+                  </p>
+                  <ul className="mt-3 space-y-1">
+                    {s.items.map((item) => (
+                      <li key={item} className="flex gap-2 text-xs text-muted">
+                        <span className="text-neo-greenInk" aria-hidden="true">—</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       {/* メディア掲載 */}
       <section className="border-b border-line bg-[linear-gradient(180deg,#ffffff_0%,#f2fbff_100%)] py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blue">Press</p>
-          <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">メディア掲載</h2>
+          <Reveal>
+            <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blueInk">Press</p>
+            <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">メディア掲載</h2>
+          </Reveal>
 
-          <div className="mt-10 overflow-hidden rounded-lg border border-line bg-white shadow-sm">
-            <div className="flex flex-col md:flex-row">
-              <div className="relative h-48 w-full flex-shrink-0 md:h-auto md:w-[280px]">
-                <Image
-                  src="https://admin.higashiaichi.jp/uploads/20260612-110551-375945679.jpg"
-                  alt="東愛知新聞 掲載記事"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 280px"
-                />
-              </div>
-              <div className="flex flex-col justify-center p-6 md:p-8">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="rounded-full bg-[#FF7718]/10 px-3 py-1 text-xs font-medium text-[#E07020]">東愛知新聞</span>
-                  <time className="text-xs text-muted">2026.06.11</time>
+          <Reveal delay={0.1} className="mt-10">
+            <div className="overflow-hidden rounded-lg border border-line bg-white shadow-sm">
+              <div className="flex flex-col md:flex-row">
+                <div className="relative h-48 w-full flex-shrink-0 md:h-auto md:w-[280px]">
+                  <Image
+                    src="https://admin.higashiaichi.jp/uploads/20260612-110551-375945679.jpg"
+                    alt="東愛知新聞 掲載記事"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 280px"
+                  />
                 </div>
-                <h3 className="mt-3 text-base font-medium leading-7 text-ink">
-                  【連載】籔内の学生紹介ファイル〈20〉大人の中に飛び込み道ひらく 「GOEN」など開発｜ネオライト代表 松井湊さん
-                </h3>
-                <Link
-                  href="https://higashiaichi.jp/news/detail.php?id=27331"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-neo-blue hover:underline"
-                >
-                  記事を読む →
-                </Link>
+                <div className="flex flex-col justify-center p-6 md:p-8">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="rounded-full bg-neo-orange/10 px-3 py-1 text-xs font-medium text-[#B34E00]">
+                      {FACTS.pressName}
+                    </span>
+                    <time className="text-xs text-muted">{FACTS.pressDate}</time>
+                  </div>
+                  <h3 className="mt-3 text-base font-medium leading-7 text-ink">
+                    【連載】籔内の学生紹介ファイル〈20〉大人の中に飛び込み道ひらく 「GOEN」など開発｜ネオライト代表 松井湊さん
+                  </h3>
+                  <Link
+                    href="https://higashiaichi.jp/news/detail.php?id=27331"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-neo-blueInk hover:underline"
+                  >
+                    記事を読む →
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 text-center">
-          <h2 className="text-2xl font-medium text-ink md:text-3xl">お仕事のご相談はこちらから</h2>
-          <p className="mt-4 text-sm text-muted">システム開発・Web制作・SNS運用など、お気軽にご連絡ください。</p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center gap-3 bg-ink px-8 py-4 text-sm font-medium text-white shadow-[inset_0_-2px_0_#10B89A] transition-opacity hover:opacity-80"
-          >
-            お問い合わせ →
-          </Link>
-        </div>
-      </section>
+      <CtaBanner />
     </main>
   );
 }
