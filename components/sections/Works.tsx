@@ -1,118 +1,56 @@
-import Image from "next/image";
-import Link from "next/link";
-import Reveal from "@/components/Reveal";
-import { products } from "@/lib/products";
+import Reveal from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import { works } from "@/lib/works";
 
-// id="works" は Header の "Product → #works" ナビのために維持
+/** 実績。実名を第一要素に置き、信用の根拠にする */
 export default function Works() {
   return (
-    <section id="works" className="border-b border-line bg-white py-14 md:py-20">
+    <section id="works" className="border-b border-line bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
-          <div className="flex items-end justify-between">
-            <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-blue">Product</p>
-              <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">プロダクト</h2>
-            </div>
-            <Link
-              href="/product"
-              className="hidden text-sm font-medium text-neo-blue hover:underline md:block"
-            >
-              すべて見る →
-            </Link>
-          </div>
+          <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-blueInk">Works</p>
+          <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">
+            これまでのお仕事
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-muted md:text-base">
+            役割と担当範囲まで具体的に掲載しています。守秘義務のある案件は社名を伏せています。
+          </p>
         </Reveal>
 
-        <Reveal delay={0.08} className="mt-10">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map((product) => (
-              <div
-                key={product.id}
-                className="group relative overflow-hidden rounded-xl border border-line bg-white p-6 transition-shadow hover:shadow-md"
-              >
-                <div className="flex items-center gap-4">
-                  {product.icon ? (
-                    <div
-                      className="overflow-hidden rounded-2xl flex-shrink-0"
-                      style={{ boxShadow: `0 8px 20px ${product.shadowColor}` }}
-                    >
-                      <Image
-                        src={product.icon}
-                        alt={`${product.name} icon`}
-                        width={56}
-                        height={56}
-                        className="h-14 w-14 object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl text-xl font-bold text-white"
-                      style={{ backgroundColor: product.accentColor }}
-                    >
-                      {product.name[0]}
-                    </div>
-                  )}
-                  <div className="min-w-0">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-xl font-medium text-ink">{product.name}</span>
-                      {product.kana && (
-                        <span className="text-xs text-muted">{product.kana}</span>
-                      )}
-                    </div>
-                    <span
-                      className="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium"
-                      style={{
-                        backgroundColor: `${product.accentColor}18`,
-                        color: product.accentColor,
-                      }}
-                    >
-                      {product.status === "released" ? "リリース済み" : product.status === "development" ? "開発中" : "近日公開"}
-                    </span>
-                  </div>
-                </div>
-
-                <p className="mt-4 text-sm leading-7 text-muted">{product.description}</p>
-
-                <div className="mt-5 flex items-center justify-between">
-                  {product.url && (
-                    <Link
-                      href={product.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-medium hover:underline"
-                      style={{ color: product.accentColor }}
-                    >
-                      アプリを開く →
-                    </Link>
-                  )}
-                  <Link
-                    href={`/product#${product.id}`}
-                    className="ml-auto text-xs font-medium text-muted hover:text-ink"
+        <Stagger interval={0.1} className="mt-12 grid gap-5 sm:grid-cols-2">
+          {works.map((work) => (
+            <StaggerItem key={work.id} className="h-full">
+              <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-line bg-white p-7 transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(7,59,76,0.08)] md:p-8">
+                <span
+                  className="absolute inset-y-0 left-0 w-1"
+                  style={{ backgroundColor: work.accentColor }}
+                  aria-hidden="true"
+                />
+                <div className="flex items-center justify-between gap-3">
+                  <span
+                    className="rounded-full px-3 py-1 text-[10px] font-semibold"
+                    style={{ backgroundColor: `${work.accentColor}14`, color: work.textColor }}
                   >
-                    詳細 →
-                  </Link>
+                    {work.category}
+                  </span>
                 </div>
-              </div>
-            ))}
-
-            {/* Coming soon placeholder */}
-            <div className="flex items-center justify-center rounded-xl border border-dashed border-line bg-white/60 p-6 text-center">
-              <div>
-                <p className="text-sm font-medium text-muted">Next product</p>
-                <p className="mt-1 text-xs text-muted/60">開発中...</p>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.12} className="mt-8 md:hidden">
-          <Link
-            href="/product"
-            className="block text-center text-sm font-medium text-neo-blue hover:underline"
-          >
-            すべてのプロダクトを見る →
-          </Link>
-        </Reveal>
+                <h3 className="mt-4 text-xl font-semibold text-ink md:text-2xl">{work.client}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted">{work.what}</p>
+                <p className="mt-3 text-xs font-medium text-ink">役割：{work.role}</p>
+                <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
+                  {work.tech.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-line px-2.5 py-1 text-[10px] font-medium text-muted"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            </StaggerItem>
+          ))}
+        </Stagger>
       </div>
     </section>
   );

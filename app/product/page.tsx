@@ -1,8 +1,15 @@
-"use client";
-
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import CtaBanner from "@/components/CtaBanner";
+import Reveal from "@/components/motion/Reveal";
 import { products, type Product } from "@/lib/products";
+
+export const metadata: Metadata = {
+  title: "Product | NEOWRITE",
+  description:
+    "NEOWRITEが企画・開発・運営する自社プロダクト。GOEN（イベントクチコミサービス）とMyHood（コミュニティSNS）。",
+};
 
 function ProductShowcase({ product }: { product: Product }) {
   return (
@@ -42,13 +49,13 @@ function ProductShowcase({ product }: { product: Product }) {
         <p className="mt-2 text-sm leading-6 text-muted">{product.tagline}</p>
         <span
           className="mt-3 inline-flex items-center rounded-full px-3 py-1 text-xs font-medium"
-          style={{ backgroundColor: `${product.accentColor}18`, color: product.accentColor }}
+          style={{ backgroundColor: `${product.accentColor}18`, color: product.textColor }}
         >
           {product.status === "released" ? "リリース済み" : product.status === "development" ? "開発中" : "近日公開"}
         </span>
         <p
           className="mt-5 text-xs font-medium transition-colors group-hover:underline"
-          style={{ color: product.accentColor }}
+          style={{ color: product.textColor }}
         >
           詳しく見る →
         </p>
@@ -73,9 +80,11 @@ function ComingSoonCard() {
 
 function ProductDetail({ product }: { product: Product }) {
   const accent = product.accentColor;
+  const accentText = product.textColor;
   return (
-    <section id={product.id} className="border-b border-line py-24 md:py-32">
+    <section id={product.id} className="scroll-mt-24 border-b border-line py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <Reveal>
         <div className="grid items-center gap-10 md:grid-cols-[auto_1fr] md:gap-16">
           {product.icon ? (
             <div className="flex justify-center md:justify-start">
@@ -122,14 +131,16 @@ function ProductDetail({ product }: { product: Product }) {
             )}
           </div>
         </div>
+        </Reveal>
 
         {product.why && (
+          <Reveal delay={0.1}>
           <div
             className="mt-14 grid gap-8 rounded-2xl border p-8 md:grid-cols-[1fr_1.2fr] md:p-12"
             style={{ borderColor: `${accent}25`, backgroundColor: `${accent}06` }}
           >
             <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em]" style={{ color: accent }}>
+              <p className="text-[11px] font-medium uppercase tracking-[0.32em]" style={{ color: accentText }}>
                 Why we made it
               </p>
               <p className="mt-4 text-xl font-medium leading-relaxed text-ink md:text-2xl">
@@ -140,19 +151,19 @@ function ProductDetail({ product }: { product: Product }) {
               {product.why.body.map((p, i) => <p key={i}>{p}</p>)}
             </div>
           </div>
+          </Reveal>
         )}
 
         {product.features && (
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {product.features.map((f) => (
-              <div
-                key={f.number}
-                className="rounded-xl border border-line bg-white p-6 transition-shadow hover:shadow-md"
-              >
-                <p className="text-xs font-medium" style={{ color: accent }}>{f.number}</p>
-                <h3 className="mt-4 text-base font-medium leading-relaxed text-ink">{f.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted">{f.body}</p>
-              </div>
+            {product.features.map((f, i) => (
+              <Reveal key={f.number} delay={i * 0.08} className="h-full">
+                <div className="h-full rounded-xl border border-line bg-white p-6 transition-shadow hover:shadow-md">
+                  <p className="text-xs font-medium" style={{ color: accentText }}>{f.number}</p>
+                  <h3 className="mt-4 text-base font-medium leading-relaxed text-ink">{f.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-muted">{f.body}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         )}
@@ -163,11 +174,11 @@ function ProductDetail({ product }: { product: Product }) {
 
 export default function ProductPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main id="main" className="min-h-screen bg-white">
       {/* Hero */}
       <div className="bg-[radial-gradient(ellipse_at_20%_0%,rgba(16,184,154,0.13),transparent_50%),radial-gradient(ellipse_at_80%_0%,rgba(29,167,216,0.10),transparent_50%)] pb-12 pt-20 md:pb-16 md:pt-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-blue">Product</p>
+          <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-blueInk">Product</p>
           <h1
             className="mt-4 font-semibold leading-none tracking-tight text-ink"
             style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}
@@ -201,18 +212,16 @@ export default function ProductPage() {
       ))}
 
       {/* CTA */}
-      <section className="py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 text-center">
-          <h2 className="text-2xl font-medium text-ink md:text-3xl">開発のご相談はこちら</h2>
-          <p className="mt-4 text-sm text-muted">プロダクト開発・システム開発のご相談をお待ちしています。</p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center gap-3 bg-ink px-8 py-4 text-sm font-medium text-white shadow-[inset_0_-2px_0_#10B89A] transition-opacity hover:opacity-80"
-          >
-            お問い合わせ →
-          </Link>
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-5 text-center md:px-8">
+          <p className="text-sm leading-7 text-muted">
+            この2つは、企画から設計・開発・リリース・運用まで一人で通した実例です。
+            <br className="hidden sm:block" />
+            同じように、あなたのプロダクト開発の受託も可能です。
+          </p>
         </div>
       </section>
+      <CtaBanner />
     </main>
   );
 }

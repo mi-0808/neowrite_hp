@@ -3,8 +3,16 @@ export type ServiceItem = {
   number: string;
   title: string;
   tagline: string;
+  /** トップページカード用の課題起点キャッチ */
+  catchCopy: string;
+  /** 依頼側の言葉で書いた課題例 */
+  problems: string[];
+  /** 技術・対応範囲タグ */
+  tech: string[];
   description: string;
   accentColor: string;
+  /** 白背景の文字用（WCAG AA 準拠）。accentColor は塗り専用 */
+  textColor: string;
   points: string[];
   capabilities: string[];
   flow: { step: string; label: string; body: string }[];
@@ -17,9 +25,13 @@ export const services: ServiceItem[] = [
     number: "01",
     title: "システム開発",
     tagline: "課題に合わせたシステムを、小さく速く。",
+    catchCopy: "業務の“面倒”を、動くツールに。",
+    problems: ["「社内の手作業をWebアプリにしたい」", "「アイデアを形にして検証したい」"],
+    tech: ["Next.js", "TypeScript", "Python", "Supabase", "PostgreSQL"],
     description:
       "業務効率化ツール、Webアプリケーション、管理システムなど、目的に合わせたシステムを設計・開発します。",
     accentColor: "#10B89A",
+    textColor: "#0B7A66",
     points: ["Excel管理が限界", "アナログな作業を減らしたい", "小さく始めて検証したい"],
     capabilities: [
       "業務効率化ツール・管理システム",
@@ -40,9 +52,13 @@ export const services: ServiceItem[] = [
     number: "02",
     title: "Web制作・運用",
     tagline: "信頼を伝えるサイトを、作って終わりにしない。",
+    catchCopy: "作って終わりにしない、運用まで。",
+    problems: ["「サイトを作りたいが、何から始めればいいか分からない」", "「作ったはいいが、更新が止まっている」"],
+    tech: ["Next.js", "Tailwind CSS", "Vercel", "ライティング込み"],
     description:
       "企業サイト・サービスサイト・LPなどを制作し、作って終わりではなく、育てる運用までサポートします。",
     accentColor: "#1DA7D8",
+    textColor: "#0F6E92",
     points: ["何を伝えるべきか整理したい", "信頼感のあるサイトにしたい", "採用や問い合わせにつなげたい"],
     capabilities: [
       "コーポレートサイト・採用サイト",
@@ -63,30 +79,34 @@ export const services: ServiceItem[] = [
     },
   },
   {
-    id: "sns",
+    id: "sales-support",
     number: "03",
-    title: "SNS運用",
-    tagline: "数字より、積み重なる信頼を。",
+    title: "オンライン営業サポート",
+    tagline: "商談の前に、まず返信を止めない。",
+    catchCopy: "DM対応と初期アプローチを、代わりに。",
+    problems: ["「問い合わせDMの返信が追いつかない」", "「見込み客へのアプローチに手が回らない」"],
+    tech: ["DM・チャット対応", "テンプレート設計", "リスト作成", "定型オペレーション"],
     description:
-      "Instagram・Xなどを中心に、事業とつながるSNS運用を支援します。投稿内容の設計からトーン・世界観づくり、運用の仕組み化まで一貫して対応します。",
+      "SNSやチャットに届く問い合わせDMへの事務的な一次対応、見込み客への初期アプローチ、対応履歴の整理までを代行します。窓口を止めないための、実務寄りのサポートです。",
     accentColor: "#FF7718",
-    points: ["投稿内容の設計", "トーンと世界観づくり", "運用の仕組み化"],
+    textColor: "#B34E00",
+    points: ["返信の一次対応", "アプローチ文面の設計", "対応フローの整備"],
     capabilities: [
-      "Instagram・X を中心とした運用設計",
-      "投稿内容・スケジュール設計",
-      "世界観・トーン・ビジュアル設計",
-      "複数アカウントの並行運用",
-      "フォロワー増加・エンゲージメント改善施策",
+      "問い合わせDM・チャットの一次対応代行",
+      "返信テンプレート・トークスクリプトの設計",
+      "見込み客リストの作成と初期アプローチ",
+      "対応履歴・進捗の整理とレポート",
+      "エスカレーション基準づくり（判断が必要な案件はお渡しします）",
     ],
     flow: [
-      { step: "01", label: "現状分析", body: "既存アカウントの強み・弱みを分析し、競合と比較して伸びしろを特定します。" },
-      { step: "02", label: "戦略設計", body: "ターゲット・ポジション・投稿テーマを決め、運用の骨格を組みます。" },
-      { step: "03", label: "コンテンツ制作", body: "デザイン・文章・ハッシュタグまで一貫して制作・投稿します。" },
-      { step: "04", label: "改善・継続", body: "数字を見ながら毎月改善。仕組みとして回る運用体制をつくります。" },
+      { step: "01", label: "現状整理", body: "届いている問い合わせの種類と量、いま誰がどう返しているかを整理します。" },
+      { step: "02", label: "ルール設計", body: "返信テンプレート・対応基準・エスカレーションの線引きを決めます。" },
+      { step: "03", label: "対応開始", body: "決めたルールに沿って一次対応・初期アプローチを実行します。" },
+      { step: "04", label: "改善・共有", body: "対応履歴を共有し、テンプレートと基準を運用しながら磨きます。" },
     ],
     note: {
-      heading: "複数の地域密着メディアアカウントを運用中。",
-      body: "東海・関西・関東・中国・北陸エリアにまたがるポータルアカウントの投稿設計・運用を担当しています（詳細はお問い合わせください）。",
+      heading: "判断が必要なやり取りは、必ずお客様にお渡しします。",
+      body: "こちらで完結させるのは事務的な一次対応まで。条件交渉や意思決定を伴うものは整理した上でエスカレーションします。",
     },
   },
 ];

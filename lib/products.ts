@@ -6,6 +6,8 @@ export type Product = {
   description: string;
   icon?: string;
   accentColor: string;
+  /** 白背景の文字用（WCAG AA 準拠） */
+  textColor: string;
   shadowColor: string;
   url?: string;
   status: "released" | "development" | "coming-soon";
@@ -30,6 +32,7 @@ export const products: Product[] = [
       "雰囲気・ひとり参加しやすさを可視化したクチコミで、安心して選べるイベントクチコミサービス。",
     icon: "/goen_icons.png",
     accentColor: "#FF7718",
+    textColor: "#B34E00",
     shadowColor: "rgba(255,107,0,0.22)",
     url: "https://goen-self.vercel.app/",
     status: "released",
@@ -56,6 +59,7 @@ export const products: Product[] = [
       "注目・承認を追求する既存SNSの負のサイクルを問い直す、コミュニティSNS。身近な人同士・自分自身との時間や感情を、文章・映像・音楽・写真を通じて共有するための表現環境。",
     icon: "/myhood_icons.png",
     accentColor: "#3DD6C8",
+    textColor: "#0B7A66",
     shadowColor: "rgba(61,214,200,0.22)",
     url: "https://myhoodbeta.web.app/",
     status: "development",
