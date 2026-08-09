@@ -30,7 +30,7 @@ const career = [
     year: "2024",
     age: "16歳",
     events: [
-      "オンライン営業サポートの受託を開始（問い合わせDMの一次対応・事務オペレーション）",
+      "企業SNSの運用代行を受託開始（問い合わせDMの一次対応・事務オペレーション）",
       "イベントレビューサービス「GOEN」企画・開発",
     ],
   },
@@ -56,7 +56,7 @@ const skills = [
   { category: "フロントエンド", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
   { category: "バックエンド", items: ["Python", "Supabase", "Firebase", "PostgreSQL", "REST API"] },
   { category: "インフラ", items: ["Vercel", "GitHub"] },
-  { category: "オンライン営業サポート", items: ["DM・チャット一次対応", "テンプレート設計", "対応フロー整備"] },
+  { category: "SNS運用", items: ["DM・コメント一次対応", "テンプレート設計", "運用フロー整備"] },
 ];
 
 export default function ProfilePage() {

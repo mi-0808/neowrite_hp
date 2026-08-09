@@ -5,6 +5,9 @@ import CtaBanner from "@/components/CtaBanner";
 import Reveal from "@/components/motion/Reveal";
 import { products, type Product } from "@/lib/products";
 
+/** 自社プロダクトのみ掲載。参加しているだけのプロジェクトは /story で扱う */
+const ownProducts: Product[] = products.filter((p) => p.ownProduct !== false);
+
 export const metadata: Metadata = {
   title: "Product | NEOWRITE",
   description:
@@ -133,26 +136,11 @@ function ProductDetail({ product }: { product: Product }) {
         </div>
         </Reveal>
 
-        {product.why && (
-          <Reveal delay={0.1}>
-          <div
-            className="mt-14 grid gap-8 rounded-2xl border p-8 md:grid-cols-[1fr_1.2fr] md:p-12"
-            style={{ borderColor: `${accent}25`, backgroundColor: `${accent}06` }}
-          >
-            <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em]" style={{ color: accentText }}>
-                Why we made it
-              </p>
-              <p className="mt-4 text-xl font-medium leading-relaxed text-ink md:text-2xl">
-                {product.why.problem}
-              </p>
-            </div>
-            <div className="space-y-4 text-sm leading-8 text-muted md:text-base md:leading-9">
-              {product.why.body.map((p, i) => <p key={i}>{p}</p>)}
-            </div>
-          </div>
-          </Reveal>
-        )}
+        <Reveal delay={0.1} className="mt-10">
+          <Link href={`/story/${product.id}`} className="text-sm font-medium hover:underline" style={{ color: accentText }}>
+            開発ストーリーを読む →
+          </Link>
+        </Reveal>
 
         {product.features && (
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -197,7 +185,7 @@ export default function ProductPage() {
             style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", scrollbarWidth: "none" }}
           >
             <div className="flex-shrink-0 w-5 md:hidden" />
-            {products.map((p) => (
+            {ownProducts.map((p) => (
               <ProductShowcase key={p.id} product={p} />
             ))}
             <ComingSoonCard />
@@ -207,7 +195,7 @@ export default function ProductPage() {
       </div>
 
       {/* Detail sections */}
-      {products.map((product) => (
+      {ownProducts.map((product) => (
         <ProductDetail key={product.id} product={product} />
       ))}
 
