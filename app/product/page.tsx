@@ -136,6 +136,28 @@ function ProductDetail({ product }: { product: Product }) {
         </div>
         </Reveal>
 
+        {product.gallery && (
+          <Reveal delay={0.08}>
+            <div className="mt-14 grid gap-5 md:grid-cols-3">
+              {product.gallery.map((shot) => (
+                <figure key={shot.src}>
+                  <div className="overflow-hidden rounded-xl border border-line">
+                    <Image
+                      src={shot.src}
+                      alt={shot.alt}
+                      width={1440}
+                      height={900}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <figcaption className="mt-3 text-xs leading-6 text-muted">{shot.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </Reveal>
+        )}
+
         <Reveal delay={0.1} className="mt-10">
           <Link href={`/story/${product.id}`} className="text-sm font-medium hover:underline" style={{ color: accentText }}>
             開発ストーリーを読む →

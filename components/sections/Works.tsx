@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { m } from "framer-motion";
 import Reveal from "@/components/motion/Reveal";
@@ -36,6 +37,18 @@ export default function Works() {
                 style={{ backgroundColor: work.accentColor }}
                 aria-hidden="true"
               />
+
+              {work.image && (
+                <div className="relative -mx-8 -mt-8 mb-7 aspect-[16/9] overflow-hidden border-b border-line md:-mx-10 md:-mt-10">
+                  <Image
+                    src={work.image.src}
+                    alt={work.image.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+              )}
 
               <div className="flex flex-wrap items-center gap-3">
                 <span
