@@ -24,6 +24,8 @@ export type Product = {
   ownProduct?: boolean;
   /** ownProduct が false のときの権利者 */
   owner?: string;
+  /** 画面キャプチャ。開発ストーリーとプロダクト詳細で使う */
+  gallery?: { src: string; alt: string; caption: string }[];
   /** どうやって作ったか。技術構成と、実際に踏んだ手順 */
   how?: {
     stack: { label: string; items: string[] }[];
@@ -47,6 +49,11 @@ export const products: Product[] = [
     shadowColor: "rgba(255,107,0,0.22)",
     url: "https://goen-self.vercel.app/",
     status: "released",
+    gallery: [
+      { src: "/works/goen-top.png", alt: "GOEN トップページ", caption: "トップ。キーワードとカテゴリの2経路で、まず探すところから始まる。" },
+      { src: "/works/goen-events.png", alt: "GOEN イベント一覧ページ", caption: "イベント一覧。ジャンルで絞り込み、ひとり参加しやすさと雰囲気のクチコミから選ぶ。" },
+      { src: "/works/goen-bottom.png", alt: "GOEN トップページ下部。参加者向けと主催者向けの導線", caption: "参加者と主催者、それぞれの入口を並べた。書く側にも回ってもらう設計。" },
+    ],
     why: {
       problem: "イベントに行きたくても、雰囲気が分からなくて踏み出せない。",
       body: [
@@ -98,11 +105,14 @@ export const products: Product[] = [
     shadowColor: "rgba(61,214,200,0.22)",
     url: "https://myhoodbeta.web.app/",
     status: "development",
+    gallery: [
+      { src: "/works/myhood-spaces.png", alt: "MyHood のスペース画面。コミュニティ横断の投稿一覧", caption: "スペース。コミュニティ横断で「最近動いたもの」を並べ、戻ってくる理由をつくる。" },
+    ],
     why: {
-      problem: "企画したのは私ではありません。実装で応えるのが私の役割です。",
+      problem: "ユーザー体験を最適化し、顧客のニーズに応える設計から運用まで。",
       body: [
-        "「承認と注目の奪い合いから外れた表現環境をつくる」というプロダクトの構想は、青海株式会社のものです。私はその構想を、動くサービスに落とす側として参加しています。",
-        "すでに使っている人がいる状態での開発なので、作りたいものを作るのではなく、いまの体験をどう更新できるかが判断の軸になります。",
+        "ユーザー数の解析まで行ったうえで、体験として最適なアプリ設計を担当しました。",
+        "収益化を狙って市場に流すサービスなので、流通額を見越した決済への対応も必要になります。信頼性の高いシステムを構築し、ユーザーが安心して利用できる状態を保ちながら、開発しながらアプリを運用しています。",
       ],
     },
     features: [
@@ -122,6 +132,8 @@ export const products: Product[] = [
         { number: "02", title: "既存ユーザーに話を聞いた", body: "すでに使っている人がいる状態だったので、体験の不満や引っかかりをヒアリングし、「新機能を足す」より「いまの体験をどう更新するか」を優先順位の軸にしました。" },
         { number: "03", title: "100人規模を受け止める基盤を整えた", body: "ベータ版としてまずユーザーが100人集まれることを条件に、ユーザー基盤とデータ構造を整備しました。" },
         { number: "04", title: "主要機能を実装した", body: "チュートリアル、タイムライン、動画タイムラインなどの主要機能を担当。バックエンドとフロントエンドを1〜2か月でほぼ形にしました。" },
+        { number: "05", title: "利用状況を数値で見た", body: "ユーザー数と使われ方を解析し、どの画面で離れているかを踏まえて設計を調整しました。感覚ではなく数字を判断材料にしています。" },
+        { number: "06", title: "決済と信頼性を前提に組んだ", body: "収益化を狙って市場に出すサービスなので、流通額を見越した決済への対応と、ユーザーが安心して使える信頼性の確保を設計の前提に置いています。" },
       ],
     },
   },
@@ -137,6 +149,11 @@ export const products: Product[] = [
     shadowColor: "rgba(29,167,216,0.22)",
     url: "https://cleanboss-1.vercel.app/demo",
     status: "development",
+    gallery: [
+      { src: "/works/cleanboss-entry.png", alt: "クリーン番長 入退室画面", caption: "入退室の起点。現在の入室人数を先に見せ、入室か退室かを選ぶだけの画面にした。" },
+      { src: "/works/cleanboss-guest.png", alt: "クリーン番長 本人選択画面のゲストタブ", caption: "本人選択。名簿にない来訪者は名前を聞かず「ゲスト1」で記録し、後から名簿で直せる。" },
+      { src: "/works/cleanboss-members.png", alt: "クリーン番長 社員名簿の管理画面", caption: "社員名簿。CSV一括取り込みとQR一括印刷まで用意し、現場の登録作業を減らす。" },
+    ],
     why: {
       problem: "着用の確認は人の目に頼っていて、見落としが起きる。",
       body: [

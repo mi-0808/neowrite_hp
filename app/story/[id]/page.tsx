@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CtaBanner from "@/components/CtaBanner";
@@ -85,6 +86,30 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
           </Reveal>
         </div>
       </div>
+
+      {product.gallery && (
+        <div className="mx-auto max-w-3xl px-5 pt-14 md:px-8 md:pt-16">
+          <Reveal>
+            <div className="space-y-10">
+              {product.gallery.map((shot) => (
+                <figure key={shot.src}>
+                  <div className="overflow-hidden rounded-xl border border-line">
+                    <Image
+                      src={shot.src}
+                      alt={shot.alt}
+                      width={1440}
+                      height={900}
+                      sizes="(max-width: 768px) 100vw, 768px"
+                      className="max-h-[70vh] w-full object-cover object-top"
+                    />
+                  </div>
+                  <figcaption className="mt-3 text-xs leading-6 text-muted">{shot.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      )}
 
       <article className="mx-auto max-w-3xl px-5 py-16 md:px-8 md:py-20">
         {/* なぜ作ったか */}
