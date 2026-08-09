@@ -8,7 +8,7 @@ import { services, type ServiceItem } from "@/lib/services";
 export const metadata: Metadata = {
   title: "Service | NEOWRITE",
   description:
-    "システム開発・Web制作・オンライン営業サポート。課題整理から実装・運用まで、代表が直接伴走します。",
+    "システム開発・Web制作・SNS運用。課題整理から実装・運用まで、代表が直接伴走します。",
 };
 
 function ServiceDetail({ service }: { service: ServiceItem }) {
@@ -129,7 +129,7 @@ export default function ServicePage() {
               事業内容
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-muted md:text-lg md:leading-9">
-              システム開発・Web制作・オンライン営業サポート。課題整理から実装・運用まで、代表が直接伴走します。価格は内容に応じて個別にご提案します。
+              システム開発・Web制作・SNS運用。課題整理から実装・運用まで、代表が直接伴走します。価格は内容に応じて個別にご提案します。
             </p>
           </Reveal>
 

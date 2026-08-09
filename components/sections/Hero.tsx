@@ -71,7 +71,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              システム開発・Web制作・オンライン営業サポートを通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。
+              システム開発・Web制作・SNS運用を通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。
               <br className="hidden md:block" />
               企画から実装・運用まで、代表が直接伴走します。
             </m.p>

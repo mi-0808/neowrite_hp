@@ -4,7 +4,7 @@ import { FACTS } from "@/lib/facts";
 const items = [
   "システム開発",
   "Web制作・運用",
-  "オンライン営業サポート",
+  "SNS運用",
   `${FACTS.foundedYear}年 事業開始`,
   "GOEN — リリース済み",
   "MyHood — 開発中",

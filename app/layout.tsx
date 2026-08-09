@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://neowrite.jp"),
   title: "NEOWRITE｜次世代の挑戦をテクノロジーで形にする",
   description:
-    "システム開発・Web制作・オンライン営業サポートを通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。",
+    "システム開発・Web制作・SNS運用を通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。",
   openGraph: {
     title: "NEOWRITE｜次世代の挑戦をテクノロジーで形にする",
     description:
-      "システム開発・Web制作・オンライン営業サポートを通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。",
+      "システム開発・Web制作・SNS運用を通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。",
     siteName: "NEOWRITE",
     locale: "ja_JP",
     type: "website",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NEOWRITE｜次世代の挑戦をテクノロジーで形にする",
     description:
-      "システム開発・Web制作・オンライン営業サポートを通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。",
+      "システム開発・Web制作・SNS運用を通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。",
   },
 };
 

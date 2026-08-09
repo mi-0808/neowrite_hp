@@ -18,7 +18,7 @@ export default function Services() {
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blueInk">Service</p>
               <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">
-                こんなご相談を受けています
+                できること
               </h2>
             </div>
             <Link
