@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FACTS } from "@/lib/facts";
-import { TAGLINE } from "@/src/config/service";
 
 const sitemap = [
   { label: "Service", href: "/#service" },
@@ -36,7 +35,7 @@ export default function Footer() {
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-neo-navy">WRITE</span>
               </span>
             </Link>
-            <p className="mt-4 text-sm font-medium text-ink">{TAGLINE}</p>
+            <p className="mt-4 text-sm font-medium text-ink">次世代の挑戦を、テクノロジーで形にする。</p>
             <p className="mt-2 text-xs leading-6 text-muted">
               {FACTS.location} / 全国リモート対応
             </p>

@@ -6,13 +6,8 @@ import { useRef } from "react";
 import { m, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import TextReveal from "@/components/motion/TextReveal";
 import { FACTS } from "@/lib/facts";
-import { SUB_COPY, TAGLINE } from "@/src/config/service";
+import { SUB_COPY, TAGLINE_LINES } from "@/src/config/service";
 
-const trustChips = [
-  "自社プロダクト運営",
-  "新聞掲載あり",
-  "全国リモート対応",
-];
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -49,22 +44,12 @@ export default function Hero() {
           style={reduced ? undefined : { y: contentY, opacity: contentOpacity }}
         >
           <div className="text-center lg:text-left">
-            <m.p
-              className="text-xs font-medium uppercase tracking-[0.34em] text-neo-teal"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              NEOWRITE — SINCE {FACTS.foundedYear} / TOYOTA, AICHI
-            </m.p>
-
             <TextReveal
-              // 読点の直後で改行して見出しを組む
-              lines={TAGLINE.split(/(?<=、)/)}
+              lines={TAGLINE_LINES}
               as="h1"
               delay={0.15}
               interval={0.11}
-              className="mt-6 text-[clamp(1.9rem,4.2vw,3.75rem)] font-medium leading-[1.2] tracking-normal text-ink [word-break:auto-phrase] lg:mt-8"
+              className="text-[clamp(2.6rem,7vw,6rem)] font-medium leading-[1.14] tracking-normal text-ink"
             />
 
             <m.p
@@ -75,28 +60,6 @@ export default function Hero() {
             >
               {SUB_COPY}
             </m.p>
-
-            {/* 信頼チップ */}
-            <m.div
-              className="mt-7 flex flex-wrap justify-center gap-2.5 lg:justify-start"
-              initial="hidden"
-              animate="visible"
-              variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.65 } } }}
-            >
-              {trustChips.map((chip) => (
-                <m.span
-                  key={chip}
-                  className="inline-flex items-center gap-2 rounded-full border border-neo-teal/25 bg-white/80 px-4 py-1.5 text-xs font-medium text-neo-teal backdrop-blur-sm"
-                  variants={{
-                    hidden: { opacity: 0, scale: 0.94 },
-                    visible: { opacity: 1, scale: 1, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
-                  }}
-                >
-                  <span className="h-1.5 w-1.5 rounded-full bg-neo-green" aria-hidden="true" />
-                  {chip}
-                </m.span>
-              ))}
-            </m.div>
 
             {/* CTA */}
             <m.div

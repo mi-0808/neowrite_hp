@@ -89,7 +89,7 @@ export default function ProfilePage() {
               </div>
 
               <p className="mt-7 max-w-xl text-sm leading-8 text-muted md:text-base md:leading-9">
-                {FACTS.startedAge}歳から事業を起こし、プロダクトの企画・デザイン・開発を通じて、東三河を中心に若手起業家として活動中。「テクノロジーで社会を良くする」をビジョンに、世界で使われるプロダクトを創ることを目指しています。
+                {FACTS.startedAge}歳から事業を起こし、システム開発・Web制作・プロダクト開発を通じて、東三河を中心に若手起業家として活動中。「テクノロジーで社会を良くする」をビジョンに、世界で使われるプロダクトを創ることを目指しています。
                 <br />
                 年齢で驚かれることはありますが、仕事は成果物でしか評価されないと思っています。
               </p>

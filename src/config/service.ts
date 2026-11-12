@@ -7,10 +7,19 @@ import { FACTS } from "@/lib/facts";
 
 export const SERVICE_NAME = "100年デザイン";
 
-export const TAGLINE = "100年後も使われるプロダクトを、論点からデザインする。";
+/** ヒーロー見出しの改行位置ごとの行。キャッチコピーは従来のものを使う */
+export const TAGLINE_LINES = ["次世代の挑戦を", "テクノロジーで", "形にする。"];
+
+export const TAGLINE = TAGLINE_LINES.join("");
 
 export const SUB_COPY =
   "起業家が集めた悩みと仮説から論点を絞り、ビジネス・プロダクト・アプリ・UIまで一貫してデザインします。";
+
+/** 料金は当面サイトに出さず、相談時にお伝えする（下の2つは非表示中の目安） */
+export const PRICE_CONSULT = "料金は、ご相談のうえでお伝えします。";
+
+export const PRICE_CONSULT_NOTE =
+  "やりたいことと稼働の目安を伺ってから、お見積りをお出しします。まずは気軽にご相談ください。";
 
 export const PRICE_FROM = "月額15万円〜";
 
@@ -56,10 +65,11 @@ export const SERVICE_AREAS = [
 export const SERVICE_PHILOSOPHY =
   "機能を足す前に、論点を絞る。作れるものを全部作ると、プロダクトは誰のものでもなくなります。まず「いま確かめるべき問いは何か」を決め、そこに必要な設計だけを残す。足し算は、その問いに答えが出てからで間に合います。";
 
-/** 役割分担 */
+/** 役割分担。読み手（起業家）を「あなた」、NEOWRITE を「私」と呼ぶ */
 export const ROLES = [
   {
-    side: "起業家",
+    side: "あなた",
+    who: "起業家の方",
     items: [
       "ユーザーヒアリング",
       "課題と仮説の設定",
@@ -69,7 +79,8 @@ export const ROLES = [
     ],
   },
   {
-    side: "NEOWRITE",
+    side: "私",
+    who: "NEOWRITE",
     items: [
       "ヒアリングの問い設計と整理",
       "論点の絞り込み",
@@ -78,13 +89,6 @@ export const ROLES = [
       "試作品の実装（コードと資料は毎回お渡し）",
     ],
   },
-] as const;
-
-/** やらないこと */
-export const NOT_DOING = [
-  "売上やユーザー数など、事業成果の保証",
-  "決済や個人情報を扱う本番システムの単独開発（必要な場合は外部エンジニアのレビューを入れます）",
-  "法令や規制への適合の最終判断",
 ] as const;
 
 /** 進め方（3〜6を繰り返す） */

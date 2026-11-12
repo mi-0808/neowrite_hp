@@ -74,7 +74,7 @@ export default function Founder() {
             <Reveal>
               <p className="max-w-2xl text-base leading-8 text-muted md:leading-9">
                 {FACTS.foundedYear}
-                年に事業活動を開始。ライティングやWebサイトの継続受注、AIを使った画像解析システムの開発参画など、企画から実装まで一貫して手がけてきました。自社プロダクト「GOEN」を運営し、現在は「MyHood」を開発中です。すべての案件を、代表が直接担当します。
+                年に事業活動を開始。Web制作・ライティングの継続受注、企業のInstagram運用、AIシステム開発への参画など、企画から実装・運用まで一貫して手がけてきました。自社プロダクト「GOEN」を運営し、現在は「MyHood」を開発中です。すべての案件を、代表が直接担当します。
               </p>
             </Reveal>
 

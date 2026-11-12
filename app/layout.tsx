@@ -8,7 +8,7 @@ import MotionProvider from "@/components/motion/MotionProvider";
 import { SUB_COPY, TAGLINE } from "@/src/config/service";
 import "./globals.css";
 
-const TITLE = `NEOWRITE｜${TAGLINE}`;
+const TITLE = `NEOWRITE｜${TAGLINE.replace(/。$/, "")}`;
 
 const inter = Inter({
   subsets: ["latin"],
