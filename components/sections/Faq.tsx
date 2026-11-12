@@ -23,8 +23,16 @@ const faqs = [
     a: "はい。目的とやりたいことから一緒に整理して、進め方とお見積りをご提案します。提案内容が合わなければ、断っていただいて構いません。",
   },
   {
-    q: "どのサービスに当てはまるか分かりません。",
-    a: "そのままご相談ください。課題の整理からお手伝いします。システム開発・Web制作・SNS運用のどれか（または組み合わせ）に落とし込んで、進め方をご提案します。",
+    q: "完成まで保証してもらえますか？",
+    a: "実証しながら仕様が変わる前提なので、時間制の準委任契約でお受けしています。作業内容は毎月ご報告します。",
+  },
+  {
+    q: "コードや資料はもらえますか？",
+    a: "毎回お渡しします。他のエンジニアに引き継げる状態で納めます。",
+  },
+  {
+    q: "ヒアリングはしてもらえますか？",
+    a: "ユーザーへのヒアリングは、現場に一番近い起業家の方にお願いしています。聞く問いの設計と、結果の整理は一緒に行います。",
   },
 ];
 
@@ -39,11 +47,11 @@ function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={panelId}
-        className="group flex w-full items-center justify-between gap-4 py-6 text-left"
+        className="group flex min-h-[44px] w-full items-center justify-between gap-4 py-6 text-left"
       >
         <span className="flex items-baseline gap-4">
-          <span className="text-xs font-semibold tabular-nums text-neo-teal">Q{index + 1}</span>
-          <span className="text-sm font-medium leading-7 text-ink transition-colors group-hover:text-neo-teal md:text-base">
+          <span className="text-sm font-semibold tabular-nums text-neo-teal">Q{index + 1}</span>
+          <span className="text-base font-medium leading-7 text-ink transition-colors group-hover:text-neo-teal">
             {q}
           </span>
         </span>
@@ -62,7 +70,7 @@ function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
       >
         {/* 閉状態は高さ0でも支援技術には残るため aria-hidden で明示的に隠す */}
         <div className="overflow-hidden" aria-hidden={!open}>
-          <p className="pb-6 pl-9 pr-2 text-sm leading-8 text-muted">{a}</p>
+          <p className="pb-6 pl-9 pr-2 text-base leading-8 text-muted">{a}</p>
         </div>
       </div>
     </div>
@@ -74,7 +82,7 @@ export default function Faq() {
     <section id="faq" className="border-b border-line bg-white py-20 md:py-28">
       <div className="mx-auto max-w-4xl px-5 md:px-8">
         <Reveal>
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-teal">FAQ</p>
+          <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-teal">FAQ</p>
           <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">よくあるご質問</h2>
         </Reveal>
 

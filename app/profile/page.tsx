@@ -56,7 +56,6 @@ const skills = [
   { category: "フロントエンド", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
   { category: "バックエンド", items: ["Python", "Supabase", "Firebase", "PostgreSQL", "REST API"] },
   { category: "インフラ", items: ["Vercel", "GitHub"] },
-  { category: "SNS運用", items: ["DM・コメント一次対応", "テンプレート設計", "運用フロー整備"] },
 ];
 
 export default function ProfilePage() {
@@ -75,7 +74,7 @@ export default function ProfilePage() {
 
             {/* 基本情報 */}
             <Reveal delay={0.1}>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blueInk">
+              <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">
                 Profile — 若さは、実装力だ。
               </p>
               <h1 className="mt-4 text-5xl font-medium text-ink md:text-7xl">
@@ -90,7 +89,7 @@ export default function ProfilePage() {
               </div>
 
               <p className="mt-7 max-w-xl text-sm leading-8 text-muted md:text-base md:leading-9">
-                {FACTS.startedAge}歳から事業を起こし、システム開発・Web制作・プロダクト開発を通じて、東三河を中心に若手起業家として活動中。「テクノロジーで社会を良くする」をビジョンに、世界で使われるプロダクトを創ることを目指しています。
+                {FACTS.startedAge}歳から事業を起こし、プロダクトの企画・デザイン・開発を通じて、東三河を中心に若手起業家として活動中。「テクノロジーで社会を良くする」をビジョンに、世界で使われるプロダクトを創ることを目指しています。
                 <br />
                 年齢で驚かれることはありますが、仕事は成果物でしか評価されないと思っています。
               </p>
@@ -123,7 +122,7 @@ export default function ProfilePage() {
       <section className="border-b border-line py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blueInk">Career</p>
+            <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">Career</p>
             <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">経歴</h2>
           </Reveal>
 
@@ -156,14 +155,14 @@ export default function ProfilePage() {
       <section className="border-b border-line py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blueInk">Skills</p>
+            <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">Skills</p>
           </Reveal>
 
-          <Stagger interval={0.08} className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Stagger interval={0.08} className="mt-6 grid gap-4 sm:grid-cols-3">
             {skills.map((s) => (
               <StaggerItem key={s.category} className="h-full">
                 <div className="h-full rounded-md border border-line bg-white p-4">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-neo-blueInk">
+                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-neo-blueInk">
                     {s.category}
                   </p>
                   <ul className="mt-3 space-y-1">
@@ -185,7 +184,7 @@ export default function ProfilePage() {
       <section className="border-b border-line bg-[linear-gradient(180deg,#ffffff_0%,#f2fbff_100%)] py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blueInk">Press</p>
+            <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">Press</p>
             <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">メディア掲載</h2>
           </Reveal>
 

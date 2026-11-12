@@ -34,7 +34,7 @@ export default function ProfilePhoto({ className = "", sizes = "280px" }: Profil
       >
         <div className="text-center">
           <span className="block text-5xl font-bold tracking-wider text-white/95">湊</span>
-          <span className="mt-3 block text-[10px] font-medium uppercase tracking-[0.3em] text-white/60">
+          <span className="mt-3 block text-xs font-medium uppercase tracking-[0.3em] text-white/60">
             Minato Matsui
           </span>
         </div>

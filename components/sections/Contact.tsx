@@ -18,7 +18,7 @@ export default function Contact() {
     >
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-teal">Contact</p>
+          <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-teal">Contact</p>
           <h2 className="mt-4 text-4xl font-medium leading-tight text-ink md:text-6xl">
             まずは、話すところから。
           </h2>
@@ -61,7 +61,7 @@ export default function Contact() {
               <p className="mt-4 text-sm font-normal leading-8 text-muted">
                 詳細なご相談や制作依頼は、フォームが確実です。
               </p>
-              <span className="mt-7 inline-flex items-center gap-2 bg-neo-orange px-5 py-3 text-sm font-bold text-white shadow-[0_12px_28px_rgba(255,119,24,0.25)] transition-all duration-300 group-hover:-translate-y-0.5">
+              <span className="mt-7 inline-flex items-center gap-2 bg-neo-orangeInk px-5 py-3 text-sm font-bold text-white shadow-[0_12px_28px_rgba(255,119,24,0.25)] transition-all duration-300 group-hover:-translate-y-0.5">
                 お問い合わせフォーム
                 <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
               </span>

@@ -5,7 +5,10 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import StickyCta from "@/components/StickyCta";
 import MotionProvider from "@/components/motion/MotionProvider";
+import { SUB_COPY, TAGLINE } from "@/src/config/service";
 import "./globals.css";
+
+const TITLE = `NEOWRITE｜${TAGLINE}`;
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,22 +25,19 @@ const notoSansJp = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://neowrite.jp"),
-  title: "NEOWRITE｜次世代の挑戦をテクノロジーで形にする",
-  description:
-    "システム開発・Web制作・SNS運用を通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。",
+  title: TITLE,
+  description: SUB_COPY,
   openGraph: {
-    title: "NEOWRITE｜次世代の挑戦をテクノロジーで形にする",
-    description:
-      "システム開発・Web制作・SNS運用を通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。",
+    title: TITLE,
+    description: SUB_COPY,
     siteName: "NEOWRITE",
     locale: "ja_JP",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NEOWRITE｜次世代の挑戦をテクノロジーで形にする",
-    description:
-      "システム開発・Web制作・SNS運用を通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。",
+    title: TITLE,
+    description: SUB_COPY,
   },
 };
 
@@ -52,7 +52,7 @@ export default function RootLayout({
         <MotionProvider>
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-neo-navy focus:shadow-lg"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-base focus:font-medium focus:text-neo-navy focus:shadow-lg"
           >
             本文へスキップ
           </a>

@@ -188,7 +188,7 @@ export default function ProductPage() {
       {/* Hero */}
       <div className="bg-[radial-gradient(ellipse_at_20%_0%,rgba(16,184,154,0.13),transparent_50%),radial-gradient(ellipse_at_80%_0%,rgba(29,167,216,0.10),transparent_50%)] pb-12 pt-20 md:pb-16 md:pt-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-blueInk">Product</p>
+          <p className="text-xs font-medium uppercase tracking-[0.34em] text-neo-blueInk">Product</p>
           <h1
             className="mt-4 font-semibold leading-none tracking-tight text-ink"
             style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}

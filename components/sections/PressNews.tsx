@@ -19,7 +19,7 @@ export default function PressNews() {
     <section id="press" className="border-b border-line bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-blueInk">Press / News</p>
+          <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">Press / News</p>
           <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">メディア掲載・お知らせ</h2>
         </Reveal>
 
@@ -58,7 +58,7 @@ export default function PressNews() {
                       href={item.url}
                       target={item.isExternal ? "_blank" : undefined}
                       rel={item.isExternal ? "noopener noreferrer" : undefined}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-neo-blueInk hover:underline"
+                      className="inline-flex min-h-[44px] items-center gap-2 text-sm font-medium text-neo-blueInk underline underline-offset-4"
                     >
                       記事を読む →
                     </Link>

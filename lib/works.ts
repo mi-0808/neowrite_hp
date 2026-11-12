@@ -24,10 +24,12 @@ export type WorkItem = {
   /** 白背景の文字用（WCAG AA 準拠） */
   textColor: string;
   url?: string;
+  /** 説明の最後に足す「デザインで判断したこと」1行。未記入なら表示しない */
+  designNote?: string;
 };
 
 /**
- * つくってきたもの4件。受託と自主制作を同じ基準で並べる。
+ * つくってきたもの3件。受託と自主制作を同じ基準で並べる。
  * 守秘のある案件は発注元名と担当者名を伏せ、扱った内容のみ記載する。
  */
 export const works: WorkItem[] = [
@@ -46,6 +48,7 @@ export const works: WorkItem[] = [
     accentColor: "#FF7718",
     textColor: "#B34E00",
     url: "https://goen-self.vercel.app/",
+    // TODO: designNote にデザインで判断したことを1行で書く
   },
   {
     id: "myhood",
@@ -62,6 +65,7 @@ export const works: WorkItem[] = [
     accentColor: "#10B89A",
     textColor: "#0B7A66",
     url: "https://myhoodbeta.web.app/",
+    // TODO: designNote にデザインで判断したことを1行で書く
   },
   {
     id: "cleanboss",
@@ -78,18 +82,6 @@ export const works: WorkItem[] = [
     url: "https://cleanboss-1.vercel.app/demo",
     accentColor: "#1DA7D8",
     textColor: "#0F6E92",
-  },
-  {
-    id: "ccp",
-    kind: "受託",
-    label: "地域メディアのSNS運用・情報入稿オペレーション",
-    name: "地域クリエイティブプロジェクト（CCP）",
-    period: "2024 – 2026",
-    status: "継続中",
-    what: "複数の地域アカウントについて、ターゲットを絞ったエンゲージメント施策とDM対応を代行。SNS投稿からイベント情報を抽出してポータルサイトへ入稿する運用（月200件規模）も担当しました。DM送信数の週次報告と、フォロワー増減・エンゲージメントをまとめた月次レポートを継続提出しています。",
-    role: "SNS運用・情報入稿・レポーティング",
-    tech: ["SNS運用代行", "DM一次対応", "WordPress入稿", "週次・月次レポート"],
-    accentColor: "#7C5CD6",
-    textColor: "#5B3EB5",
+    // TODO: designNote にデザインで判断したことを1行で書く
   },
 ];

@@ -25,7 +25,6 @@ const skills = [
   "Firebase",
   "PostgreSQL",
   "Vercel",
-  "Instagram運用設計",
 ];
 
 export default function Founder() {
@@ -41,7 +40,7 @@ export default function Founder() {
     <section id="profile" className="border-b border-line bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-neo-teal">Founder</p>
+          <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-teal">Founder</p>
           <h2 className="mt-4 text-3xl font-medium leading-snug text-ink md:text-5xl">
             代表者紹介
           </h2>
@@ -73,15 +72,15 @@ export default function Founder() {
           {/* テキスト + 年表 */}
           <div>
             <Reveal>
-              <p className="max-w-2xl text-sm leading-8 text-muted md:text-base md:leading-9">
+              <p className="max-w-2xl text-base leading-8 text-muted md:leading-9">
                 {FACTS.foundedYear}
-                年に事業活動を開始。Web制作・ライティングの継続受注、企業のInstagram運用、AIシステム開発への参画など、企画から実装・運用まで一貫して手がけてきました。自社プロダクト「GOEN」を運営し、現在は「MyHood」を開発中です。すべての案件を、代表が直接担当します。
+                年に事業活動を開始。ライティングやWebサイトの継続受注、AIを使った画像解析システムの開発参画など、企画から実装まで一貫して手がけてきました。自社プロダクト「GOEN」を運営し、現在は「MyHood」を開発中です。すべての案件を、代表が直接担当します。
               </p>
             </Reveal>
 
             {/* 沿革（スクロール連動年表） */}
             <Reveal delay={0.05} className="mt-12">
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-neo-teal">History</p>
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-neo-teal">History</p>
             </Reveal>
             <div ref={timelineRef} className="relative mt-6 pl-8">
               {/* ベース線 */}
@@ -98,7 +97,7 @@ export default function Founder() {
                   <m.li
                     key={item.year}
                     className="relative"
-                    initial={reduced ? { opacity: 0 } : { opacity: 0, x: 20 }}
+                    initial={reduced ? false : { opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.6 }}
                     transition={{ duration: 0.55, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
@@ -111,7 +110,7 @@ export default function Founder() {
                       <span className="text-lg font-semibold tabular-nums text-neo-teal">{item.year}</span>
                       <span className="text-base font-medium text-ink">{item.label}</span>
                     </p>
-                    <p className="mt-1.5 text-sm leading-7 text-muted">{item.detail}</p>
+                    <p className="mt-1.5 text-base leading-7 text-muted">{item.detail}</p>
                   </m.li>
                 ))}
               </ol>
@@ -119,7 +118,7 @@ export default function Founder() {
 
             {/* スキル */}
             <Reveal delay={0.1} className="mt-12">
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-neo-teal">Skills</p>
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-neo-teal">Skills</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {skills.map((skill) => (
                   <span
@@ -140,14 +139,14 @@ export default function Founder() {
               <div className="mt-5 flex flex-wrap items-center gap-5">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-neo-orange px-7 py-3.5 text-sm font-bold text-white shadow-[0_12px_28px_rgba(255,119,24,0.28)] transition-all duration-300 hover:-translate-y-0.5"
+                  className="inline-flex min-h-[44px] items-center gap-2 bg-neo-orangeInk px-7 py-3.5 text-sm font-bold text-white shadow-[0_12px_28px_rgba(255,119,24,0.28)] transition-all duration-300 hover:-translate-y-0.5"
                 >
                   相談してみる
                   <span aria-hidden="true">→</span>
                 </Link>
                 <Link
                   href="/profile"
-                  className="text-sm font-medium text-neo-blueInk underline-offset-4 hover:underline"
+                  className="inline-flex min-h-[44px] items-center text-sm font-medium text-neo-blueInk underline underline-offset-4"
                 >
                   もっと詳しく →
                 </Link>

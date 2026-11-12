@@ -15,7 +15,7 @@ export default function Products() {
     >
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
-          <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-greenInk">Products</p>
+          <p className="text-xs font-medium uppercase tracking-[0.34em] text-neo-greenInk">Products</p>
           <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">
             受託だけでなく、自分でもつくっています
           </h2>
@@ -57,7 +57,7 @@ export default function Products() {
                       {product.kana && <span className="text-xs text-muted">{product.kana}</span>}
                     </div>
                     <span
-                      className={`mt-2 inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-semibold ${
+                      className={`mt-2 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${
                         released ? "bg-neo-green/12 text-neo-greenInk" : "bg-neo-blue/10 text-neo-blueInk"
                       }`}
                       style={released ? { backgroundColor: "rgba(16,184,154,0.12)" } : undefined}

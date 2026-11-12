@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { m, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import TextReveal from "@/components/motion/TextReveal";
 import { FACTS } from "@/lib/facts";
+import { SUB_COPY, TAGLINE } from "@/src/config/service";
 
 const trustChips = [
   "自社プロダクト運営",
@@ -49,7 +50,7 @@ export default function Hero() {
         >
           <div className="text-center lg:text-left">
             <m.p
-              className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-teal"
+              className="text-xs font-medium uppercase tracking-[0.34em] text-neo-teal"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
@@ -58,11 +59,12 @@ export default function Hero() {
             </m.p>
 
             <TextReveal
-              lines={["次世代の挑戦を", "テクノロジーで", "形にする。"]}
+              // 読点の直後で改行して見出しを組む
+              lines={TAGLINE.split(/(?<=、)/)}
               as="h1"
               delay={0.15}
               interval={0.11}
-              className="mt-6 text-[clamp(2.6rem,7vw,6rem)] font-medium leading-[1.14] tracking-normal text-ink lg:mt-8"
+              className="mt-6 text-[clamp(1.9rem,4.2vw,3.75rem)] font-medium leading-[1.2] tracking-normal text-ink [word-break:auto-phrase] lg:mt-8"
             />
 
             <m.p
@@ -71,9 +73,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              システム開発・Web制作・SNS運用を通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。
-              <br className="hidden md:block" />
-              企画から実装・運用まで、代表が直接伴走します。
+              {SUB_COPY}
             </m.p>
 
             {/* 信頼チップ */}
@@ -107,21 +107,21 @@ export default function Hero() {
             >
               <Link
                 href="/contact"
-                className="group inline-flex w-full items-center justify-center gap-3 bg-neo-orange px-8 py-4 text-sm font-bold text-white shadow-[0_16px_38px_rgba(255,119,24,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_46px_rgba(255,119,24,0.4)] sm:w-auto"
+                className="group inline-flex min-h-[44px] w-full items-center justify-center gap-3 bg-neo-orangeInk px-8 py-4 text-base font-bold text-white shadow-[0_16px_38px_rgba(255,119,24,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_46px_rgba(255,119,24,0.4)] sm:w-auto"
               >
                 まずは相談する
                 <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
               </Link>
               <Link
                 href="#works"
-                className="group inline-flex w-full items-center justify-center gap-3 border border-neo-teal/25 bg-white/75 px-8 py-4 text-sm font-medium text-ink backdrop-blur-sm transition-colors duration-300 hover:border-neo-teal hover:bg-white sm:w-auto"
+                className="group inline-flex min-h-[44px] w-full items-center justify-center gap-3 border border-neo-teal/25 bg-white/75 px-8 py-4 text-base font-medium text-ink backdrop-blur-sm transition-colors duration-300 hover:border-neo-teal hover:bg-white sm:w-auto"
               >
                 実績を見る
                 <span className="transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true">↓</span>
               </Link>
             </m.div>
             <m.p
-              className="mt-4 text-xs text-muted"
+              className="mt-4 text-sm text-muted"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.2 }}
@@ -141,7 +141,7 @@ export default function Hero() {
             <div className="animate-float drop-shadow-[0_28px_55px_rgba(14,111,120,0.18)]">
               <Image
                 src="/neowrite-icon-cutout.png"
-                alt="NEOWRITE logo"
+                alt=""
                 width={340}
                 height={291}
                 priority
@@ -159,7 +159,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 1.4 }}
           aria-hidden="true"
         >
-          <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted">Scroll</span>
+          <span className="text-xs font-medium uppercase tracking-[0.3em] text-muted">Scroll</span>
           <span className="relative block h-10 w-px overflow-hidden bg-line">
             <span className="absolute left-0 top-0 block h-4 w-px animate-scrollhint bg-neo-teal" />
           </span>
