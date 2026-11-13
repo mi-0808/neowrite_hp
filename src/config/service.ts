@@ -34,7 +34,7 @@ export const SERVICE_AREAS = [
   {
     number: "01",
     title: "ビジネスデザイン",
-    body: "SNSなどでどう広めるか、使われ続ける仕組みを設計する",
+    body: "アプリマーケティングとネットワーク効果で、広まり使われ続ける仕組みを設計する",
     accentColor: "#10B89A",
     textColor: "#0B7A66",
   },
