@@ -71,7 +71,7 @@ export default function ProfilePage() {
   return (
     <main id="main" className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-[linear-gradient(180deg,#f2fbff_0%,#ffffff_100%)] pb-20 pt-16 md:pb-28 md:pt-24">
+      <section className="bg-[linear-gradient(180deg,#f2fbff_0%,#ffffff_100%)] pb-10 pt-16 md:pb-12 md:pt-24">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid items-center gap-12 md:grid-cols-[300px_1fr] md:gap-20">
             {/* 写真 */}
@@ -123,7 +123,7 @@ export default function ProfilePage() {
       </section>
 
       {/* 数字で見る実績 */}
-      <section className="bg-white py-12 md:py-14">
+      <section className="bg-white pb-6 md:pb-8">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3">
             {[
