@@ -102,7 +102,7 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
               {product.ownProduct !== false && (
                 <Link
                   href={`/product#${product.id}`}
-                  className="text-sm font-medium text-muted transition-colors hover:text-ink"
+                  className="inline-flex min-h-[44px] items-center text-sm font-medium text-muted underline underline-offset-4 transition-colors hover:text-ink"
                 >
                   サービス概要を見る →
                 </Link>
@@ -221,7 +221,7 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
         )}
 
         <Reveal delay={0.05} className="mt-16 border-t border-line pt-10">
-          <Link href="/#works" className="text-sm font-medium text-neo-blueInk hover:underline">
+          <Link href="/#works" className="inline-flex min-h-[44px] items-center text-sm font-medium text-neo-blueInk underline underline-offset-4">
             ← つくってきたもの一覧へ
           </Link>
         </Reveal>

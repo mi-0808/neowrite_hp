@@ -106,7 +106,7 @@ export const products: Product[] = [
     url: "https://myhoodbeta.web.app/",
     status: "development",
     gallery: [
-      { src: "/works/myhood-community-mobile.png", alt: "MyHood のコミュニティ画面。公開コミュニティが人数の多い順に並ぶ", caption: "コミュニティ。公開コミュニティを人数の多い順に並べ、登録前でも中の様子が分かるようにしている。" },
+      { src: "/works/myhood-spaces.png", alt: "MyHood のスペース画面。コミュニティ横断の投稿一覧", caption: "スペース。コミュニティ横断で「最近動いたもの」を並べ、戻ってくる理由をつくる。" },
     ],
     why: {
       problem: "ユーザー体験を最適化し、顧客のニーズに応える設計から運用まで。",

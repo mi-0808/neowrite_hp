@@ -44,7 +44,7 @@ export const BUILD_ITEMS = [
     id: "mobile",
     title: "スマホアプリ",
     body: "Next.js / React Native",
-    image: { src: "/works/myhood-community.png", alt: "MyHood のコミュニティ画面。公開コミュニティの一覧" },
+    image: { src: "/works/myhood-wide.png", alt: "MyHood のスマホ画面。コミュニティの一覧" },
     details: [
       "スマホで使いやすい画面の設計と実装",
       "Next.js でのWebアプリ、React Native でのアプリ開発",

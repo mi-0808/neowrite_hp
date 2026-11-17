@@ -5,13 +5,13 @@ import CtaBanner from "@/components/CtaBanner";
 import Reveal from "@/components/motion/Reveal";
 import { products, type Product } from "@/lib/products";
 
-/** 自社プロダクトのみ掲載。参加しているだけのプロジェクトは /story で扱う */
+/** 企画・開発に関わったプロダクトを掲載。メンバーとして参加しただけのプロジェクトは /story で扱う */
 const ownProducts: Product[] = products.filter((p) => p.ownProduct !== false);
 
 export const metadata: Metadata = {
   title: "Product | NEOWRITE",
   description:
-    "NEOWRITEが企画・開発・運営する自社プロダクト。GOEN（イベントクチコミサービス）とMyHood（コミュニティSNS）。",
+    "NEOWRITEが企画・開発に関わったプロダクト。GOEN（地域のイベントとクチコミの地図）とクリーン番長（AIによる着用チェック）。",
 };
 
 function ProductShowcase({ product }: { product: Product }) {
@@ -159,7 +159,7 @@ function ProductDetail({ product }: { product: Product }) {
         )}
 
         <Reveal delay={0.1} className="mt-10">
-          <Link href={`/story/${product.id}`} className="text-sm font-medium hover:underline" style={{ color: accentText }}>
+          <Link href={`/story/${product.id}`} className="inline-flex min-h-[44px] items-center text-sm font-medium underline underline-offset-4" style={{ color: accentText }}>
             開発ストーリーを読む →
           </Link>
         </Reveal>
@@ -196,7 +196,7 @@ export default function ProductPage() {
             プロダクト
           </h1>
           <p className="mt-5 text-base text-muted md:text-lg">
-            社会の課題をテクノロジーで解くために、開発・運営しているサービスです。
+            企画から開発まで関わったプロダクトです。
           </p>
         </div>
 
@@ -225,9 +225,9 @@ export default function ProductPage() {
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-5 text-center md:px-8">
           <p className="text-sm leading-7 text-muted">
-            この2つは、企画から設計・開発・リリース・運用まで一人で通した実例です。
+            GOEN は企画から運用まで一人で、クリーン番長はインターンでチームを率いて作りました。
             <br className="hidden sm:block" />
-            同じように、あなたのプロダクト開発の受託も可能です。
+            同じように、あなたのプロダクト開発もお手伝いできます。
           </p>
         </div>
       </section>
