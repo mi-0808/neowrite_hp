@@ -37,15 +37,12 @@ export default function Footer() {
             <p className="mt-2 text-xs leading-6 text-muted">
               {FACTS.location} / 全国リモート対応
             </p>
-            <p className="mt-4 text-xs leading-5 text-muted">
-              このサイトも Next.js + Tailwind CSS + framer-motion で自作しています。
-            </p>
           </div>
 
           {/* サイトマップ */}
           <nav aria-label="サイトマップ">
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-neo-teal">Sitemap</p>
-            <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm text-muted">
+            <p className="text-sm font-semibold text-ink">Sitemap</p>
+            <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1 text-sm font-medium text-muted">
               {sitemap.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -61,7 +58,7 @@ export default function Footer() {
 
           {/* コンタクト */}
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-neo-teal">Contact</p>
+            <p className="text-sm font-semibold text-ink">Contact</p>
             <p className="mt-4 text-sm leading-7 text-muted">
               ご相談・お見積りには{FACTS.replyDays}営業日以内に返信します。
             </p>
@@ -88,7 +85,6 @@ export default function Footer() {
       <div className="bg-neo-navy">
         <div className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4 text-xs text-white/60 md:flex-row md:items-center md:justify-between md:px-8">
           <p>© {FACTS.foundedYear}–{new Date().getFullYear()} NEOWRITE</p>
-          <p>SINCE {FACTS.foundedYear} / TOYOTA, AICHI</p>
         </div>
       </div>
     </footer>

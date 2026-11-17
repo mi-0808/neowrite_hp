@@ -26,7 +26,7 @@ export default function Flow() {
           <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-teal">Flow</p>
           <h2 className="mt-4 text-3xl font-medium leading-snug text-ink md:text-5xl">進め方</h2>
           <p className="mt-4 max-w-2xl text-base leading-8 text-muted md:leading-9">
-            論点の整理までを最初に行い、3〜6を実証のたびに繰り返します。
+            論点の整理までを最初に行い、3〜6を実証のたびに繰り返します。進め方は、ご依頼内容によって柔軟に変更します。
           </p>
         </Reveal>
 

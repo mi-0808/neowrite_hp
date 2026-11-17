@@ -11,6 +11,8 @@ export const FACTS = {
   webYearsLabel: "2年超",
   productsCount: 2,
   replyDays: 2,
+  /** 単発案件・スポット対応を含む受託の累計 */
+  ordersCount: 120,
   pressCount: 1,
   pressName: "東愛知新聞",
   pressDate: "2026.06.11",
