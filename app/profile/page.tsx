@@ -245,31 +245,51 @@ export default function ProfilePage() {
       </section>
 
       {/* スキル */}
-      <section className="py-12 md:py-16">
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">Skills</p>
+            <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">使える技術</h2>
           </Reveal>
 
-          <Stagger interval={0.08} className="mt-6 grid gap-4 sm:grid-cols-3">
-            {skills.map((s) => (
-              <StaggerItem key={s.category} className="h-full">
-                <div className="h-full rounded-md border border-line bg-white p-4">
-                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-neo-blueInk">
-                    {s.category}
-                  </p>
-                  <ul className="mt-3 space-y-1">
+          <Reveal delay={0.06}>
+            <dl className="mt-10 divide-y divide-line border-y border-line">
+              {skills.map((s) => (
+                <div key={s.category} className="grid gap-3 py-6 md:grid-cols-[200px_1fr] md:gap-8">
+                  <dt className="text-base font-semibold text-ink">{s.category}</dt>
+                  <dd className="flex flex-wrap gap-2">
                     {s.items.map((item) => (
-                      <li key={item} className="flex gap-2 text-xs text-muted">
-                        <span className="text-neo-greenInk" aria-hidden="true">—</span>
+                      <span
+                        key={item}
+                        className="rounded-md border border-line bg-[#fafafa] px-3 py-1.5 text-sm font-medium text-ink"
+                      >
                         {item}
-                      </li>
+                      </span>
                     ))}
-                  </ul>
+                  </dd>
                 </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
+              ))}
+            </dl>
+          </Reveal>
+
+          <Reveal delay={0.1} className="mt-8">
+            <div className="flex flex-col gap-4 rounded-xl bg-neo-navy px-6 py-6 text-white sm:flex-row sm:items-center sm:justify-between md:px-8">
+              <div>
+                <p className="text-lg font-semibold">書いたコードは GitHub で見られます</p>
+                <p className="mt-1 text-sm leading-6 text-white/80">github.com/mi-0808</p>
+              </div>
+              <Link
+                href="https://github.com/mi-0808"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[44px] w-fit items-center gap-2 bg-white px-6 py-3 text-sm font-bold text-neo-navy transition-transform hover:-translate-y-0.5"
+              >
+                GitHub を見る
+                <span aria-hidden="true">↗</span>
+                <span className="sr-only">（新しいタブで開きます）</span>
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
