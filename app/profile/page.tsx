@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 /** プロフィールの外部リンク */
 const profileLinks = [
   { label: "Instagram", href: "https://www.instagram.com/m_minato2008/" },
-  // TODO: Facebook の URL が決まったら追加する
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=100087532402329" },
   { label: "GitHub", href: "https://github.com/mi-0808" },
 ];
 
