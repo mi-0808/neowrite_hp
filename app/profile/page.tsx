@@ -304,23 +304,23 @@ export default function ProfilePage() {
           <Reveal delay={0.1} className="mt-10">
             <div className="overflow-hidden rounded-lg border border-line bg-white shadow-sm">
               <div className="flex flex-col md:flex-row">
-                <div className="relative h-48 w-full flex-shrink-0 md:h-auto md:w-[280px]">
+                <div className="relative aspect-[16/10] w-full flex-shrink-0 md:aspect-auto md:min-h-[300px] md:w-[46%]">
                   <Image
                     src="https://admin.higashiaichi.jp/uploads/20260612-110551-375945679.jpg"
                     alt="東愛知新聞 掲載記事"
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 280px"
+                    sizes="(max-width: 768px) 100vw, 46vw"
                   />
                 </div>
-                <div className="flex flex-col justify-center p-6 md:p-8">
+                <div className="flex flex-col justify-center p-6 md:p-10">
                   <div className="flex flex-wrap items-center gap-3">
                     <span className="rounded-full bg-neo-orange/10 px-3 py-1 text-xs font-medium text-[#B34E00]">
                       {FACTS.pressName}
                     </span>
                     <time className="text-xs text-muted">{FACTS.pressDate}</time>
                   </div>
-                  <h3 className="mt-3 text-base font-medium leading-7 text-ink">
+                  <h3 className="mt-4 text-xl font-semibold leading-9 text-ink md:text-2xl md:leading-10">
                     【連載】籔内の学生紹介ファイル〈20〉大人の中に飛び込み道ひらく 「GOEN」など開発｜ネオライト代表 松井湊さん
                   </h3>
                   <Link
