@@ -13,13 +13,13 @@ export const TAGLINE_LINES = ["次世代の挑戦を", "テクノロジーで", 
 export const TAGLINE = TAGLINE_LINES.join("");
 
 export const SUB_COPY =
-  "いまある企画やアイデアを、実際に使えるアプリにします。設計から開発・公開まで、一人で担当します。";
+  "いまある企画やアイデアを、実際に使えるアプリにします。設計から開発・公開まで対応します。";
 
 /** サービス概要（ヒーロー直後の「できること」） */
 export const SERVICE_HEADING = "できること";
 
 /** 誰に向けたものか（見出しの上に小さく出す） */
-export const SERVICE_AUDIENCE = "エンジニアインターンを探している企業へ";
+export const SERVICE_AUDIENCE = "エンジニアやインターンを探している企業へ";
 
 export const SERVICE_PITCH = "AI駆動開発で、動くアプリを作ります。";
 

@@ -114,6 +114,16 @@ export default function ServicePage() {
               ))}
             </ol>
           </Reveal>
+          <Reveal delay={0.08} className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <Link
+              href="/contact"
+              className="inline-flex min-h-[44px] items-center gap-3 bg-neo-greenInk px-8 py-4 text-base font-bold text-white transition-transform hover:-translate-y-0.5"
+            >
+              この内容で相談する
+              <span aria-hidden="true">→</span>
+            </Link>
+            <p className="text-base text-muted">「まだ相談レベル」で大丈夫です。</p>
+          </Reveal>
         </div>
       </section>
 
