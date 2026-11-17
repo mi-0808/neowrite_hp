@@ -81,26 +81,12 @@ export default function ServicePage() {
               </ul>
             </Reveal>
           </div>
-          <Reveal className="mx-auto mt-12 grid max-w-7xl gap-8 px-5 md:px-8 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <h3 className="text-lg font-semibold text-ink">たとえば、こんなものが作れます</h3>
-              <ul className="mt-4 divide-y divide-line border-y border-line">
-                {item.ideas.map((idea) => (
-                  <li key={idea} className="flex gap-3 py-4 text-base leading-7 text-ink">
-                    <span className="text-neo-teal" aria-hidden="true">
-                      —
-                    </span>
-                    <span>{idea}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="bg-[#fafafa] px-6 py-6 md:px-8 md:py-7">
-              <h3 className="text-lg font-semibold text-ink">
-                これまでの例：<span className="text-neo-blueInk">{item.example.name}</span>
-              </h3>
-              <p className="mt-2 text-base leading-7 text-muted">{item.example.text}</p>
+          {/* 左にこれまで作ったもの、右に同じ技術で作れるもの。過去から未来へ左から右に読む */}
+          <Reveal className="mx-auto mt-12 grid max-w-7xl items-stretch gap-6 px-5 md:px-8 lg:grid-cols-2 lg:gap-10">
+            <div className="flex flex-col bg-[#fafafa] px-6 py-6 md:px-8 md:py-7">
+              <p className="text-sm font-medium text-muted">これまでに作ったもの</p>
+              <h3 className="mt-2 text-2xl font-semibold text-ink">{item.example.name}</h3>
+              <p className="mt-2 flex-1 text-base leading-7 text-muted">{item.example.text}</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
                   href={item.example.href}
@@ -120,6 +106,20 @@ export default function ServicePage() {
                   <span className="sr-only">（新しいタブで開きます）</span>
                 </Link>
               </div>
+            </div>
+
+            <div className="flex flex-col px-1 py-2 lg:px-0">
+              <p className="text-sm font-medium text-muted">同じ技術で、こんなものも作れます</p>
+              <ul className="mt-4 grid flex-1 gap-3">
+                {item.ideas.map((idea) => (
+                  <li
+                    key={idea}
+                    className="flex items-center rounded-lg border border-line bg-white px-5 py-4 text-base font-medium leading-7 text-ink"
+                  >
+                    {idea}
+                  </li>
+                ))}
+              </ul>
             </div>
           </Reveal>
         </section>
