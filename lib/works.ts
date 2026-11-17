@@ -79,7 +79,7 @@ export const works: WorkItem[] = [
     role: "企画・実装",
     team: "チーム（メンバーとして参加）",
     tech: ["Next.js", "React Native", "TypeScript", "Firebase（Hosting まで）"],
-    image: { src: "/works/myhood-spaces.png", alt: "MyHood のスペース画面。コミュニティ横断の投稿一覧" },
+    image: { src: "/works/myhood-community.png", alt: "MyHood のコミュニティ画面。公開コミュニティの一覧" },
     storyHref: "/story/myhood",
     textColor: "#0B7A66",
     url: "https://myhoodbeta.web.app/",
