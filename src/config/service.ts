@@ -32,7 +32,7 @@ export const BUILD_ITEMS = [
     id: "web",
     title: "Webアプリ",
     body: "企画から公開・運用まで",
-    image: { src: "/works/goen-home.png", alt: "GOEN のトップページ。今週この街で始まるイベントを探す画面" },
+    image: { src: "/works/goen-hero.png", alt: "GOEN のトップページ。今週この街で始まるイベントを探す画面" },
     details: [
       "検証のための試作品（MVP）づくり",
       "会員登録・ログイン、データベース、管理画面",

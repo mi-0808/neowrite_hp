@@ -136,7 +136,7 @@ function ProductDetail({ product }: { product: Product }) {
         </div>
         </Reveal>
 
-        {product.gallery && (
+        {product.gallery && product.gallery.length > 0 && (
           <Reveal delay={0.08}>
             <div className="mt-14 grid gap-5 md:grid-cols-3">
               {product.gallery.map((shot) => (
