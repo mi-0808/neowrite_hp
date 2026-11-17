@@ -71,7 +71,7 @@ export default function ProfilePage() {
   return (
     <main id="main" className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="border-b border-line bg-[linear-gradient(180deg,#f2fbff_0%,#ffffff_100%)] pb-20 pt-16 md:pb-28 md:pt-24">
+      <section className="bg-[linear-gradient(180deg,#f2fbff_0%,#ffffff_100%)] pb-20 pt-16 md:pb-28 md:pt-24">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid items-center gap-12 md:grid-cols-[300px_1fr] md:gap-20">
             {/* 写真 */}
@@ -123,7 +123,7 @@ export default function ProfilePage() {
       </section>
 
       {/* 数字で見る実績 */}
-      <section className="border-b border-line bg-white py-12 md:py-14">
+      <section className="bg-white py-12 md:py-14">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3">
             {[
@@ -142,7 +142,7 @@ export default function ProfilePage() {
       </section>
 
       {/* 関わったプロダクト */}
-      <section className="border-b border-line py-16 md:py-20">
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">Works</p>
@@ -179,7 +179,7 @@ export default function ProfilePage() {
       </section>
 
       {/* 依頼できること */}
-      <section className="border-b border-line bg-[linear-gradient(180deg,#ffffff_0%,#f2fbff_100%)] py-16 md:py-20">
+      <section className="bg-[linear-gradient(180deg,#ffffff_0%,#f2fbff_100%)] py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">Service</p>
@@ -212,7 +212,7 @@ export default function ProfilePage() {
       </section>
 
       {/* 経歴タイムライン */}
-      <section className="border-b border-line py-20 md:py-28">
+      <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">Career</p>
@@ -245,7 +245,7 @@ export default function ProfilePage() {
       </section>
 
       {/* スキル */}
-      <section className="border-b border-line py-12 md:py-16">
+      <section className="py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">Skills</p>
@@ -274,7 +274,7 @@ export default function ProfilePage() {
       </section>
 
       {/* メディア掲載 */}
-      <section className="border-b border-line bg-[linear-gradient(180deg,#ffffff_0%,#f2fbff_100%)] py-20 md:py-28">
+      <section className="bg-[linear-gradient(180deg,#ffffff_0%,#f2fbff_100%)] py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">Press</p>
