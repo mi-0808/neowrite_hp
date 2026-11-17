@@ -40,9 +40,9 @@ export default function Founder() {
     <section id="profile" className="border-b border-line bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-teal">Founder</p>
+          <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-teal">Profile</p>
           <h2 className="mt-4 text-3xl font-medium leading-snug text-ink md:text-5xl">
-            代表者紹介
+            プロフィール
           </h2>
         </Reveal>
 
