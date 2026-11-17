@@ -5,13 +5,16 @@ import CtaBanner from "@/components/CtaBanner";
 import Reveal from "@/components/motion/Reveal";
 import { products, type Product } from "@/lib/products";
 
-/** 企画・開発に関わったプロダクトを掲載。メンバーとして参加しただけのプロジェクトは /story で扱う */
-const ownProducts: Product[] = products.filter((p) => p.ownProduct !== false);
+/** 企画・開発に関わったプロダクトをすべて掲載する（チームで参加したものも含む） */
+const shownProducts: Product[] = products;
+
+/** 画面キャプチャ。ページ上部用がなければ「その後」の画面を使う */
+const shotsOf = (p: Product) => (p.gallery && p.gallery.length > 0 ? p.gallery : p.how?.after?.gallery ?? []);
 
 export const metadata: Metadata = {
   title: "Product | NEOWRITE",
   description:
-    "NEOWRITEが企画・開発に関わったプロダクト。GOEN（地域のイベントとクチコミの地図）とクリーン番長（AIによる着用チェック）。",
+    "NEOWRITEが企画・開発に関わったプロダクト。GOEN（地域のイベントとクチコミの地図）、MyHood（コミュニティSNS）、クリーン番長（AIによる着用チェック）。",
 };
 
 function ProductShowcase({ product }: { product: Product }) {
@@ -136,10 +139,10 @@ function ProductDetail({ product }: { product: Product }) {
         </div>
         </Reveal>
 
-        {product.gallery && product.gallery.length > 0 && (
+        {shotsOf(product).length > 0 && (
           <Reveal delay={0.08}>
             <div className="mt-14 grid gap-5 md:grid-cols-3">
-              {product.gallery.map((shot) => (
+              {shotsOf(product).map((shot) => (
                 <figure key={shot.src}>
                   <div className="overflow-hidden rounded-xl border border-line">
                     <Image
@@ -207,7 +210,7 @@ export default function ProductPage() {
             style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", scrollbarWidth: "none" }}
           >
             <div className="flex-shrink-0 w-5 md:hidden" />
-            {ownProducts.map((p) => (
+            {shownProducts.map((p) => (
               <ProductShowcase key={p.id} product={p} />
             ))}
             <ComingSoonCard />
@@ -217,7 +220,7 @@ export default function ProductPage() {
       </div>
 
       {/* Detail sections */}
-      {ownProducts.map((product) => (
+      {shownProducts.map((product) => (
         <ProductDetail key={product.id} product={product} />
       ))}
 
@@ -225,7 +228,7 @@ export default function ProductPage() {
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-5 text-center md:px-8">
           <p className="text-sm leading-7 text-muted">
-            GOEN は企画から運用まで一人で、クリーン番長はインターンでチームを率いて作りました。
+            GOEN は企画から運用まで一人で、MyHood は業務委託でチームの一員として、クリーン番長はインターンでチームを率いて作りました。
             <br className="hidden sm:block" />
             同じように、あなたのプロダクト開発もお手伝いできます。
           </p>

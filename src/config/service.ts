@@ -23,42 +23,47 @@ export const SERVICE_AUDIENCE = "エンジニアインターンを探してい�
 
 export const SERVICE_PITCH = "AI駆動開発で、動くアプリを作ります。";
 
-/** こんな相談ができます（お客さん側の言葉で） */
+/** こんな相談ができます。見出しは一目で分かる短い言葉、本文はお客さん側の言葉 */
 export const CONSULT_CASES = [
-  "アイデアはあるけれど、何から作ればいいか分からない",
-  "まず試作品を作って、社内やお客さんに見せたい",
-  "今あるアプリやサイトに、機能を足したい・直したい",
-  "AIを使って、毎日の手作業を減らしたい",
+  { icon: "idea", title: "アイデアから", text: "アイデアはあるけれど、何から作ればいいか分からない" },
+  { icon: "present", title: "まず試作", text: "まず試作品を作って、社内やお客さんに見せたい" },
+  { icon: "fix", title: "今あるものを改善", text: "今あるアプリやサイトに、機能を足したい・直したい" },
+  { icon: "ai", title: "AIで手間を減らす", text: "AIを使って、毎日の手作業を減らしたい" },
 ] as const;
 
 /** 対応範囲。どこからどこまでやるか、各段階でお渡しするもの */
 export const SCOPE_STEPS = [
   {
     number: "01",
+    icon: "plan",
     title: "企画の整理",
     body: "作りたいもの、使う人、最初に必要な機能を一緒に整理します。",
     deliverable: "機能の一覧と優先順位",
   },
   {
     number: "02",
+    icon: "design",
     title: "設計",
     body: "画面の流れと、保存するデータの形を決めます。",
     deliverable: "画面の設計図",
   },
   {
     number: "03",
+    icon: "code",
     title: "開発",
     body: "AI駆動開発で、実際に動くアプリを作ります。",
     deliverable: "動くアプリとソースコード",
   },
   {
     number: "04",
+    icon: "launch",
     title: "公開",
     body: "サーバーやドメインを設定し、使える状態にします。",
     deliverable: "公開されたアプリと管理画面",
   },
   {
     number: "05",
+    icon: "improve",
     title: "改善",
     body: "使われ方を見ながら、修正や機能の追加を続けます。",
     deliverable: "改善の記録と資料",

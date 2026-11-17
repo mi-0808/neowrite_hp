@@ -20,7 +20,7 @@ export type Product = {
     title: string;
     body: string;
   }[];
-  /** 自社プロダクトか。false は「開発に関わっている」だけのプロジェクト（/product には出さない） */
+  /** 自社プロダクトか。false は「開発に関わっている」プロジェクト（開発ストーリーで権利者を明記する） */
   ownProduct?: boolean;
   /** ownProduct が false のときの権利者 */
   owner?: string;

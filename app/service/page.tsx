@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import CtaBanner from "@/components/CtaBanner";
+import Icon from "@/components/Icon";
 import Reveal from "@/components/motion/Reveal";
 import {
   BUILD_ITEMS,
@@ -65,10 +66,16 @@ export default function ServicePage() {
             <h2 className="text-2xl font-medium text-ink md:text-3xl">こんな相談ができます</h2>
           </Reveal>
           <Reveal delay={0.06}>
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {CONSULT_CASES.map((c) => (
-                <li key={c} className="rounded-lg border border-line bg-white px-5 py-5 text-lg font-medium leading-8 text-ink">
-                  「{c}」
+                <li key={c.title} className="flex gap-4 rounded-xl border border-line bg-white p-5 sm:flex-col sm:gap-0 sm:p-6">
+                  <span className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-[#E2F4F1] text-neo-teal sm:h-16 sm:w-16">
+                    <Icon name={c.icon} className="h-8 w-8" />
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-semibold text-ink sm:mt-5">{c.title}</h3>
+                    <p className="mt-1 text-base leading-7 text-muted sm:mt-2">「{c.text}」</p>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -86,16 +93,27 @@ export default function ServicePage() {
             <p className="mt-3 max-w-2xl text-base leading-8 text-muted">{SCOPE_NOTE}</p>
           </Reveal>
           <Reveal delay={0.06}>
-            <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-              {SCOPE_STEPS.map((step) => (
-                <li key={step.number} className="flex flex-col rounded-lg border border-line bg-white p-5">
-                  <span className="text-sm font-bold tabular-nums text-neo-teal">{step.number}</span>
-                  <h3 className="mt-2 text-xl font-semibold text-ink">{step.title}</h3>
-                  <p className="mt-2 flex-1 text-base leading-7 text-muted">{step.body}</p>
-                  <p className="mt-4 border-t border-line pt-3 text-sm leading-6 text-ink">
-                    <span className="block text-muted">お渡しするもの</span>
-                    <span className="font-medium">{step.deliverable}</span>
-                  </p>
+            {/* 流れ図：PCは横に、スマホは縦に、矢印でつなぐ */}
+            <ol className="mt-10 flex flex-col lg:flex-row lg:gap-9">
+              {SCOPE_STEPS.map((step, i) => (
+                <li key={step.number} className="relative flex flex-1 flex-col">
+                  <div className="flex flex-1 flex-col rounded-xl border border-line bg-white p-5 text-center lg:p-4">
+                    <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-neo-teal text-white">
+                      <Icon name={step.icon} className="h-7 w-7" />
+                    </span>
+                    <p className="mt-4 text-sm font-bold tabular-nums text-neo-teal">STEP {step.number}</p>
+                    <h3 className="mt-1 text-xl font-semibold text-ink">{step.title}</h3>
+                    <p className="mt-2 flex-1 text-base leading-7 text-muted">{step.body}</p>
+                    <p className="mt-4 rounded-lg bg-neo-mist px-3 py-3 text-sm leading-6 text-ink">
+                      <span className="block whitespace-nowrap text-muted">お渡しするもの</span>
+                      <span className="font-semibold [word-break:auto-phrase]">{step.deliverable}</span>
+                    </p>
+                  </div>
+                  {i < SCOPE_STEPS.length - 1 && (
+                    <div className="flex items-center justify-center py-2 text-neo-teal lg:absolute lg:-right-9 lg:top-0 lg:h-full lg:w-9 lg:py-0">
+                      <Icon name="arrow" className="h-7 w-7 rotate-90 lg:rotate-0" />
+                    </div>
+                  )}
                 </li>
               ))}
             </ol>
