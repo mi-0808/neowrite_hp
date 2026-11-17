@@ -40,9 +40,9 @@ export const products: Product[] = [
     id: "goen",
     name: "GOEN",
     kana: "ごえん",
-    tagline: "次のイベント、一緒に探そう。",
+    tagline: "挑戦のきっかけを、ぜんぶ一枚の地図に。",
     description:
-      "雰囲気・ひとり参加しやすさを可視化したクチコミで、安心して選べるイベントクチコミサービス。",
+      "地域のイベント・コミュニティ・集まる場所・使える制度を一枚の地図にまとめ、行った人のクチコミで「ひとりで行けるか」まで分かるようにしたサービス。",
     icon: "/goen_icons.png",
     accentColor: "#FF7718",
     textColor: "#B34E00",
@@ -50,9 +50,9 @@ export const products: Product[] = [
     url: "https://goen-self.vercel.app/",
     status: "released",
     gallery: [
-      { src: "/works/goen-top.png", alt: "GOEN トップページ", caption: "トップ。キーワードとカテゴリの2経路で、まず探すところから始まる。" },
-      { src: "/works/goen-events.png", alt: "GOEN イベント一覧ページ", caption: "イベント一覧。ジャンルで絞り込み、ひとり参加しやすさと雰囲気のクチコミから選ぶ。" },
-      { src: "/works/goen-bottom.png", alt: "GOEN トップページ下部。参加者向けと主催者向けの導線", caption: "参加者と主催者、それぞれの入口を並べた。書く側にも回ってもらう設計。" },
+      { src: "/works/goen-home.png", alt: "GOEN トップページ。「今週、この街でピッチが始まってる。」の見出しと検索欄", caption: "トップ。キーワードと「無料だけ」「今週末」などの条件から、今週この街でできることを探す。" },
+      { src: "/works/goen-timeline.png", alt: "GOEN タイムライン。行った人のクチコミが並ぶ", caption: "タイムライン。行った人のクチコミと「ひとり参加しやすさ」が届き、行く前に雰囲気が分かる。" },
+      { src: "/works/goen-event.png", alt: "GOEN イベント詳細。評価4.8、ひとり参加しやすさ100%とクチコミ", caption: "イベント詳細。評価とひとり参加しやすさをまとめ、その下に参加者の声を並べる。" },
     ],
     why: {
       problem: "イベントに行きたくても、雰囲気が分からなくて踏み出せない。",
@@ -98,7 +98,7 @@ export const products: Product[] = [
     kana: "マイフッド",
     tagline: "80億人の人生を、80億通りの環境で",
     description:
-      "青海株式会社が開発・運営するコミュニティSNS。身近な人同士・自分自身との時間や感情を、文章・映像・音楽・写真を通じて共有するための表現環境です。NEOWRITEの事業ではなく、私は開発メンバーの一人として実装を担当しています。",
+      "青海株式会社が開発・運営するコミュニティSNS。身近な人同士・自分自身との時間や感情を、文章・映像・音楽・写真を通じて共有するための表現環境です。NEOWRITEの事業ではなく、私は業務委託の開発メンバーとして実装を担当しています。",
     icon: "/myhood_icons.png",
     accentColor: "#3DD6C8",
     textColor: "#0B7A66",
@@ -123,8 +123,8 @@ export const products: Product[] = [
     ],
     how: {
       stack: [
-        { label: "フロントエンド", items: ["Next.js", "TypeScript", "タイムライン／動画タイムラインUI"] },
-        { label: "バックエンド", items: ["Firebase", "ユーザー基盤・データ設計"] },
+        { label: "フロントエンド", items: ["Next.js", "React Native", "TypeScript", "タイムライン／動画タイムラインUI"] },
+        { label: "バックエンド", items: ["Firebase", "Firebase Hosting（公開まで）", "ユーザー基盤・データ設計"] },
         { label: "チーム開発", items: ["バックログ作成・管理", "既存ユーザーへのヒアリング"] },
       ],
       steps: [

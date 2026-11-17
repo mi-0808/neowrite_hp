@@ -43,9 +43,11 @@ export default function Works() {
                     </span>
                     <time className="tabular-nums">{work.period}</time>
                   </p>
-                  <h3 className="mt-3 text-2xl font-semibold leading-snug text-ink md:text-3xl [word-break:auto-phrase]">
+                  {/* 製品名を見出しにし、開発ストーリーやプロダクトページと名前を揃える */}
+                  <h3 className="mt-3 text-3xl font-semibold leading-tight text-ink md:text-4xl">{work.name}</h3>
+                  <p className="mt-2 text-lg font-medium leading-snug text-muted [word-break:auto-phrase]">
                     {work.label}
-                  </h3>
+                  </p>
 
                   <dl className="mt-6 grid grid-cols-[5.5rem_1fr] gap-x-4 gap-y-2 text-base leading-7">
                     <dt className="text-muted">役割</dt>
@@ -86,7 +88,7 @@ export default function Works() {
                           href={work.storyHref}
                           className="inline-flex min-h-[44px] items-center text-sm font-medium text-ink underline underline-offset-4"
                         >
-                          開発ストーリーを読む →
+                          {work.name}の開発ストーリーを読む →
                         </Link>
                       )}
                     </div>

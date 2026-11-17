@@ -2,9 +2,9 @@ export type WorkItem = {
   id: string;
   /** 関わり方（契約形態） */
   kind: "インターン" | "業務委託" | "自主制作";
-  /** 何をするものかを、固有名詞を使わずに説明したラベル */
+  /** 何をするものかの説明。製品名の下に添える */
   label: string;
-  /** 内部識別用のプロジェクト名。サイト上には表示しない */
+  /** 製品名。見出しとして表示し、開発ストーリーと名前を揃える */
   name: string;
   /** 着手〜現在（または終了）まで */
   period: string;
@@ -54,7 +54,7 @@ export const works: WorkItem[] = [
   {
     id: "goen",
     kind: "自主制作",
-    label: "イベントレビュー検索プラットフォーム",
+    label: "地域のイベントとクチコミの地図",
     name: "GOEN",
     period: "2024 – 2025",
     status: "リリース済み（開発は終了）",
@@ -62,7 +62,7 @@ export const works: WorkItem[] = [
     role: "企画・設計・開発・運用",
     team: "個人（一人で担当）",
     tech: ["Next.js", "TypeScript", "Supabase", "Vercel"],
-    image: { src: "/works/goen-top.png", alt: "GOEN トップページ。イベントを検索する画面" },
+    image: { src: "/works/goen-home.png", alt: "GOEN トップページ。今週この街で始まるイベントを探す画面" },
     storyHref: "/story/goen",
     textColor: "#B34E00",
     url: "https://goen-self.vercel.app/",
