@@ -41,7 +41,7 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
       >
         <div className="mx-auto max-w-3xl px-5 md:px-8">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.34em]" style={{ color: accentText }}>
+            <p className="text-xs font-medium uppercase tracking-[0.34em]" style={{ color: accentText }}>
               Development Story
             </p>
             <h1 className="mt-4 text-3xl font-semibold leading-tight text-ink md:text-5xl">
@@ -52,7 +52,7 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
             {product.kana && <p className="mt-3 text-sm text-muted">{product.kana}</p>}
             {product.ownProduct === false && (
               <p
-                className="mt-6 inline-flex rounded-full px-3 py-1 text-[11px] font-semibold"
+                className="mt-6 inline-flex rounded-full px-3 py-1 text-xs font-semibold"
                 style={{ backgroundColor: `${accent}14`, color: accentText }}
               >
                 {product.owner ? `${product.owner}の製品です。` : ""}NEOWRITEの事業ではなく、開発メンバーとして参加しています
@@ -116,7 +116,7 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
         {product.why && (
           <Reveal>
             <section>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em]" style={{ color: accentText }}>
+              <p className="text-xs font-medium uppercase tracking-[0.32em]" style={{ color: accentText }}>
                 Why
               </p>
               <h2 className="mt-4 text-2xl font-medium leading-relaxed text-ink md:text-3xl">
@@ -135,7 +135,7 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
         {product.how && (
           <Reveal delay={0.05}>
             <section className="mt-16 border-t border-line pt-14">
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em]" style={{ color: accentText }}>
+              <p className="text-xs font-medium uppercase tracking-[0.32em]" style={{ color: accentText }}>
                 Stack
               </p>
               <h2 className="mt-4 text-2xl font-medium text-ink md:text-3xl">使ったもの</h2>
@@ -143,7 +143,7 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
                 {product.how.stack.map((s) => (
                   <div key={s.label} className="rounded-xl border border-line p-5">
                     <p
-                      className="text-[10px] font-medium uppercase tracking-[0.2em]"
+                      className="text-xs font-medium uppercase tracking-[0.2em]"
                       style={{ color: accentText }}
                     >
                       {s.label}
@@ -169,7 +169,7 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
         {product.how?.steps && (
           <Reveal delay={0.05}>
             <section className="mt-16 border-t border-line pt-14">
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em]" style={{ color: accentText }}>
+              <p className="text-xs font-medium uppercase tracking-[0.32em]" style={{ color: accentText }}>
                 Process
               </p>
               <h2 className="mt-4 text-2xl font-medium text-ink md:text-3xl">どう進めたか</h2>
@@ -193,7 +193,7 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
         {product.how?.after && (
           <Reveal delay={0.05}>
             <section className="mt-16 border-t border-line pt-14">
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em]" style={{ color: accentText }}>
+              <p className="text-xs font-medium uppercase tracking-[0.32em]" style={{ color: accentText }}>
                 After release
               </p>
               <h2 className="mt-4 text-2xl font-medium text-ink md:text-3xl">{product.how.after.heading}</h2>

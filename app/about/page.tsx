@@ -17,7 +17,7 @@ const info = [
   { label: "開業日", value: "2023年6月1日（開業届提出先：豊田税務署）" },
   { label: "事業開始", value: `${FACTS.foundedYear}年（代表${FACTS.startedAge}歳で活動開始）` },
   { label: "業種", value: "情報通信業" },
-  { label: "業務内容", value: "Webサイト制作・システム開発・SNS運用・ライティング" },
+  { label: "業務内容", value: "起業家向けのデザインパートナー（ビジネス・プロダクト・アプリ・UIのデザイン）" },
   { label: "連絡先", value: FACTS.email },
   { label: "返信ポリシー", value: `お問い合わせから${FACTS.replyDays}営業日以内に返信します` },
 ];
@@ -29,7 +29,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(16,184,154,0.13),transparent)] py-24 text-center md:py-32">
         <div className="mx-auto max-w-4xl px-6">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.38em] text-neo-teal">
+            <p className="text-xs font-medium uppercase tracking-[0.38em] text-neo-teal">
               About NEOWRITE
             </p>
             <h1
@@ -53,7 +53,7 @@ export default function AboutPage() {
       <section className="border-t border-line bg-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-teal">Concept</p>
+            <p className="text-xs font-medium uppercase tracking-[0.34em] text-neo-teal">Concept</p>
             <h2
               className="mt-6 font-medium leading-[1.1] tracking-tight text-ink"
               style={{ fontSize: "clamp(2rem,4vw,3.5rem)" }}
@@ -97,7 +97,7 @@ export default function AboutPage() {
       <section className="border-t border-line bg-[#fafafa] py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-teal">Business Info</p>
+            <p className="text-xs font-medium uppercase tracking-[0.34em] text-neo-teal">Business Info</p>
             <h2 className="mt-6 font-medium tracking-tight text-ink" style={{ fontSize: "clamp(1.8rem,3vw,2.5rem)" }}>
               事業者情報
             </h2>
@@ -115,8 +115,8 @@ export default function AboutPage() {
           <Reveal delay={0.15} className="mt-8">
             <p className="text-sm leading-7 text-muted">
               事業内容の詳細は
-              <Link href="/service" className="mx-1 text-neo-blueInk underline-offset-4 hover:underline">
-                Serviceページ
+              <Link href="/#service" className="mx-1 text-neo-blueInk underline underline-offset-4">
+                Serviceセクション
               </Link>
               を、代表者の経歴は
               <Link href="/profile" className="mx-1 text-neo-blueInk underline-offset-4 hover:underline">

@@ -1,5 +1,3 @@
-import Contact from "@/components/sections/Contact";
-import Faq from "@/components/sections/Faq";
 import Flow from "@/components/sections/Flow";
 import Founder from "@/components/sections/Founder";
 import Hero from "@/components/sections/Hero";
@@ -18,8 +16,6 @@ export default function Home() {
       <PressNews />
       <Founder />
       <Flow />
-      <Faq />
-      <Contact />
     </main>
   );
 }

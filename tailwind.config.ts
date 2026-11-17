@@ -7,6 +7,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      // アクセシビリティ要件：本文16px以上・注釈も14px未満にしない。
+      // 既存の text-xs / text-sm をサイト全体でこの下限に引き上げる
+      fontSize: {
+        xs: ["0.875rem", { lineHeight: "1.375rem" }],
+        sm: ["1rem", { lineHeight: "1.625rem" }],
+      },
       colors: {
         ink: "#111111",
         muted: "#696969",
@@ -32,10 +38,6 @@ const config: Config = {
         jp: ["var(--font-noto-sans-jp)", "var(--font-inter)", "sans-serif"],
       },
       keyframes: {
-        marquee: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-100%)" },
-        },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-14px)" },
@@ -58,7 +60,6 @@ const config: Config = {
         },
       },
       animation: {
-        marquee: "marquee 30s linear infinite",
         float: "float 6s ease-in-out infinite",
         "pulse-soft": "pulse-soft 5s ease-in-out infinite",
         "spin-slow": "spin-slow 24s linear infinite",

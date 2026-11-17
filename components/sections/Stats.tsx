@@ -18,25 +18,18 @@ const stats: {
     color: "#0E6F78",
   },
   {
-    value: 3,
-    unit: "領域",
-    label: "事業領域",
-    note: "システム開発・Web制作・SNS運用",
-    color: "#1DA7D8",
-  },
-  {
     value: FACTS.replyDays,
     unit: "営業日以内",
     label: "返信スピード",
     note: "すべてのご相談・お問い合わせに",
-    color: "#FF7718",
+    color: "#B34E00",
   },
   {
     value: 120,
     unit: "件+",
     label: "受託実績",
     note: "単発案件・スポット対応を含む累計",
-    color: "#10B89A",
+    color: "#0B7A66",
   },
 ];
 
@@ -45,7 +38,7 @@ export default function StatsGrid() {
   return (
     <section id="stats" className="border-b border-line bg-white">
       <div className="mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-14">
-    <Stagger interval={0.08} className="grid grid-cols-2 gap-px overflow-hidden bg-line lg:grid-cols-4">
+    <Stagger interval={0.08} className="grid grid-cols-1 gap-px overflow-hidden bg-line sm:grid-cols-3">
       {stats.map((stat) => (
         <StaggerItem key={stat.label} className="h-full">
           <div className="flex h-full flex-col bg-white p-6 md:p-8">
@@ -60,8 +53,8 @@ export default function StatsGrid() {
                 <span className="text-sm font-medium text-ink sm:text-lg md:text-xl">{stat.unit}</span>
               )}
             </p>
-            <p className="mt-3 text-sm font-medium leading-6 text-ink">{stat.label}</p>
-            <p className="mt-1.5 text-xs leading-5 text-muted">{stat.note}</p>
+            <p className="mt-3 text-base font-medium leading-7 text-ink">{stat.label}</p>
+            <p className="mt-1.5 text-sm leading-6 text-muted">{stat.note}</p>
           </div>
         </StaggerItem>
       ))}

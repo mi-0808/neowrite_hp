@@ -51,7 +51,7 @@ export default function CtaBanner({ href = "/contact" }: CtaBannerProps) {
         >
           <Link
             href={href}
-            className="inline-flex items-center gap-3 bg-neo-orange px-10 py-4 text-sm font-bold text-white shadow-[0_16px_40px_rgba(255,119,24,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(255,119,24,0.45)]"
+            className="inline-flex items-center gap-3 bg-neo-greenInk px-10 py-4 text-sm font-bold text-white shadow-[0_16px_40px_rgba(11,122,102,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(11,122,102,0.45)]"
           >
             お問い合わせ
             <span aria-hidden="true">→</span>

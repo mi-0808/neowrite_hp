@@ -6,12 +6,8 @@ import { useRef } from "react";
 import { m, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import TextReveal from "@/components/motion/TextReveal";
 import { FACTS } from "@/lib/facts";
+import { SUB_COPY, TAGLINE_LINES } from "@/src/config/service";
 
-const trustChips = [
-  "自社プロダクト運営",
-  "新聞掲載あり",
-  "全国リモート対応",
-];
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -48,21 +44,12 @@ export default function Hero() {
           style={reduced ? undefined : { y: contentY, opacity: contentOpacity }}
         >
           <div className="text-center lg:text-left">
-            <m.p
-              className="text-[11px] font-medium uppercase tracking-[0.34em] text-neo-teal"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              NEOWRITE — SINCE {FACTS.foundedYear} / TOYOTA, AICHI
-            </m.p>
-
             <TextReveal
-              lines={["次世代の挑戦を", "テクノロジーで", "形にする。"]}
+              lines={TAGLINE_LINES}
               as="h1"
               delay={0.15}
               interval={0.11}
-              className="mt-6 text-[clamp(2.6rem,7vw,6rem)] font-medium leading-[1.14] tracking-normal text-ink lg:mt-8"
+              className="text-[clamp(2.6rem,7vw,6rem)] font-medium leading-[1.14] tracking-normal text-ink"
             />
 
             <m.p
@@ -71,32 +58,8 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              システム開発・Web制作・SNS運用を通じて、次世代を本気でつくろうとする企業様の挑戦を支えます。
-              <br className="hidden md:block" />
-              企画から実装・運用まで、代表が直接伴走します。
+              {SUB_COPY}
             </m.p>
-
-            {/* 信頼チップ */}
-            <m.div
-              className="mt-7 flex flex-wrap justify-center gap-2.5 lg:justify-start"
-              initial="hidden"
-              animate="visible"
-              variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.65 } } }}
-            >
-              {trustChips.map((chip) => (
-                <m.span
-                  key={chip}
-                  className="inline-flex items-center gap-2 rounded-full border border-neo-teal/25 bg-white/80 px-4 py-1.5 text-xs font-medium text-neo-teal backdrop-blur-sm"
-                  variants={{
-                    hidden: { opacity: 0, scale: 0.94 },
-                    visible: { opacity: 1, scale: 1, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
-                  }}
-                >
-                  <span className="h-1.5 w-1.5 rounded-full bg-neo-green" aria-hidden="true" />
-                  {chip}
-                </m.span>
-              ))}
-            </m.div>
 
             {/* CTA */}
             <m.div
@@ -107,21 +70,21 @@ export default function Hero() {
             >
               <Link
                 href="/contact"
-                className="group inline-flex w-full items-center justify-center gap-3 bg-neo-orange px-8 py-4 text-sm font-bold text-white shadow-[0_16px_38px_rgba(255,119,24,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_46px_rgba(255,119,24,0.4)] sm:w-auto"
+                className="group inline-flex min-h-[44px] w-full items-center justify-center gap-3 bg-neo-greenInk px-8 py-4 text-base font-bold text-white shadow-[0_16px_38px_rgba(11,122,102,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_46px_rgba(11,122,102,0.4)] sm:w-auto"
               >
                 まずは相談する
                 <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
               </Link>
               <Link
                 href="#works"
-                className="group inline-flex w-full items-center justify-center gap-3 border border-neo-teal/25 bg-white/75 px-8 py-4 text-sm font-medium text-ink backdrop-blur-sm transition-colors duration-300 hover:border-neo-teal hover:bg-white sm:w-auto"
+                className="group inline-flex min-h-[44px] w-full items-center justify-center gap-3 border border-neo-teal/25 bg-white/75 px-8 py-4 text-base font-medium text-ink backdrop-blur-sm transition-colors duration-300 hover:border-neo-teal hover:bg-white sm:w-auto"
               >
                 実績を見る
                 <span className="transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true">↓</span>
               </Link>
             </m.div>
             <m.p
-              className="mt-4 text-xs text-muted"
+              className="mt-4 text-sm text-muted"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.2 }}
@@ -141,7 +104,7 @@ export default function Hero() {
             <div className="animate-float drop-shadow-[0_28px_55px_rgba(14,111,120,0.18)]">
               <Image
                 src="/neowrite-icon-cutout.png"
-                alt="NEOWRITE logo"
+                alt=""
                 width={340}
                 height={291}
                 priority
@@ -159,7 +122,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 1.4 }}
           aria-hidden="true"
         >
-          <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted">Scroll</span>
+          <span className="text-xs font-medium uppercase tracking-[0.3em] text-muted">Scroll</span>
           <span className="relative block h-10 w-px overflow-hidden bg-line">
             <span className="absolute left-0 top-0 block h-4 w-px animate-scrollhint bg-neo-teal" />
           </span>
