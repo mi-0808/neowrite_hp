@@ -38,7 +38,13 @@ export const BUILD_ITEMS = [
       "会員登録・ログイン、データベース、管理画面",
       "公開作業と、使われ方を見ながらの改善",
     ],
-    example: { name: "GOEN", text: "企画から設計・開発・運用まで、一人で担当", href: "/story/goen" },
+    ideas: ["イベントや施設の予約サイト", "クチコミ・レビューを集めるサイト", "会員向けのマイページと管理画面"],
+    example: {
+      name: "GOEN",
+      text: "企画から設計・開発・運用まで、一人で担当",
+      href: "/story/goen",
+      url: FACTS.goenUrl,
+    },
   },
   {
     id: "mobile",
@@ -50,7 +56,13 @@ export const BUILD_ITEMS = [
       "Next.js でのWebアプリ、React Native でのアプリ開発",
       "Firebase を使ったデータ管理と公開",
     ],
-    example: { name: "MyHood", text: "業務委託として、チーム開発に参加", href: "/story/myhood" },
+    ideas: ["コミュニティ・SNSアプリ", "日々の記録や日記をつけるアプリ", "スマホで完結する申し込み・受付"],
+    example: {
+      name: "MyHood",
+      text: "業務委託として、チーム開発に参加",
+      href: "/story/myhood",
+      url: FACTS.myhoodUrl,
+    },
   },
   {
     id: "ai",
@@ -66,7 +78,13 @@ export const BUILD_ITEMS = [
       name: "クリーン番長",
       text: "インターンでチームのリーダーとして試作を開発し、社内で使われるシステムへ",
       href: "/story/cleanboss",
+      url: "https://cleanboss-1.vercel.app/demo",
     },
+    ideas: [
+      "写真で点検・検品するシステム",
+      "書類や画像から文字を読み取り、入力の手間を減らす仕組み",
+      "問い合わせ内容をAIで分類し、返信の下書きを作る仕組み",
+    ],
   },
 ] as const;
 

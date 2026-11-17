@@ -79,15 +79,49 @@ export default function ServicePage() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 bg-[#fafafa] px-5 py-4 text-base leading-7 text-muted">
-                <span className="font-semibold text-ink">これまでの例：</span>
-                <Link href={item.example.href} className="font-medium text-neo-blueInk underline underline-offset-4">
-                  {item.example.name}
-                </Link>
-                。{item.example.text}
-              </p>
             </Reveal>
           </div>
+          <Reveal className="mx-auto mt-12 grid max-w-7xl gap-8 px-5 md:px-8 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <h3 className="text-lg font-semibold text-ink">たとえば、こんなものが作れます</h3>
+              <ul className="mt-4 divide-y divide-line border-y border-line">
+                {item.ideas.map((idea) => (
+                  <li key={idea} className="flex gap-3 py-4 text-base leading-7 text-ink">
+                    <span className="text-neo-teal" aria-hidden="true">
+                      —
+                    </span>
+                    <span>{idea}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-[#fafafa] px-6 py-6 md:px-8 md:py-7">
+              <h3 className="text-lg font-semibold text-ink">
+                これまでの例：<span className="text-neo-blueInk">{item.example.name}</span>
+              </h3>
+              <p className="mt-2 text-base leading-7 text-muted">{item.example.text}</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href={item.example.href}
+                  className="inline-flex min-h-[44px] items-center gap-2 border border-ink bg-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-white"
+                >
+                  開発ストーリーを読む
+                  <span aria-hidden="true">→</span>
+                </Link>
+                <Link
+                  href={item.example.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[44px] items-center gap-2 bg-neo-greenInk px-5 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                >
+                  {item.example.name}を触ってみる
+                  <span aria-hidden="true">↗</span>
+                  <span className="sr-only">（新しいタブで開きます）</span>
+                </Link>
+              </div>
+            </div>
+          </Reveal>
         </section>
       ))}
 
