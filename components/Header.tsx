@@ -102,11 +102,13 @@ export default function Header() {
           aria-expanded={isOpen}
           onClick={() => setIsOpen((current) => !current)}
         >
+          {/* 3本線。開くと真ん中を消し、上下の線を重ねて × にする（線の間隔 6px + 線 1px = 7px ずらす） */}
           <span
-            className={`h-px w-5 bg-ink transition-transform duration-300 ${isOpen ? "translate-y-[3.5px] rotate-45" : ""}`}
+            className={`h-px w-5 bg-ink transition-transform duration-300 ${isOpen ? "translate-y-[7px] rotate-45" : ""}`}
           />
+          <span className={`h-px w-5 bg-ink transition-opacity duration-200 ${isOpen ? "opacity-0" : ""}`} />
           <span
-            className={`h-px w-5 bg-ink transition-transform duration-300 ${isOpen ? "-translate-y-[3.5px] -rotate-45" : ""}`}
+            className={`h-px w-5 bg-ink transition-transform duration-300 ${isOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
           />
         </button>
       </div>
