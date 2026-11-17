@@ -24,6 +24,31 @@ export async function generateMetadata({
   };
 }
 
+type Shot = { src: string; alt: string; caption: string };
+
+/** 画面キャプチャの並び。ページ上部と「その後」の両方で使う */
+function Gallery({ shots }: { shots: Shot[] }) {
+  return (
+    <div className="space-y-10">
+      {shots.map((shot) => (
+        <figure key={shot.src}>
+          <div className="overflow-hidden rounded-xl border border-line">
+            <Image
+              src={shot.src}
+              alt={shot.alt}
+              width={1440}
+              height={900}
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="max-h-[70vh] w-full object-cover object-top"
+            />
+          </div>
+          <figcaption className="mt-3 text-xs leading-6 text-muted">{shot.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  );
+}
+
 export default async function StoryPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const product = products.find((p) => p.id === id);
@@ -77,7 +102,7 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
               {product.ownProduct !== false && (
                 <Link
                   href={`/product#${product.id}`}
-                  className="text-sm font-medium text-muted transition-colors hover:text-ink"
+                  className="inline-flex min-h-[44px] items-center text-sm font-medium text-muted underline underline-offset-4 transition-colors hover:text-ink"
                 >
                   サービス概要を見る →
                 </Link>
@@ -87,26 +112,10 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
         </div>
       </div>
 
-      {product.gallery && (
+      {product.gallery && product.gallery.length > 0 && (
         <div className="mx-auto max-w-3xl px-5 pt-14 md:px-8 md:pt-16">
           <Reveal>
-            <div className="space-y-10">
-              {product.gallery.map((shot) => (
-                <figure key={shot.src}>
-                  <div className="overflow-hidden rounded-xl border border-line">
-                    <Image
-                      src={shot.src}
-                      alt={shot.alt}
-                      width={1440}
-                      height={900}
-                      sizes="(max-width: 768px) 100vw, 768px"
-                      className="max-h-[70vh] w-full object-cover object-top"
-                    />
-                  </div>
-                  <figcaption className="mt-3 text-xs leading-6 text-muted">{shot.caption}</figcaption>
-                </figure>
-              ))}
-            </div>
+            <Gallery shots={product.gallery} />
           </Reveal>
         </div>
       )}
@@ -194,7 +203,7 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
           <Reveal delay={0.05}>
             <section className="mt-16 border-t border-line pt-14">
               <p className="text-xs font-medium uppercase tracking-[0.32em]" style={{ color: accentText }}>
-                After release
+                After
               </p>
               <h2 className="mt-4 text-2xl font-medium text-ink md:text-3xl">{product.how.after.heading}</h2>
               <div className="mt-6 space-y-5 text-sm leading-8 text-muted md:text-base md:leading-9">
@@ -202,12 +211,17 @@ export default async function StoryPage({ params }: { params: Promise<{ id: stri
                   <p key={i}>{p}</p>
                 ))}
               </div>
+              {product.how.after.gallery && (
+                <div className="mt-10">
+                  <Gallery shots={product.how.after.gallery} />
+                </div>
+              )}
             </section>
           </Reveal>
         )}
 
         <Reveal delay={0.05} className="mt-16 border-t border-line pt-10">
-          <Link href="/#works" className="text-sm font-medium text-neo-blueInk hover:underline">
+          <Link href="/#works" className="inline-flex min-h-[44px] items-center text-sm font-medium text-neo-blueInk underline underline-offset-4">
             ← つくってきたもの一覧へ
           </Link>
         </Reveal>

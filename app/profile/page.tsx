@@ -22,8 +22,8 @@ const career = [
     year: "2023",
     age: "15歳",
     events: [
-      "Web制作・ライティングの受注を開始（以降、継続受注中）",
-      "NEOWRITEを開業（豊田税務署）",
+      "Web制作・ライティングの受注を開始",
+      "NEOWRITEを開業",
     ],
   },
   {
@@ -214,7 +214,7 @@ export default function ProfilePage() {
                     href="https://higashiaichi.jp/news/detail.php?id=27331"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-neo-blueInk hover:underline"
+                    className="mt-2 inline-flex min-h-[44px] items-center gap-1 text-sm font-medium text-neo-blueInk underline underline-offset-4"
                   >
                     記事を読む →
                   </Link>

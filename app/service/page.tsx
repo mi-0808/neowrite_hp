@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import CtaBanner from "@/components/CtaBanner";
+import Icon from "@/components/Icon";
 import Reveal from "@/components/motion/Reveal";
 import {
   BUILD_ITEMS,
+  CONSULT_CASES,
   ENGAGEMENTS,
   FLOW_STEPS,
+  SCOPE_NOTE,
+  SCOPE_STEPS,
   SERVICE_AUDIENCE,
   SERVICE_PITCH,
   SUB_COPY,
@@ -35,13 +39,19 @@ export default function ServicePage() {
 
           {/* ページ内ナビ */}
           <nav aria-label="このページの内容" className="mt-10 flex flex-wrap gap-x-8 gap-y-2">
-            {BUILD_ITEMS.map((item) => (
+            {[
+              { href: "#consult", label: "こんな相談ができます" },
+              { href: "#scope", label: "対応範囲" },
+              { href: "#examples", label: "作れるものの例" },
+              { href: "#engage", label: "関わり方と技術" },
+              { href: "#flow", label: "進め方" },
+            ].map((nav) => (
               <a
-                key={item.id}
-                href={`#${item.id}`}
+                key={nav.href}
+                href={nav.href}
                 className="inline-flex min-h-[44px] items-center gap-2 text-base font-medium text-ink underline-offset-4 hover:underline"
               >
-                {item.title}
+                {nav.label}
                 <span aria-hidden="true">↓</span>
               </a>
             ))}
@@ -49,9 +59,80 @@ export default function ServicePage() {
         </div>
       </div>
 
-      {/* 作れるもの */}
-      {BUILD_ITEMS.map((item) => (
-        <section key={item.id} id={item.id} className="scroll-mt-24 border-t border-line py-16 md:py-24">
+      {/* こんな相談ができます */}
+      <section id="consult" className="scroll-mt-24 border-t border-line py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <Reveal>
+            <h2 className="text-2xl font-medium text-ink md:text-3xl">こんな相談ができます</h2>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {CONSULT_CASES.map((c) => (
+                <li key={c.title} className="flex gap-4 rounded-xl border border-line bg-white p-5 sm:flex-col sm:gap-0 sm:p-6">
+                  <span className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-[#E2F4F1] text-neo-teal sm:h-16 sm:w-16">
+                    <Icon name={c.icon} className="h-8 w-8" />
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-semibold text-ink sm:mt-5">{c.title}</h3>
+                    <p className="mt-1 text-base leading-7 text-muted sm:mt-2">「{c.text}」</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 対応範囲：どこからどこまで */}
+      <section id="scope" className="scroll-mt-24 border-t border-line bg-[linear-gradient(180deg,#ffffff_0%,#f2fbff_100%)] py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <Reveal>
+            <h2 className="text-2xl font-medium text-ink md:text-3xl [word-break:auto-phrase]">
+              企画の整理から公開・改善まで、一人で担当します
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-8 text-muted">{SCOPE_NOTE}</p>
+          </Reveal>
+          <Reveal delay={0.06}>
+            {/* 流れ図：PCは横に、スマホは縦に、矢印でつなぐ */}
+            <ol className="mt-10 flex flex-col lg:flex-row lg:gap-9">
+              {SCOPE_STEPS.map((step, i) => (
+                <li key={step.number} className="relative flex flex-1 flex-col">
+                  <div className="flex flex-1 flex-col rounded-xl border border-line bg-white p-5 text-center lg:p-4">
+                    <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-neo-teal text-white">
+                      <Icon name={step.icon} className="h-7 w-7" />
+                    </span>
+                    <p className="mt-4 text-sm font-bold tabular-nums text-neo-teal">STEP {step.number}</p>
+                    <h3 className="mt-1 text-xl font-semibold text-ink">{step.title}</h3>
+                    <p className="mt-2 flex-1 text-base leading-7 text-muted">{step.body}</p>
+                    <p className="mt-4 rounded-lg bg-neo-mist px-3 py-3 text-sm leading-6 text-ink">
+                      <span className="block whitespace-nowrap text-muted">お渡しするもの</span>
+                      <span className="font-semibold [word-break:auto-phrase]">{step.deliverable}</span>
+                    </p>
+                  </div>
+                  {i < SCOPE_STEPS.length - 1 && (
+                    <div className="flex items-center justify-center py-2 text-neo-teal lg:absolute lg:-right-9 lg:top-0 lg:h-full lg:w-9 lg:py-0">
+                      <Icon name="arrow" className="h-7 w-7 rotate-90 lg:rotate-0" />
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 作れるものの例 */}
+      <div id="examples" className="scroll-mt-24 border-t border-line pt-16 md:pt-20">
+        <Reveal className="mx-auto max-w-7xl px-5 md:px-8">
+          <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-teal">Examples</p>
+          <h2 className="mt-3 text-2xl font-medium text-ink md:text-3xl">作れるものの例</h2>
+          <p className="mt-3 max-w-2xl text-base leading-8 text-muted">
+            アプリやシステムの種類ごとに、作れるものと、これまでに作ったものを紹介します。
+          </p>
+        </Reveal>
+      </div>
+      {BUILD_ITEMS.map((item, index) => (
+        <section key={item.id} id={item.id} className={`scroll-mt-24 py-16 md:py-24 ${index > 0 ? "border-t border-line" : ""}`}>
           <div className="mx-auto grid max-w-7xl items-start gap-10 px-5 md:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
             <Reveal>
               <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-line bg-white">
@@ -79,20 +160,54 @@ export default function ServicePage() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 bg-[#fafafa] px-5 py-4 text-base leading-7 text-muted">
-                <span className="font-semibold text-ink">これまでの例：</span>
-                <Link href={item.example.href} className="font-medium text-neo-blueInk underline underline-offset-4">
-                  {item.example.name}
-                </Link>
-                。{item.example.text}
-              </p>
             </Reveal>
           </div>
+          {/* 左にこれまで作ったもの、右に同じ技術で作れるもの。過去から未来へ左から右に読む */}
+          <Reveal className="mx-auto mt-12 grid max-w-7xl items-stretch gap-6 px-5 md:px-8 lg:grid-cols-2 lg:gap-10">
+            <div className="flex flex-col bg-[#fafafa] px-6 py-6 md:px-8 md:py-7">
+              <p className="text-sm font-medium text-muted">これまでに作ったもの</p>
+              <h3 className="mt-2 text-2xl font-semibold text-ink">{item.example.name}</h3>
+              <p className="mt-2 flex-1 text-base leading-7 text-muted">{item.example.text}</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href={item.example.href}
+                  className="inline-flex min-h-[44px] items-center gap-2 border border-ink bg-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-white"
+                >
+                  開発ストーリーを読む
+                  <span aria-hidden="true">→</span>
+                </Link>
+                <Link
+                  href={item.example.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[44px] items-center gap-2 bg-neo-greenInk px-5 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                >
+                  {item.example.name}を触ってみる
+                  <span aria-hidden="true">↗</span>
+                  <span className="sr-only">（新しいタブで開きます）</span>
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex flex-col px-1 py-2 lg:px-0">
+              <p className="text-sm font-medium text-muted">同じ技術で、こんなものも作れます</p>
+              <ul className="mt-4 grid flex-1 gap-3">
+                {item.ideas.map((idea) => (
+                  <li
+                    key={idea}
+                    className="flex items-center rounded-lg border border-line bg-white px-5 py-4 text-base font-medium leading-7 text-ink"
+                  >
+                    {idea}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
         </section>
       ))}
 
       {/* 関わり方と技術 */}
-      <section className="border-t border-line bg-[#fafafa] py-16 md:py-20">
+      <section id="engage" className="scroll-mt-24 border-t border-line bg-[#fafafa] py-16 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-8 lg:grid-cols-2">
           <Reveal>
             <h2 className="text-2xl font-medium text-ink md:text-3xl">関わり方</h2>
@@ -117,7 +232,7 @@ export default function ServicePage() {
       </section>
 
       {/* 進め方 */}
-      <section className="border-t border-line py-16 md:py-20">
+      <section id="flow" className="scroll-mt-24 border-t border-line py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <h2 className="text-2xl font-medium text-ink md:text-3xl">進め方</h2>

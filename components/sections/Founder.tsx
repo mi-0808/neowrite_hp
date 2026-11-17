@@ -9,7 +9,7 @@ import { FACTS } from "@/lib/facts";
 
 const timeline = [
   { year: "2022", label: "事業活動を開始", detail: "SNS運用・ライティングの受注からスタート" },
-  { year: "2023", label: "NEOWRITEを開業（豊田税務署）", detail: "Web制作・ライティングの受注を開始（以降、継続受注中）" },
+  { year: "2023", label: "NEOWRITEを開業", detail: "Web制作・ライティングの受注を開始" },
   { year: "2024", label: "企業SNSの運用代行を受託開始", detail: "GOENの企画・開発も開始" },
   { year: "2025", label: "自社プロダクト「GOEN」をリリース", detail: "中部シイアイシイ研究所にてAIシステム開発に参画（リーダー）" },
   { year: "2026", label: "青海株式会社にてWebアプリ開発を担当", detail: `${FACTS.pressName}にインタビュー掲載。MyHood開発中` },

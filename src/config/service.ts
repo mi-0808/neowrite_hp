@@ -23,6 +23,56 @@ export const SERVICE_AUDIENCE = "エンジニアインターンを探してい�
 
 export const SERVICE_PITCH = "AI駆動開発で、動くアプリを作ります。";
 
+/** こんな相談ができます。見出しは一目で分かる短い言葉、本文はお客さん側の言葉 */
+export const CONSULT_CASES = [
+  { icon: "idea", title: "アイデアから", text: "アイデアはあるけれど、何から作ればいいか分からない" },
+  { icon: "present", title: "まず試作", text: "まず試作品を作って、社内やお客さんに見せたい" },
+  { icon: "fix", title: "今あるものを改善", text: "今あるアプリやサイトに、機能を足したい・直したい" },
+  { icon: "ai", title: "AIで手間を減らす", text: "AIを使って、毎日の手作業を減らしたい" },
+] as const;
+
+/** 対応範囲。どこからどこまでやるか、各段階でお渡しするもの */
+export const SCOPE_STEPS = [
+  {
+    number: "01",
+    icon: "plan",
+    title: "企画の整理",
+    body: "作りたいもの、使う人、最初に必要な機能を一緒に整理します。",
+    deliverable: "機能の一覧と優先順位",
+  },
+  {
+    number: "02",
+    icon: "design",
+    title: "設計",
+    body: "画面の流れと、保存するデータの形を決めます。",
+    deliverable: "画面の設計図",
+  },
+  {
+    number: "03",
+    icon: "code",
+    title: "開発",
+    body: "AI駆動開発で、実際に動くアプリを作ります。",
+    deliverable: "動くアプリとソースコード",
+  },
+  {
+    number: "04",
+    icon: "launch",
+    title: "公開",
+    body: "サーバーやドメインを設定し、使える状態にします。",
+    deliverable: "公開されたアプリと管理画面",
+  },
+  {
+    number: "05",
+    icon: "improve",
+    title: "改善",
+    body: "使われ方を見ながら、修正や機能の追加を続けます。",
+    deliverable: "改善の記録と資料",
+  },
+] as const;
+
+/** 対応範囲の補足 */
+export const SCOPE_NOTE = "途中の段階だけのご相談（設計だけ、今あるアプリの改善だけ など）もお受けします。";
+
 /**
  * 作れるもの。画像は実際に作ったものの画面。
  * トップでは title・body・image だけ、サービスページでは details と example も出す
@@ -32,13 +82,19 @@ export const BUILD_ITEMS = [
     id: "web",
     title: "Webアプリ",
     body: "企画から公開・運用まで",
-    image: { src: "/works/goen-top.png", alt: "GOEN のトップページ。イベントを探す画面" },
+    image: { src: "/works/goen-hero.png", alt: "GOEN のトップページ。今週この街で始まるイベントを探す画面" },
     details: [
       "検証のための試作品（MVP）づくり",
       "会員登録・ログイン、データベース、管理画面",
       "公開作業と、使われ方を見ながらの改善",
     ],
-    example: { name: "GOEN", text: "企画から設計・開発・運用まで、一人で担当", href: "/story/goen" },
+    ideas: ["イベントや施設の予約サイト", "クチコミ・レビューを集めるサイト", "会員向けのマイページと管理画面"],
+    example: {
+      name: "GOEN",
+      text: "企画から設計・開発・運用まで、一人で担当",
+      href: "/story/goen",
+      url: FACTS.goenUrl,
+    },
   },
   {
     id: "mobile",
@@ -50,7 +106,13 @@ export const BUILD_ITEMS = [
       "Next.js でのWebアプリ、React Native でのアプリ開発",
       "Firebase を使ったデータ管理と公開",
     ],
-    example: { name: "MyHood", text: "業務委託として、チーム開発に参加", href: "/story/myhood" },
+    ideas: ["コミュニティ・SNSアプリ", "日々の記録や日記をつけるアプリ", "スマホで完結する申し込み・受付"],
+    example: {
+      name: "MyHood",
+      text: "業務委託として、チーム開発に参加",
+      href: "/story/myhood",
+      url: FACTS.myhoodUrl,
+    },
   },
   {
     id: "ai",
@@ -66,7 +128,13 @@ export const BUILD_ITEMS = [
       name: "クリーン番長",
       text: "インターンでチームのリーダーとして試作を開発し、社内で使われるシステムへ",
       href: "/story/cleanboss",
+      url: "https://cleanboss-1.vercel.app/demo",
     },
+    ideas: [
+      "写真で点検・検品するシステム",
+      "書類や画像から文字を読み取り、入力の手間を減らす仕組み",
+      "問い合わせ内容をAIで分類し、返信の下書きを作る仕組み",
+    ],
   },
 ] as const;
 
