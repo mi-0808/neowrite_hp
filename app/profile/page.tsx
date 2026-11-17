@@ -16,7 +16,7 @@ const career = [
   {
     year: "2022",
     age: "14歳",
-    events: ["事業活動を開始。コンテンツ制作・オンライン業務のサポートに取り組む"],
+    events: ["事業活動を開始。SNS運用・ライティングの受注を始める"],
   },
   {
     year: "2023",
@@ -30,7 +30,7 @@ const career = [
     year: "2024",
     age: "16歳",
     events: [
-      "企業SNSの運用代行を受託開始（問い合わせDMの一次対応・事務オペレーション）",
+      "企業SNSの運用代行を受託開始",
       "イベントレビューサービス「GOEN」企画・開発",
     ],
   },
@@ -38,8 +38,8 @@ const career = [
     year: "2025",
     age: "17歳",
     events: [
-      "中部シイアイシイ研究所 インターン（リーダー・AIシステム開発）",
       "GOEN をリリース・運用開始",
+      "中部シイアイシイ研究所 インターン（リーダー・AIシステム開発）",
     ],
   },
   {
@@ -53,7 +53,7 @@ const career = [
 ];
 
 const skills = [
-  { category: "フロントエンド", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
+  { category: "フロントエンド", items: ["Next.js", "React", "React Native", "TypeScript", "Tailwind CSS"] },
   { category: "バックエンド", items: ["Python", "Supabase", "Firebase", "PostgreSQL", "REST API"] },
   { category: "インフラ", items: ["Vercel", "GitHub"] },
 ];
@@ -75,7 +75,7 @@ export default function ProfilePage() {
             {/* 基本情報 */}
             <Reveal delay={0.1}>
               <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">
-                Profile — 若さは、実装力だ。
+                Profile
               </p>
               <h1 className="mt-4 text-5xl font-medium text-ink md:text-7xl">
                 松井 湊
