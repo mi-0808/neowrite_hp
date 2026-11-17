@@ -19,7 +19,6 @@ const profileLinks = [
   { label: "Instagram", href: "https://www.instagram.com/m_minato2008/" },
   // TODO: Facebook の URL が決まったら追加する
   { label: "GitHub", href: "https://github.com/mi-0808" },
-  { label: "GOEN", href: FACTS.goenUrl },
 ];
 
 const career = [
