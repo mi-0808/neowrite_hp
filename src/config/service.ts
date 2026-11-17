@@ -13,7 +13,7 @@ export const TAGLINE_LINES = ["次世代の挑戦を", "テクノロジーで", 
 export const TAGLINE = TAGLINE_LINES.join("");
 
 export const SUB_COPY =
-  "起業家が集めた悩みと仮説から論点を絞り、ビジネス・プロダクト・アプリ・UIまで一貫してデザインします。";
+  "いまある企画やアイデアを、実際に使えるアプリにします。設計から開発・公開まで、一人で担当します。";
 
 /** サービス概要（ヒーロー直後の「できること」） */
 export const SERVICE_HEADING = "できること";
@@ -23,23 +23,70 @@ export const SERVICE_AUDIENCE = "エンジニアインターンを探してい�
 
 export const SERVICE_PITCH = "AI駆動開発で、動くアプリを作ります。";
 
-/** 作れるもの。画像は実際に作ったものの画面 */
+/**
+ * 作れるもの。画像は実際に作ったものの画面。
+ * トップでは title・body・image だけ、サービスページでは details と example も出す
+ */
 export const BUILD_ITEMS = [
   {
+    id: "web",
     title: "Webアプリ",
     body: "企画から公開・運用まで",
     image: { src: "/works/goen-top.png", alt: "GOEN のトップページ。イベントを探す画面" },
+    details: [
+      "検証のための試作品（MVP）づくり",
+      "会員登録・ログイン、データベース、管理画面",
+      "公開作業と、使われ方を見ながらの改善",
+    ],
+    example: { name: "GOEN", text: "企画から設計・開発・運用まで、一人で担当", href: "/story/goen" },
   },
   {
+    id: "mobile",
     title: "スマホアプリ",
     body: "Next.js / React Native",
     image: { src: "/works/myhood-wide.png", alt: "MyHood のスマホ画面。コミュニティの一覧" },
+    details: [
+      "スマホで使いやすい画面の設計と実装",
+      "Next.js でのWebアプリ、React Native でのアプリ開発",
+      "Firebase を使ったデータ管理と公開",
+    ],
+    example: { name: "MyHood", text: "業務委託として、チーム開発に参加", href: "/story/myhood" },
   },
   {
+    id: "ai",
     title: "AIを組み込んだ業務システム",
     body: "OpenAI API を使った画像解析など",
     image: { src: "/works/cleanboss-guest.png", alt: "クリーン番長の入退室画面。入室する人を選ぶ" },
+    details: [
+      "OpenAI API を使った画像解析などの機能",
+      "現場で実際に使う業務システムへの組み込み",
+      "オフライン環境での動作確認",
+    ],
+    example: {
+      name: "クリーン番長",
+      text: "インターンでチームのリーダーとして試作を開発し、社内で使われるシステムへ",
+      href: "/story/cleanboss",
+    },
   },
+] as const;
+
+/** 関わり方 */
+export const ENGAGEMENTS = [
+  { title: "インターン", body: "チームの一員として入り、開発を担当します。" },
+  { title: "業務委託", body: "作りたいものを決めて、開発をお受けします。" },
+] as const;
+
+/** 使っている技術 */
+export const TECH_STACK = [
+  "Next.js",
+  "React",
+  "React Native",
+  "TypeScript",
+  "Python",
+  "Supabase",
+  "Firebase",
+  "OpenAI API",
+  "Vercel",
 ] as const;
 
 /** 進め方（3〜6を繰り返す） */

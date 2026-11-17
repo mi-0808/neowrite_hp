@@ -115,8 +115,8 @@ export default function AboutPage() {
           <Reveal delay={0.15} className="mt-8">
             <p className="text-sm leading-7 text-muted">
               事業内容の詳細は
-              <Link href="/#service" className="mx-1 text-neo-blueInk underline underline-offset-4">
-                Serviceセクション
+              <Link href="/service" className="mx-1 text-neo-blueInk underline underline-offset-4">
+                Serviceページ
               </Link>
               を、代表者の経歴は
               <Link href="/profile" className="mx-1 text-neo-blueInk underline-offset-4 hover:underline">

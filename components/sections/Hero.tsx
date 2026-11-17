@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRef } from "react";
 import { m, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import TextReveal from "@/components/motion/TextReveal";
-import { FACTS } from "@/lib/facts";
 import { SUB_COPY, TAGLINE_LINES } from "@/src/config/service";
 
 
@@ -69,10 +68,10 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
             >
               <Link
-                href="/contact"
+                href="/service"
                 className="group inline-flex min-h-[44px] w-full items-center justify-center gap-3 bg-neo-greenInk px-8 py-4 text-base font-bold text-white shadow-[0_16px_38px_rgba(11,122,102,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_46px_rgba(11,122,102,0.4)] sm:w-auto"
               >
-                まずは相談する
+                サービスを詳しく見る
                 <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
               </Link>
               <Link
@@ -83,14 +82,6 @@ export default function Hero() {
                 <span className="transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true">↓</span>
               </Link>
             </m.div>
-            <m.p
-              className="mt-4 text-sm text-muted"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
-            >
-              {FACTS.replyDays}営業日以内に返信します
-            </m.p>
           </div>
 
           {/* ロゴ（PC） */}
