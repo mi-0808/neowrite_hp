@@ -69,7 +69,7 @@ export default function Flow() {
         <Reveal delay={0.15} className="mt-14">
           <Link
             href="/contact"
-            className="inline-flex min-h-[44px] items-center gap-3 bg-neo-orangeInk px-9 py-4 text-base font-bold text-white shadow-[0_16px_38px_rgba(255,119,24,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_46px_rgba(255,119,24,0.4)]"
+            className="inline-flex min-h-[44px] items-center gap-3 bg-neo-greenInk px-9 py-4 text-base font-bold text-white shadow-[0_16px_38px_rgba(11,122,102,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_46px_rgba(11,122,102,0.4)]"
           >
             相談する
             <span aria-hidden="true">→</span>

@@ -53,7 +53,7 @@ export default function StickyCta() {
             className="flex items-center justify-center gap-3 bg-neo-navy px-5 py-4 text-sm font-bold text-white shadow-[0_-8px_30px_rgba(7,59,76,0.25)]"
           >
             <span className="inline-block h-2 w-2 rounded-full bg-neo-orange" aria-hidden="true" />
-            相談する — {FACTS.replyDays}営業日以内に返信します
+            お問い合わせ — {FACTS.replyDays}営業日以内に返信します
           </Link>
         </m.div>
       )}

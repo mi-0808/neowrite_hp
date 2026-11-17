@@ -5,8 +5,6 @@ import { FACTS } from "@/lib/facts";
 
 const sitemap = [
   { label: "Service", href: "/#service" },
-  { label: "Role", href: "/#role" },
-  { label: "Price", href: "/#price" },
   { label: "Works", href: "/#works" },
   { label: "Flow", href: "/#flow" },
   { label: "Product", href: "/product" },
@@ -76,7 +74,7 @@ export default function Footer() {
             <div className="mt-5">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-neo-orangeInk px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-neo-greenInk px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5"
               >
                 お問い合わせフォーム
                 <span aria-hidden="true">→</span>

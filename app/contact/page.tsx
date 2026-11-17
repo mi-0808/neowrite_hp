@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
-import { Stagger, StaggerItem } from "@/components/motion/Stagger";
-import { FACTS } from "@/lib/facts";
+import { CONTACT_TERMS, FACTS } from "@/lib/facts";
 import { FLOW_STEPS } from "@/src/config/service";
 
 export const metadata: Metadata = {
   title: "お問い合わせ｜NEOWRITE",
   description: `NEOWRITEへのお問い合わせはこちらから。制作依頼・ご相談など、お気軽にお送りください。${FACTS.replyDays}営業日以内に返信します。`,
 };
-
-const promises = [
-  { icon: "⏱", label: `${FACTS.replyDays}営業日以内に返信` },
-  { icon: "✉", label: "メールでもフォームでもOK" },
-  { icon: "🌏", label: "全国リモート対応" },
-];
 
 const flowSteps = FLOW_STEPS.map((step) => step.title);
 
@@ -33,17 +26,16 @@ export default function ContactPage() {
           </p>
         </Reveal>
 
-        {/* 約束3点 */}
-        <Stagger interval={0.08} className="mt-7 flex flex-wrap gap-3">
-          {promises.map((promise) => (
-            <StaggerItem key={promise.label}>
-              <span className="inline-flex items-center gap-2.5 rounded-full border border-neo-teal/20 bg-white/85 px-4 py-2 text-xs font-medium text-ink backdrop-blur-sm">
-                <span aria-hidden="true">{promise.icon}</span>
-                {promise.label}
-              </span>
-            </StaggerItem>
+        {/* 連絡の条件 */}
+
+        <dl className="mt-7 flex flex-wrap gap-x-10 gap-y-3 border-t border-line pt-6">
+          {CONTACT_TERMS.map((term) => (
+            <div key={term.label} className="flex items-baseline gap-3">
+              <dt className="text-sm text-muted">{term.label}</dt>
+              <dd className="text-base font-medium text-ink">{term.value}</dd>
+            </div>
           ))}
-        </Stagger>
+        </dl>
 
         {/* いまStep 01 にいる */}
         <Reveal delay={0.1} className="mt-10">
@@ -55,7 +47,7 @@ export default function ContactPage() {
                   <span
                     className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 font-medium ${
                       i === 0
-                        ? "bg-neo-orangeInk text-white shadow-[0_6px_16px_rgba(255,119,24,0.3)]"
+                        ? "bg-neo-greenInk text-white shadow-[0_6px_16px_rgba(11,122,102,0.3)]"
                         : "border border-line bg-white text-muted"
                     }`}
                   >

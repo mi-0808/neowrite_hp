@@ -70,7 +70,7 @@ export default function Hero() {
             >
               <Link
                 href="/contact"
-                className="group inline-flex min-h-[44px] w-full items-center justify-center gap-3 bg-neo-orangeInk px-8 py-4 text-base font-bold text-white shadow-[0_16px_38px_rgba(255,119,24,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_46px_rgba(255,119,24,0.4)] sm:w-auto"
+                className="group inline-flex min-h-[44px] w-full items-center justify-center gap-3 bg-neo-greenInk px-8 py-4 text-base font-bold text-white shadow-[0_16px_38px_rgba(11,122,102,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_46px_rgba(11,122,102,0.4)] sm:w-auto"
               >
                 まずは相談する
                 <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>

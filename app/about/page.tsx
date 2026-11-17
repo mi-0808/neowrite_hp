@@ -3,7 +3,6 @@ import Link from "next/link";
 import CtaBanner from "@/components/CtaBanner";
 import Reveal from "@/components/motion/Reveal";
 import { FACTS } from "@/lib/facts";
-import { SERVICE_NAME } from "@/src/config/service";
 
 export const metadata: Metadata = {
   title: "About | NEOWRITE",
@@ -18,7 +17,7 @@ const info = [
   { label: "開業日", value: "2023年6月1日（開業届提出先：豊田税務署）" },
   { label: "事業開始", value: `${FACTS.foundedYear}年（代表${FACTS.startedAge}歳で活動開始）` },
   { label: "業種", value: "情報通信業" },
-  { label: "業務内容", value: `起業家向けのデザインパートナー（${SERVICE_NAME}）` },
+  { label: "業務内容", value: "起業家向けのデザインパートナー（ビジネス・プロダクト・アプリ・UIのデザイン）" },
   { label: "連絡先", value: FACTS.email },
   { label: "返信ポリシー", value: `お問い合わせから${FACTS.replyDays}営業日以内に返信します` },
 ];

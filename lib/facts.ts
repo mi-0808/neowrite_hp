@@ -19,3 +19,10 @@ export const FACTS = {
   email: "matsuiminato8@gmail.com",
   location: "愛知県豊田市",
 } as const;
+
+/** お問い合わせ欄に出す連絡の条件（見出しと値の組） */
+export const CONTACT_TERMS = [
+  { label: "返信", value: `${FACTS.replyDays}営業日以内` },
+  { label: "連絡方法", value: "メール・フォーム" },
+  { label: "対応エリア", value: "全国（オンライン）" },
+] as const;

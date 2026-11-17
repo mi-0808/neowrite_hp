@@ -139,7 +139,7 @@ export default function Founder() {
               <div className="mt-5 flex flex-wrap items-center gap-5">
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-[44px] items-center gap-2 bg-neo-orangeInk px-7 py-3.5 text-sm font-bold text-white shadow-[0_12px_28px_rgba(255,119,24,0.28)] transition-all duration-300 hover:-translate-y-0.5"
+                  className="inline-flex min-h-[44px] items-center gap-2 bg-neo-greenInk px-7 py-3.5 text-sm font-bold text-white shadow-[0_12px_28px_rgba(11,122,102,0.28)] transition-all duration-300 hover:-translate-y-0.5"
                 >
                   相談してみる
                   <span aria-hidden="true">→</span>

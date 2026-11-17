@@ -15,8 +15,6 @@ import {
 
 const navItems = [
   { label: "Service", href: "/#service" },
-  { label: "Role", href: "/#role" },
-  { label: "Price", href: "/#price" },
   { label: "Works", href: "/#works" },
   { label: "Flow", href: "/#flow" },
   { label: "Profile", href: "/profile" },
@@ -90,9 +88,9 @@ export default function Header() {
           ))}
           <Link
             href="/contact"
-            className="inline-flex min-h-[44px] items-center bg-neo-orangeInk px-5 py-2.5 text-sm font-bold text-white shadow-[0_8px_20px_rgba(255,119,24,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(255,119,24,0.4)]"
+            className="inline-flex min-h-[44px] items-center bg-neo-greenInk px-5 py-2.5 text-sm font-bold text-white shadow-[0_8px_20px_rgba(11,122,102,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(11,122,102,0.4)]"
           >
-            相談する
+            お問い合わせ
           </Link>
         </nav>
 
@@ -148,9 +146,9 @@ export default function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="mt-2 inline-flex min-h-[44px] w-fit items-center bg-neo-orangeInk px-6 py-3 font-bold text-white"
+                  className="mt-2 inline-flex min-h-[44px] w-fit items-center bg-neo-greenInk px-6 py-3 font-bold text-white"
                 >
-                  相談する →
+                  お問い合わせ →
                 </Link>
               </m.div>
             </m.div>
