@@ -5,8 +5,11 @@ import CtaBanner from "@/components/CtaBanner";
 import Reveal from "@/components/motion/Reveal";
 import {
   BUILD_ITEMS,
+  CONSULT_CASES,
   ENGAGEMENTS,
   FLOW_STEPS,
+  SCOPE_NOTE,
+  SCOPE_STEPS,
   SERVICE_AUDIENCE,
   SERVICE_PITCH,
   SUB_COPY,
@@ -35,13 +38,19 @@ export default function ServicePage() {
 
           {/* ページ内ナビ */}
           <nav aria-label="このページの内容" className="mt-10 flex flex-wrap gap-x-8 gap-y-2">
-            {BUILD_ITEMS.map((item) => (
+            {[
+              { href: "#consult", label: "こんな相談ができます" },
+              { href: "#scope", label: "対応範囲" },
+              { href: "#examples", label: "作れるものの例" },
+              { href: "#engage", label: "関わり方と技術" },
+              { href: "#flow", label: "進め方" },
+            ].map((nav) => (
               <a
-                key={item.id}
-                href={`#${item.id}`}
+                key={nav.href}
+                href={nav.href}
                 className="inline-flex min-h-[44px] items-center gap-2 text-base font-medium text-ink underline-offset-4 hover:underline"
               >
-                {item.title}
+                {nav.label}
                 <span aria-hidden="true">↓</span>
               </a>
             ))}
@@ -49,9 +58,63 @@ export default function ServicePage() {
         </div>
       </div>
 
-      {/* 作れるもの */}
-      {BUILD_ITEMS.map((item) => (
-        <section key={item.id} id={item.id} className="scroll-mt-24 border-t border-line py-16 md:py-24">
+      {/* こんな相談ができます */}
+      <section id="consult" className="scroll-mt-24 border-t border-line py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <Reveal>
+            <h2 className="text-2xl font-medium text-ink md:text-3xl">こんな相談ができます</h2>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {CONSULT_CASES.map((c) => (
+                <li key={c} className="rounded-lg border border-line bg-white px-5 py-5 text-lg font-medium leading-8 text-ink">
+                  「{c}」
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 対応範囲：どこからどこまで */}
+      <section id="scope" className="scroll-mt-24 border-t border-line bg-[linear-gradient(180deg,#ffffff_0%,#f2fbff_100%)] py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <Reveal>
+            <h2 className="text-2xl font-medium text-ink md:text-3xl [word-break:auto-phrase]">
+              企画の整理から公開・改善まで、一人で担当します
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-8 text-muted">{SCOPE_NOTE}</p>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {SCOPE_STEPS.map((step) => (
+                <li key={step.number} className="flex flex-col rounded-lg border border-line bg-white p-5">
+                  <span className="text-sm font-bold tabular-nums text-neo-teal">{step.number}</span>
+                  <h3 className="mt-2 text-xl font-semibold text-ink">{step.title}</h3>
+                  <p className="mt-2 flex-1 text-base leading-7 text-muted">{step.body}</p>
+                  <p className="mt-4 border-t border-line pt-3 text-sm leading-6 text-ink">
+                    <span className="block text-muted">お渡しするもの</span>
+                    <span className="font-medium">{step.deliverable}</span>
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 作れるものの例 */}
+      <div id="examples" className="scroll-mt-24 border-t border-line pt-16 md:pt-20">
+        <Reveal className="mx-auto max-w-7xl px-5 md:px-8">
+          <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-teal">Examples</p>
+          <h2 className="mt-3 text-2xl font-medium text-ink md:text-3xl">作れるものの例</h2>
+          <p className="mt-3 max-w-2xl text-base leading-8 text-muted">
+            アプリやシステムの種類ごとに、作れるものと、これまでに作ったものを紹介します。
+          </p>
+        </Reveal>
+      </div>
+      {BUILD_ITEMS.map((item, index) => (
+        <section key={item.id} id={item.id} className={`scroll-mt-24 py-16 md:py-24 ${index > 0 ? "border-t border-line" : ""}`}>
           <div className="mx-auto grid max-w-7xl items-start gap-10 px-5 md:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
             <Reveal>
               <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-line bg-white">
@@ -126,7 +189,7 @@ export default function ServicePage() {
       ))}
 
       {/* 関わり方と技術 */}
-      <section className="border-t border-line bg-[#fafafa] py-16 md:py-20">
+      <section id="engage" className="scroll-mt-24 border-t border-line bg-[#fafafa] py-16 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-8 lg:grid-cols-2">
           <Reveal>
             <h2 className="text-2xl font-medium text-ink md:text-3xl">関わり方</h2>
@@ -151,7 +214,7 @@ export default function ServicePage() {
       </section>
 
       {/* 進め方 */}
-      <section className="border-t border-line py-16 md:py-20">
+      <section id="flow" className="scroll-mt-24 border-t border-line py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <h2 className="text-2xl font-medium text-ink md:text-3xl">進め方</h2>
