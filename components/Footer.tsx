@@ -37,9 +37,6 @@ export default function Footer() {
             <p className="mt-2 text-xs leading-6 text-muted">
               {FACTS.location} / 全国リモート対応
             </p>
-            <p className="mt-4 text-xs leading-5 text-muted">
-              このサイトも Next.js + Tailwind CSS + framer-motion で自作しています。
-            </p>
           </div>
 
           {/* サイトマップ */}
