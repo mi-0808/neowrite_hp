@@ -232,6 +232,7 @@ export default function ServicePage() {
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <h2 className="text-2xl font-medium text-ink md:text-3xl">進め方</h2>
+            <p className="mt-3 text-base leading-8 text-muted">ご依頼内容によって柔軟に変更します。</p>
           </Reveal>
           <Reveal delay={0.08}>
             <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
