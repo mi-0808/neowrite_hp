@@ -8,9 +8,9 @@ import Reveal from "@/components/motion/Reveal";
 import { FACTS } from "@/lib/facts";
 
 const timeline = [
-  { year: "2022", label: "事業活動を開始", detail: "コンテンツ制作・オンライン業務のサポートからスタート" },
+  { year: "2022", label: "事業活動を開始", detail: "SNS運用・ライティングの受注からスタート" },
   { year: "2023", label: "NEOWRITEを開業（豊田税務署）", detail: "Web制作・ライティングの受注を開始（以降、継続受注中）" },
-  { year: "2024", label: "企業SNSの運用代行を受託開始", detail: "問い合わせDMの一次対応・事務オペレーションを担当。GOENの企画・開発も開始" },
+  { year: "2024", label: "企業SNSの運用代行を受託開始", detail: "GOENの企画・開発も開始" },
   { year: "2025", label: "自社プロダクト「GOEN」をリリース", detail: "中部シイアイシイ研究所にてAIシステム開発に参画（リーダー）" },
   { year: "2026", label: "青海株式会社にてWebアプリ開発を担当", detail: `${FACTS.pressName}にインタビュー掲載。MyHood開発中` },
 ];
@@ -18,6 +18,7 @@ const timeline = [
 const skills = [
   "Next.js",
   "React",
+  "React Native",
   "TypeScript",
   "Tailwind CSS",
   "Python",
@@ -40,9 +41,9 @@ export default function Founder() {
     <section id="profile" className="border-b border-line bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-teal">Founder</p>
+          <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-teal">Profile</p>
           <h2 className="mt-4 text-3xl font-medium leading-snug text-ink md:text-5xl">
-            代表者紹介
+            プロフィール
           </h2>
         </Reveal>
 

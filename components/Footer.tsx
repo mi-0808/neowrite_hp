@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FACTS } from "@/lib/facts";
 
 const sitemap = [
-  { label: "Service", href: "/#service" },
+  { label: "Service", href: "/service" },
   { label: "Works", href: "/#works" },
   { label: "Flow", href: "/#flow" },
   { label: "Product", href: "/product" },

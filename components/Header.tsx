@@ -14,8 +14,9 @@ import {
 } from "framer-motion";
 
 const navItems = [
-  { label: "Service", href: "/#service" },
+  { label: "Service", href: "/service" },
   { label: "Works", href: "/#works" },
+  { label: "Product", href: "/product" },
   { label: "Flow", href: "/#flow" },
   { label: "Profile", href: "/profile" },
 ] as const;

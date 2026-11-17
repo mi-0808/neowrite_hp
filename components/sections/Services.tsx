@@ -43,12 +43,19 @@ export default function Services() {
           ))}
         </Stagger>
 
-        <Reveal delay={0.1} className="mt-8">
+        <Reveal delay={0.1} className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+          <Link
+            href="/service"
+            className="inline-flex min-h-[44px] items-center gap-3 bg-neo-greenInk px-7 py-3.5 text-base font-bold text-white transition-transform duration-300 hover:-translate-y-0.5"
+          >
+            サービスを詳しく見る
+            <span aria-hidden="true">→</span>
+          </Link>
           <Link
             href="#works"
             className="inline-flex min-h-[44px] items-center gap-2 text-base font-medium text-ink underline underline-offset-4"
           >
-            作ったものを詳しく見る
+            作ったものを見る
             <span aria-hidden="true">↓</span>
           </Link>
         </Reveal>

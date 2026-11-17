@@ -96,6 +96,16 @@ export default function Works() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal className="mt-10">
+          <Link
+            href="/product"
+            className="inline-flex min-h-[44px] items-center gap-3 border border-ink px-7 py-3.5 text-base font-medium text-ink transition-colors duration-300 hover:bg-ink hover:text-white"
+          >
+            自社プロダクトをもっと詳しく見る
+            <span aria-hidden="true">→</span>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );
