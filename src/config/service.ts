@@ -70,9 +70,6 @@ export const SCOPE_STEPS = [
   },
 ] as const;
 
-/** 対応範囲の補足 */
-export const SCOPE_NOTE = "途中の段階だけのご相談（設計だけ、今あるアプリの改善だけ など）もお受けします。";
-
 /**
  * 作れるもの。画像は実際に作ったものの画面。
  * トップでは title・body・image だけ、サービスページでは details と example も出す

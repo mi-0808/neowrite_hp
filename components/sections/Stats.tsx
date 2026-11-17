@@ -25,7 +25,7 @@ const stats: {
     color: "#B34E00",
   },
   {
-    value: 120,
+    value: FACTS.ordersCount,
     unit: "件+",
     label: "受託実績",
     note: "単発案件・スポット対応を含む累計",
