@@ -39,7 +39,7 @@ export default function CtaBanner({ href = "/contact" }: CtaBannerProps) {
           まずは、話すだけでも。
         </m.h2>
         <p className="max-w-xl text-sm leading-7 text-white/70 md:text-base md:leading-8">
-          相談・お見積りのご連絡には、{FACTS.replyDays}営業日以内に返信します。
+          相談・お見積りのご連絡には、{FACTS.replyHours}時間以内に返信します（年中無休）。
           <br className="hidden sm:block" />
           「まだ相談レベル」で大丈夫です。
         </p>

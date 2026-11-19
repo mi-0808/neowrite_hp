@@ -18,10 +18,10 @@ const stats: {
     color: "#0E6F78",
   },
   {
-    value: FACTS.replyDays,
-    unit: "営業日以内",
+    value: FACTS.replyHours,
+    unit: "時間以内",
     label: "返信スピード",
-    note: "すべてのご相談・お問い合わせに",
+    note: "年中無休ですべてのご相談・お問い合わせに",
     color: "#B34E00",
   },
   {

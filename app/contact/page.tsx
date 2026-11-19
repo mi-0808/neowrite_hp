@@ -6,7 +6,7 @@ import { FLOW_STEPS } from "@/src/config/service";
 
 export const metadata: Metadata = {
   title: "お問い合わせ｜NEOWRITE",
-  description: `NEOWRITEへのお問い合わせはこちらから。開発のご依頼・ご相談など、お気軽にお送りください。${FACTS.replyDays}営業日以内に返信します。`,
+  description: `NEOWRITEへのお問い合わせはこちらから。開発のご依頼・ご相談など、お気軽にお送りください。${FACTS.replyHours}時間以内に返信します（年中無休）。`,
 };
 
 const flowSteps = FLOW_STEPS.map((step) => step.title);
