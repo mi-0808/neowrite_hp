@@ -19,7 +19,7 @@ const info = [
   { label: "業種", value: "情報通信業" },
   { label: "業務内容", value: "Webアプリ・スマホアプリ・AIを組み込んだ業務システムの企画・開発" },
   { label: "連絡先", value: FACTS.email },
-  { label: "返信ポリシー", value: `お問い合わせから${FACTS.replyDays}営業日以内に返信します` },
+  { label: "返信ポリシー", value: `お問い合わせから${FACTS.replyHours}時間以内に返信します（年中無休）` },
 ];
 
 export default function AboutPage() {

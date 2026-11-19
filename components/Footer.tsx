@@ -60,7 +60,7 @@ export default function Footer() {
           <div>
             <p className="text-sm font-semibold text-ink">Contact</p>
             <p className="mt-4 text-sm leading-7 text-muted">
-              ご相談・お見積りには{FACTS.replyDays}営業日以内に返信します。
+              ご相談・お見積りには{FACTS.replyHours}時間以内に返信します（年中無休）。
             </p>
             <Link
               href={`mailto:${FACTS.email}`}

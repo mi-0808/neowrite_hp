@@ -129,7 +129,7 @@ export default function ProfilePage() {
             {[
               { value: `${FACTS.foundedYear}年〜`, label: "事業開始", note: `${FACTS.startedAge}歳で活動を始め、${FACTS.yearsInBusiness}年以上継続` },
               { value: `${FACTS.ordersCount}件+`, label: "受託実績", note: "単発案件・スポット対応を含む累計" },
-              { value: `${FACTS.replyDays}営業日以内`, label: "返信スピード", note: "すべてのご相談・お問い合わせに" },
+              { value: `${FACTS.replyHours}時間以内`, label: "返信スピード", note: "年中無休ですべてのご相談・お問い合わせに" },
             ].map((s) => (
               <div key={s.label} className="bg-white p-6">
                 <dt className="text-sm font-medium text-muted">{s.label}</dt>

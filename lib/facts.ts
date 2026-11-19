@@ -10,7 +10,7 @@ export const FACTS = {
   currentAge: 18,
   webYearsLabel: "2年超",
   productsCount: 2,
-  replyDays: 2,
+  replyHours: 24,
   /** 単発案件・スポット対応を含む受託の累計 */
   ordersCount: 120,
   pressCount: 1,
@@ -24,7 +24,7 @@ export const FACTS = {
 
 /** お問い合わせ欄に出す連絡の条件（見出しと値の組） */
 export const CONTACT_TERMS = [
-  { label: "返信", value: `${FACTS.replyDays}営業日以内` },
+  { label: "返信", value: `${FACTS.replyHours}時間以内（年中無休）` },
   { label: "連絡方法", value: "メール・フォーム" },
   { label: "対応エリア", value: "全国（オンライン）" },
 ] as const;
