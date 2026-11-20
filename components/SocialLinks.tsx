@@ -55,12 +55,13 @@ export const SOCIALS = [
 ] as const;
 
 /**
- * SNSリンク。各サービスの公式カラーで塗った押しやすいボタン。
- * compact=true は塗りつぶしのピル（プロフィール欄の写真下）。
+ * SNSリンク。各サービスの公式カラーで塗ったピル型ボタン。
+ * トップのプロフィール欄とプロフィールページで同じ見た目を使う。
  */
-export default function SocialLinks({ compact = false }: { compact?: boolean }) {
+export default function SocialLinks({ size = "sm" }: { size?: "sm" | "md" }) {
+  const md = size === "md";
   return (
-    <ul className={compact ? "flex flex-wrap gap-2.5" : "grid gap-3 sm:grid-cols-2"}>
+    <ul className="flex flex-wrap gap-2.5">
       {SOCIALS.map((s) => {
         const outline = "outline" in s;
         return (
@@ -70,56 +71,25 @@ export default function SocialLinks({ compact = false }: { compact?: boolean }) 
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${s.label}（新しいタブで開く）`}
-              style={
-                compact
-                  ? { background: s.brand, boxShadow: `0 8px 18px ${s.shadow}` }
-                  : undefined
-              }
-              className={
-                compact
-                  ? "inline-flex min-h-[44px] items-center gap-2 rounded-full px-4 py-2 text-xs font-bold text-white transition-transform duration-300 hover:-translate-y-0.5"
-                  : "group flex min-h-[64px] items-center gap-3.5 rounded-xl border border-line bg-white px-4 py-3.5 shadow-[0_1px_2px_rgba(16,24,40,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-ink/15 hover:shadow-[0_10px_24px_rgba(16,24,40,0.08)]"
-              }
+              style={{ background: s.brand, boxShadow: `0 8px 18px ${s.shadow}` }}
+              className={`inline-flex min-h-[44px] items-center gap-2 rounded-full font-bold text-white transition-transform duration-300 hover:-translate-y-0.5 ${
+                md ? "px-5 py-2.5 text-sm" : "px-4 py-2 text-xs"
+              }`}
             >
-              <span
-                className={
-                  compact
-                    ? ""
-                    : "flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white"
-                }
-                style={compact ? undefined : { background: s.brand }}
+              <svg
+                viewBox="0 0 24 24"
+                width={md ? 18 : 16}
+                height={md ? 18 : 16}
+                fill={outline ? "none" : "currentColor"}
+                stroke={outline ? "currentColor" : "none"}
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  width={compact ? 16 : 19}
-                  height={compact ? 16 : 19}
-                  fill={outline ? "none" : "currentColor"}
-                  stroke={outline ? "currentColor" : "none"}
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  {s.icon}
-                </svg>
-              </span>
-              {compact && <span>{s.label}</span>}
-              {!compact && (
-                <span className="min-w-0">
-                  <span className="block text-sm font-semibold text-ink">{s.label}</span>
-                  <span className="block truncate text-xs leading-5 text-muted">{s.handle}</span>
-                </span>
-              )}
-              {!compact && (
-                <span
-                  className="ml-auto shrink-0 text-muted transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-ink"
-                  aria-hidden="true"
-                >
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M7 17 17 7M9 7h8v8" />
-                  </svg>
-                </span>
-              )}
+                {s.icon}
+              </svg>
+              <span>{s.label}</span>
             </Link>
           </li>
         );

@@ -103,7 +103,7 @@ export default function ProfilePage() {
               <div className="mt-8">
                 <p className="text-xs font-medium uppercase tracking-[0.3em] text-neo-teal">Follow</p>
                 <div className="mt-3">
-                  <SocialLinks />
+                  <SocialLinks size="md" />
                 </div>
               </div>
             </Reveal>

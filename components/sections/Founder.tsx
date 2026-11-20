@@ -68,7 +68,7 @@ export default function Founder() {
                   N高等学校3年 / {FACTS.location}
                 </p>
                 <div className="mt-4">
-                  <SocialLinks compact />
+                  <SocialLinks />
                 </div>
               </div>
             </div>
