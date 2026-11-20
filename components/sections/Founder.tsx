@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { m, useReducedMotion, useScroll, useSpring } from "framer-motion";
 import ProfilePhoto from "@/components/ProfilePhoto";
+import SocialLinks from "@/components/SocialLinks";
 import Reveal from "@/components/motion/Reveal";
 import { FACTS } from "@/lib/facts";
 
@@ -66,6 +67,9 @@ export default function Founder() {
                   <br />
                   N高等学校3年 / {FACTS.location}
                 </p>
+                <div className="mt-4">
+                  <SocialLinks />
+                </div>
               </div>
             </div>
           </div>

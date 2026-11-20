@@ -3,8 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import CtaBanner from "@/components/CtaBanner";
 import ProfilePhoto from "@/components/ProfilePhoto";
-import { works } from "@/lib/works";
-import { BUILD_ITEMS } from "@/src/config/service";
+import SocialLinks from "@/components/SocialLinks";
 import Reveal from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { FACTS } from "@/lib/facts";
@@ -13,13 +12,6 @@ export const metadata: Metadata = {
   title: "Profile | NEOWRITE",
   description: "NEOWRITE 代表 松井湊のプロフィール・経歴ページ",
 };
-
-/** プロフィールの外部リンク */
-const profileLinks = [
-  { label: "Instagram", href: "https://www.instagram.com/m_minato2008/" },
-  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=100087532402329" },
-  { label: "GitHub", href: "https://github.com/mi-0808" },
-];
 
 const career = [
   {
@@ -91,122 +83,28 @@ export default function ProfilePage() {
               </h1>
               <p className="mt-1 text-lg font-normal text-muted">Minato Matsui</p>
 
-              <div className="mt-6 space-y-1.5 text-sm text-muted">
-                <p>NEOWRITE 代表</p>
-                <p>N高等学校 3年</p>
-                <p>{FACTS.location}</p>
-              </div>
+              <p className="mt-5 text-sm leading-7 text-muted">
+                <span className="whitespace-nowrap">NEOWRITE 代表</span>
+                <span className="px-2.5 text-line" aria-hidden="true">/</span>
+                <span className="whitespace-nowrap">N高等学校 3年</span>
+                <span className="hidden px-2.5 text-line sm:inline" aria-hidden="true">/</span>
+                <span className="block whitespace-nowrap sm:inline">{FACTS.location}</span>
+              </p>
 
-              <p className="mt-7 max-w-xl text-sm leading-8 text-muted md:text-base md:leading-9">
+              <p className="mt-6 max-w-xl text-sm leading-8 text-muted md:text-base md:leading-9">
                 {FACTS.startedAge}歳から事業を起こし、システム開発・Web制作・プロダクト開発を通じて、東三河を中心に若手起業家として活動中。「テクノロジーで社会を良くする」をビジョンに、世界で使われるプロダクトを創ることを目指しています。
                 <br />
                 年齢で驚かれることはありますが、仕事は成果物でしか評価されないと思っています。
               </p>
 
               {/* SNS */}
-              <div className="mt-8 flex flex-wrap gap-3">
-                {profileLinks.map((l) => (
-                  <Link
-                    key={l.label}
-                    href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-neo-blue hover:text-neo-blueInk"
-                  >
-                    {l.label} →
-                  </Link>
-                ))}
+              <div className="mt-8">
+                <p className="text-xs font-medium uppercase tracking-[0.3em] text-neo-teal">Follow</p>
+                <div className="mt-3">
+                  <SocialLinks size="md" />
+                </div>
               </div>
             </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* 数字で見る実績 */}
-      <section className="bg-white pb-6 md:pb-8">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3">
-            {[
-              { value: `${FACTS.foundedYear}年〜`, label: "事業開始", note: `${FACTS.startedAge}歳で活動を始め、${FACTS.yearsInBusiness}年以上継続` },
-              { value: `${FACTS.ordersCount}件+`, label: "受託実績", note: "単発案件・スポット対応を含む累計" },
-              { value: `${FACTS.replyHours}時間以内`, label: "返信スピード", note: "年中無休ですべてのご相談・お問い合わせに" },
-            ].map((s) => (
-              <div key={s.label} className="bg-white p-6">
-                <dt className="text-sm font-medium text-muted">{s.label}</dt>
-                <dd className="mt-2 text-3xl font-semibold tabular-nums text-neo-teal">{s.value}</dd>
-                <dd className="mt-1 text-sm leading-6 text-muted">{s.note}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      {/* 関わったプロダクト */}
-      <section className="py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">Works</p>
-            <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">関わったプロダクトと役割</h2>
-          </Reveal>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {works.map((w) => (
-              <Reveal key={w.id} className="h-full">
-                <article className="flex h-full flex-col rounded-xl border border-line bg-white p-6">
-                  <p className="text-sm font-medium text-muted">
-                    {w.kind}・{w.period}
-                  </p>
-                  <h3 className="mt-2 text-2xl font-semibold text-ink">{w.name}</h3>
-                  <p className="mt-1 text-base leading-7 text-muted">{w.label}</p>
-                  <dl className="mt-4 grid grid-cols-[3.5rem_1fr] gap-x-3 gap-y-1 text-base leading-7">
-                    <dt className="text-muted">役割</dt>
-                    <dd className="text-ink">{w.role}</dd>
-                    <dt className="text-muted">体制</dt>
-                    <dd className="text-ink">{w.team}</dd>
-                  </dl>
-                  {w.storyHref && (
-                    <Link
-                      href={w.storyHref}
-                      className="mt-auto inline-flex min-h-[44px] items-center pt-4 text-sm font-medium text-neo-blueInk underline underline-offset-4"
-                    >
-                      {w.name}の開発ストーリー →
-                    </Link>
-                  )}
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 依頼できること */}
-      <section className="bg-[linear-gradient(180deg,#ffffff_0%,#f2fbff_100%)] py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.32em] text-neo-blueInk">Service</p>
-            <h2 className="mt-4 text-3xl font-medium text-ink md:text-4xl">依頼できること</h2>
-            <p className="mt-3 max-w-2xl text-base leading-8 text-muted">
-              企画の整理から設計・開発・公開まで対応します。AIを使った開発で、試作を短い期間で形にします。
-            </p>
-          </Reveal>
-          <ul className="mt-8 grid gap-4 md:grid-cols-3">
-            {BUILD_ITEMS.map((b) => (
-              <li key={b.id} className="rounded-xl border border-line bg-white p-6">
-                <p className="text-lg font-semibold text-ink">{b.title}</p>
-                <p className="mt-1 text-base leading-7 text-muted">{b.body}</p>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link
-              href="/service"
-              className="inline-flex min-h-[44px] items-center gap-2 bg-neo-greenInk px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5"
-            >
-              サービスを詳しく見る
-              <span aria-hidden="true">→</span>
-            </Link>
-            <Link href="/contact" className="inline-flex min-h-[44px] items-center text-base font-medium text-ink underline underline-offset-4">
-              相談・お見積りをする
-            </Link>
           </div>
         </div>
       </section>
