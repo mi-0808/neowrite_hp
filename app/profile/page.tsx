@@ -85,13 +85,15 @@ export default function ProfilePage() {
               </h1>
               <p className="mt-1 text-lg font-normal text-muted">Minato Matsui</p>
 
-              <div className="mt-6 space-y-1.5 text-sm text-muted">
-                <p>NEOWRITE 代表</p>
-                <p>N高等学校 3年</p>
-                <p>{FACTS.location}</p>
-              </div>
+              <p className="mt-5 text-sm leading-7 text-muted">
+                <span className="whitespace-nowrap">NEOWRITE 代表</span>
+                <span className="px-2.5 text-line" aria-hidden="true">/</span>
+                <span className="whitespace-nowrap">N高等学校 3年</span>
+                <span className="hidden px-2.5 text-line sm:inline" aria-hidden="true">/</span>
+                <span className="block whitespace-nowrap sm:inline">{FACTS.location}</span>
+              </p>
 
-              <p className="mt-7 max-w-xl text-sm leading-8 text-muted md:text-base md:leading-9">
+              <p className="mt-6 max-w-xl text-sm leading-8 text-muted md:text-base md:leading-9">
                 {FACTS.startedAge}歳から事業を起こし、システム開発・Web制作・プロダクト開発を通じて、東三河を中心に若手起業家として活動中。「テクノロジーで社会を良くする」をビジョンに、世界で使われるプロダクトを創ることを目指しています。
                 <br />
                 年齢で驚かれることはありますが、仕事は成果物でしか評価されないと思っています。
