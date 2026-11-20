@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import CtaBanner from "@/components/CtaBanner";
 import ProfilePhoto from "@/components/ProfilePhoto";
+import SocialLinks from "@/components/SocialLinks";
 import { works } from "@/lib/works";
 import { BUILD_ITEMS } from "@/src/config/service";
 import Reveal from "@/components/motion/Reveal";
@@ -13,13 +14,6 @@ export const metadata: Metadata = {
   title: "Profile | NEOWRITE",
   description: "NEOWRITE 代表 松井湊のプロフィール・経歴ページ",
 };
-
-/** プロフィールの外部リンク */
-const profileLinks = [
-  { label: "Instagram", href: "https://www.instagram.com/m_minato2008/" },
-  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=100087532402329" },
-  { label: "GitHub", href: "https://github.com/mi-0808" },
-];
 
 const career = [
   {
@@ -104,18 +98,11 @@ export default function ProfilePage() {
               </p>
 
               {/* SNS */}
-              <div className="mt-8 flex flex-wrap gap-3">
-                {profileLinks.map((l) => (
-                  <Link
-                    key={l.label}
-                    href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-neo-blue hover:text-neo-blueInk"
-                  >
-                    {l.label} →
-                  </Link>
-                ))}
+              <div className="mt-8">
+                <p className="text-xs font-medium uppercase tracking-[0.3em] text-neo-teal">Follow</p>
+                <div className="mt-3">
+                  <SocialLinks />
+                </div>
               </div>
             </Reveal>
           </div>
