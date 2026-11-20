@@ -73,26 +73,26 @@ export default function SocialLinks({ compact = false }: { compact?: boolean }) 
               style={
                 compact
                   ? { background: s.brand, boxShadow: `0 8px 18px ${s.shadow}` }
-                  : { borderColor: `${s.ink}33`, boxShadow: `0 8px 20px ${s.shadow.replace(/[\d.]+\)$/, "0.14)")}` }
+                  : undefined
               }
               className={
                 compact
                   ? "inline-flex min-h-[44px] items-center gap-2 rounded-full px-4 py-2 text-xs font-bold text-white transition-transform duration-300 hover:-translate-y-0.5"
-                  : "group flex min-h-[56px] items-center gap-3 rounded-xl border bg-white px-4 py-3 transition-transform duration-300 hover:-translate-y-0.5"
+                  : "group flex min-h-[64px] items-center gap-3.5 rounded-xl border border-line bg-white px-4 py-3.5 shadow-[0_1px_2px_rgba(16,24,40,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-ink/15 hover:shadow-[0_10px_24px_rgba(16,24,40,0.08)]"
               }
             >
               <span
                 className={
                   compact
                     ? ""
-                    : "flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white"
+                    : "flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white"
                 }
                 style={compact ? undefined : { background: s.brand }}
               >
                 <svg
                   viewBox="0 0 24 24"
-                  width={compact ? 16 : 18}
-                  height={compact ? 16 : 18}
+                  width={compact ? 16 : 19}
+                  height={compact ? 16 : 19}
                   fill={outline ? "none" : "currentColor"}
                   stroke={outline ? "currentColor" : "none"}
                   strokeWidth="1.8"
@@ -106,10 +106,18 @@ export default function SocialLinks({ compact = false }: { compact?: boolean }) 
               {compact && <span>{s.label}</span>}
               {!compact && (
                 <span className="min-w-0">
-                  <span className="block text-sm font-bold" style={{ color: s.ink }}>
-                    {s.label}
-                  </span>
-                  <span className="block truncate text-xs text-muted">{s.handle}</span>
+                  <span className="block text-sm font-semibold text-ink">{s.label}</span>
+                  <span className="block truncate text-xs leading-5 text-muted">{s.handle}</span>
+                </span>
+              )}
+              {!compact && (
+                <span
+                  className="ml-auto shrink-0 text-muted transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-ink"
+                  aria-hidden="true"
+                >
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 17 17 7M9 7h8v8" />
+                  </svg>
                 </span>
               )}
             </Link>
