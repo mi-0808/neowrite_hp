@@ -13,8 +13,8 @@ export default function Home() {
       <StatsGrid />
       <Services />
       <Works />
-      <PressNews />
       <Founder />
+      <PressNews />
       <Flow />
     </main>
   );
